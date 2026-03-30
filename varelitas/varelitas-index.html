@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Grimório de Varelitas — Liga Supertecniso 2026. As 10 criaturas do bosque, do Lobo Espectral ao Skoll.">
+<meta property="og:title" content="Varelitas — Grimório">
+<meta property="og:description" content="Lobos Épicos do Bosque · Liga Supertecniso 2026">
+<meta property="og:image" content="./SS.jpg">
+<title>Varelitas — Grimório · Liga Supertecniso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #0b0906;
+  --bg-card:     #13100d;
+  --bg-surface:  #1a1510;
+  --ember:       #c47c2b;
+  --ember-dim:   #7a4e1a;
+  --ember-glow:  rgba(196,124,43,0.10);
+  --crimson:     #9b2a2a;
+  --crimson-bright: #c23535;
+  --stone:       #c4bdb0;
+  --stone-dim:   #7a7268;
+  --border:      rgba(196,124,43,0.10);
+  --border-strong: rgba(196,124,43,0.22);
+  --tier-c:  #6b7f5e;
+  --tier-b:  #4a78a0;
+  --tier-a:  #8860c0;
+  --tier-s:  #c47c2b;
+  --tier-ss: #9b2a2a;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--stone);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+::selection { background: var(--ember); color: var(--bg); }
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(ellipse at 50% 0%, rgba(196,124,43,.08) 0%, transparent 68%);
+  position: relative;
+}
+.header-ornament {
+  font-size: 10px;
+  letter-spacing: 10px;
+  color: var(--ember-dim);
+  margin-bottom: 1.2rem;
+}
+.header-sigil {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: .6rem;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(196,124,43,.2));
+}
+.header h1 {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  color: var(--ember);
+  letter-spacing: 5px;
+  text-shadow: 0 0 50px rgba(196,124,43,.25);
+}
+.header-tipo {
+  font-size: 15px;
+  color: var(--stone-dim);
+  font-style: italic;
+  margin-top: .5rem;
+  letter-spacing: .5px;
+}
+.header-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.header-meta-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ember-dim);
+  text-transform: uppercase;
+}
+.header-meta-item span {
+  display: block;
+  font-size: 16px;
+  color: var(--ember);
+  letter-spacing: 0;
+  font-family: 'Crimson Pro', serif;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* back link */
+.back-link {
+  position: absolute;
+  top: 1.2rem; left: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ember-dim);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color .2s;
+}
+.back-link:hover { color: var(--ember); }
+
+/* ── MAIN ── */
+.main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 6rem;
+}
+
+/* ── TIER SECTION ── */
+.tier-section { margin-bottom: 3rem; }
+
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.2rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.tier-badge {
+  width: 46px; height: 46px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 20px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+.tier-name {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.tier-pts {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--stone-dim);
+  margin-top: 2px;
+}
+.tier-count {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--stone-dim);
+  letter-spacing: 1px;
+}
+
+/* ── GRID ── */
+.grid { display: grid; gap: 14px; }
+.grid-1 { grid-template-columns: 1fr; max-width: 420px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ── CARD ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: border-color .3s, background .3s, transform .25s;
+}
+.card:hover {
+  background: var(--bg-surface);
+  transform: translateY(-3px);
+}
+.card-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 10px 10px 0 0;
+}
+
+/* image */
+.card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.card-img-wrap img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform .45s ease;
+}
+.card:hover .card-img-wrap img { transform: scale(1.05); }
+.card-img-fallback {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-surface);
+  font-size: 44px;
+  opacity: .25;
+}
+
+/* tier ribbon over image */
+.card-ribbon {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+/* SS special icon */
+.card-crown {
+  position: absolute;
+  top: 10px; right: 12px;
+  font-size: 13px;
+  z-index: 2;
+  opacity: .8;
+}
+
+/* body */
+.card-body { padding: 14px 16px 18px; }
+.card-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--stone);
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+.card-desc {
+  font-size: 13.5px;
+  color: var(--stone-dim);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── TIER-SPECIFIC ── */
+/* SS */
+.t-ss .card              { border-color: rgba(155,42,42,.25); background: rgba(155,42,42,.04); }
+.t-ss .card:hover        { border-color: rgba(155,42,42,.5); background: rgba(155,42,42,.09); }
+.t-ss .card-name         { color: var(--crimson-bright); font-size: 18px; }
+.t-ss .card-top-bar      { background: var(--tier-ss); }
+/* S */
+.t-s  .card              { border-color: rgba(196,124,43,.2); }
+.t-s  .card:hover        { border-color: rgba(196,124,43,.45); }
+.t-s  .card-name         { color: var(--ember); }
+.t-s  .card-top-bar      { background: var(--tier-s); }
+/* A */
+.t-a  .card:hover        { border-color: rgba(136,96,192,.35); }
+.t-a  .card-top-bar      { background: var(--tier-a); opacity: .7; }
+/* B */
+.t-b  .card:hover        { border-color: rgba(74,120,160,.35); }
+.t-b  .card-top-bar      { background: var(--tier-b); opacity: .6; }
+/* C */
+.t-c  .card:hover        { border-color: rgba(107,127,94,.35); }
+.t-c  .card-top-bar      { background: var(--tier-c); opacity: .5; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ember-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-1 { max-width: 100%; }
+  .main { padding: 1.5rem 1rem 4rem; }
+  .header { padding: 2.5rem 1rem 2rem; }
+  .back-link { position: static; display:block; margin-bottom: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="back-link" href="../">← Todos os Grimórios</a>
+  <div class="header-ornament">✦ ✦ ✦</div>
+  <span class="header-sigil">🐺</span>
+  <h1>Varelitas</h1>
+  <p class="header-tipo">Lobos Épicos do Bosque — nobres, majestosos, o rei que todos respeitam de longe</p>
+  <div class="header-meta">
+    <div class="header-meta-item">Criaturas<span>10</span></div>
+    <div class="header-meta-item">Tiers<span>5</span></div>
+    <div class="header-meta-item">Liga<span>Supertecniso</span></div>
+    <div class="header-meta-item">Temporada<span>2026</span></div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- ══ SS ══ -->
+  <section class="tier-section t-ss">
+    <div class="tier-header">
+      <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,.1)">SS</div>
+      <div>
+        <div class="tier-name" style="color:var(--tier-ss)">Lendário</div>
+        <div class="tier-pts">≥ 115 pts ou marco especial</div>
+      </div>
+      <div class="tier-count">1 criatura</div>
+    </div>
+    <div class="grid grid-1">
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-crown" style="color:var(--tier-ss)">✦</div>
+        <div class="card-img-wrap">
+          <img src="./SS.jpg" alt="Urso Colossal do Inverno"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🐻</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(155,42,42,.8);color:#f5a0a0">LENDÁRIO · SS</div>
+        <div class="card-body">
+          <div class="card-name">Skoll — O Lobo que Devora o Sol</div>
+          <div class="card-desc">Urso gigantesco rugindo em floresta nevada, com garras descomunais e gelo pendendo das presas. Um guerreiro solitário o enfrenta na neve.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ S ══ -->
+  <section class="tier-section t-s">
+    <div class="tier-header">
+      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,.1)">S</div>
+      <div>
+        <div class="tier-name" style="color:var(--tier-s)">Épico</div>
+        <div class="tier-pts">≥ 100 pts</div>
+      </div>
+      <div class="tier-count">1 criatura</div>
+    </div>
+    <div class="grid grid-1">
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./S.jpg" alt="Lâmina Verdejante"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>⚔️</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(196,124,43,.8);color:#fde0a0">ÉPICO · S</div>
+        <div class="card-body">
+          <div class="card-name">O Último Rei do Bosque</div>
+          <div class="card-desc">Guerreira élfica de cabelos longos empunhando uma espada rúnica com brilho verde intenso. Armadura leve com detalhes em esmeralda.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ A ══ -->
+  <section class="tier-section t-a">
+    <div class="tier-header">
+      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,.1)">A</div>
+      <div>
+        <div class="tier-name" style="color:var(--tier-a)">Raro</div>
+        <div class="tier-pts">≥ 90 pts</div>
+      </div>
+      <div class="tier-count">2 criaturas</div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./A (1).jpg" alt="Javali Cristalino"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🐗</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(136,96,192,.8);color:#d5b8f5">RARO · A</div>
+        <div class="card-body">
+          <div class="card-name">Senhor da Alcateia</div>
+          <div class="card-desc">Javali massivo em pântano sombrio, com presas de cristal verde brilhante e patas parcialmente petrificadas.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./A (2).jpg" alt="Guardião da Floresta"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🌿</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(136,96,192,.8);color:#d5b8f5">RARO · A</div>
+        <div class="card-body">
+          <div class="card-name">Lobo Colossal das Planícies</div>
+          <div class="card-desc">Besta colossal de pedra e folhagem com olhos flamejantes, encarando um pequeno guerreiro solitário numa clareira.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ B ══ -->
+  <section class="tier-section t-b">
+    <div class="tier-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,.1)">B</div>
+      <div>
+        <div class="tier-name" style="color:var(--tier-b)">Incomum</div>
+        <div class="tier-pts">≥ 80 pts</div>
+      </div>
+      <div class="tier-count">3 criaturas</div>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./B (1).jpg" alt="Pangojaguar"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🐆</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(74,120,160,.8);color:#aad0f0">INCOMUM · B</div>
+        <div class="card-body">
+          <div class="card-name">Warg Nobre</div>
+          <div class="card-desc">Criatura híbrida de felino e pangolim com escamas azuis, garras afiadas e postura agressiva em terreno rochoso.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./B (2).jpg" alt="Cervo Rúnico"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🦌</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(74,120,160,.8);color:#aad0f0">INCOMUM · B</div>
+        <div class="card-body">
+          <div class="card-name">Alcateia Real</div>
+          <div class="card-desc">Cervo majestoso com galhada prateada e símbolo rúnico dourado brilhando no peito, banhado por raios de sol.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./B (3).jpg" alt="Javali Flamejante"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🔥</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(74,120,160,.8);color:#aad0f0">INCOMUM · B</div>
+        <div class="card-body">
+          <div class="card-name">Guardião do Bosque</div>
+          <div class="card-desc">Javali cinzento furioso em carga, com presas douradas incandescentes e corpo envolto em chamas e fumaça.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ C ══ -->
+  <section class="tier-section t-c">
+    <div class="tier-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,.1)">C</div>
+      <div>
+        <div class="tier-name" style="color:var(--tier-c)">Comum</div>
+        <div class="tier-pts">≥ 65 pts</div>
+      </div>
+      <div class="tier-count">3 criaturas</div>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./C (1).jpg" alt="Lobo Espectral"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🐺</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(107,127,94,.8);color:#c8e0b8">COMUM · C</div>
+        <div class="card-body">
+          <div class="card-name">Lobo Cinzento</div>
+          <div class="card-desc">Lobo sombrio correndo por floresta em chamas, com aura de energia verde-neon e olhos brilhantes.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./C (2).jpg" alt="Vespa Dourada"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🐝</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(107,127,94,.8);color:#c8e0b8">COMUM · C</div>
+        <div class="card-body">
+          <div class="card-name">Cervo Branco</div>
+          <div class="card-desc">Inseto gigante blindado com exoesqueleto negro e detalhes em ouro, olhos incandescentes amarelos.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-top-bar"></div>
+        <div class="card-img-wrap">
+          <img src="./C (3).jpg" alt="Coruja Arcana"
+               onerror="this.parentNode.innerHTML='<div class=card-img-fallback>🦉</div>'">
+        </div>
+        <div class="card-ribbon" style="background:rgba(107,127,94,.8);color:#c8e0b8">COMUM · C</div>
+        <div class="card-body">
+          <div class="card-name">Raposa Nobre</div>
+          <div class="card-desc">Coruja cinzenta com olhos ciano brilhantes e amuleto rúnico no peito, pousada em galho numa floresta enevoada.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  ✦ Liga Supertecniso · Temporada 2026 · Grimório de Varelitas ✦
+</footer>
+
+</body>
+</html>
