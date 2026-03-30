@@ -194,15 +194,14 @@ body {
 }
 .card-img-wrap img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform .45s ease;
 }
 .card:hover .card-img-wrap img { transform: scale(1.05); }
 .card-img-fallback {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   display: flex; align-items: center; justify-content: center;
   background: var(--bg-surface);
   font-size: 44px;
