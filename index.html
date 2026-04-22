@@ -24,7 +24,6 @@
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-
 body {
   background: var(--bg);
   color: var(--stone);
@@ -112,12 +111,10 @@ body {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
+.section-title + .section-title { margin-top: 2.5rem; }
 
 /* ── GRIMÓRIO CARD ── */
-.grimorio-list {
-  display: grid;
-  gap: 16px;
-}
+.grimorio-list { display: grid; gap: 10px; }
 
 .grimorio-card {
   background: var(--bg-card);
@@ -149,6 +146,14 @@ body {
 }
 .grimorio-card:hover::before { opacity: .7; }
 
+/* ── SOON CARD ── */
+.grimorio-card.soon {
+  opacity: .45;
+  cursor: default;
+  pointer-events: none;
+}
+.grimorio-card.soon::before { background: var(--stone-dim); opacity: .2; }
+
 .card-sigil {
   font-size: 40px;
   flex-shrink: 0;
@@ -162,6 +167,7 @@ body {
   color: var(--ember);
   margin-bottom: 4px;
 }
+.soon .card-name { color: var(--stone-dim); }
 .card-desc {
   font-size: 14px;
   color: var(--stone-dim);
@@ -174,6 +180,7 @@ body {
   letter-spacing: 1px;
   margin-top: 6px;
 }
+.soon .card-meta { color: var(--stone-dim); opacity: .5; }
 .card-arrow {
   font-size: 18px;
   color: var(--ember-dim);
@@ -183,6 +190,17 @@ body {
 .grimorio-card:hover .card-arrow {
   color: var(--ember);
   transform: translateX(4px);
+}
+.card-soon-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--stone-dim);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+  text-transform: uppercase;
 }
 
 /* ── FOOTER ── */
@@ -197,7 +215,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 500px) {
   .main { padding: 2rem 1rem 4rem; }
   .header { padding: 2.5rem 1rem 2rem; }
@@ -212,15 +229,18 @@ body {
   <div class="header-ornament">✦ ✦ ✦</div>
   <span class="header-sigil">📖</span>
   <h1>Grimório</h1>
-  <p class="header-sub">Bestiário oficial da Liga — criaturas classificadas por tier</p>
+  <p class="header-sub">Bestiário oficial da Liga — 9 invocadores, 38 portais, um Domador do Caos</p>
   <div class="header-meta">
     <div class="header-meta-item">Liga<span>Supertecniso</span></div>
     <div class="header-meta-item">Temporada<span>2026</span></div>
+    <div class="header-meta-item">Invocadores<span>9</span></div>
+    <div class="header-meta-item">Criaturas<span>180</span></div>
   </div>
 </header>
 
 <main class="main">
-  <div class="section-title">✦ Grimórios disponíveis</div>
+
+  <div class="section-title">✦ Grimórios ativos</div>
   <div class="grimorio-list">
 
     <a class="grimorio-card" href="./varelitas/varelitas-index.html">
@@ -228,12 +248,98 @@ body {
       <div class="card-info">
         <div class="card-name">Varelitas</div>
         <div class="card-desc">Lobos Épicos do Bosque — nobres, majestosos, o rei que todos respeitam de longe</div>
-        <div class="card-meta">10 CRIATURAS · 5 TIERS</div>
+        <div class="card-meta">SYLVORN · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="grimorio-card" href="./andorinha/andorinha-index.html">
+      <div class="card-sigil">🦅</div>
+      <div class="card-info">
+        <div class="card-name">Andorinha</div>
+        <div class="card-desc">Aves Ancestrais Alfa — roc adulto, fênix das cinzas, simurgh ancestral</div>
+        <div class="card-meta">SKYVARA · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="grimorio-card" href="./ironverdict/ironverdict-index.html">
+      <div class="card-sigil">⚙</div>
+      <div class="card-info">
+        <div class="card-name">Ironverdict</div>
+        <div class="card-desc">Julgadores Divinos — arcanjos, paladinos e executores do veredicto final</div>
+        <div class="card-meta">FERRATHIS · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="grimorio-card" href="./icebergteam/icebergteam-index.html">
+      <div class="card-sigil">❄</div>
+      <div class="card-info">
+        <div class="card-name">Icebergteam</div>
+        <div class="card-desc">Bestas do Ártico — leviatãs de gelo, golems glaciais, wyrms congelados</div>
+        <div class="card-meta">KELVRAK · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="grimorio-card" href="./ceec/ceec-index.html">
+      <div class="card-sigil">🏔</div>
+      <div class="card-info">
+        <div class="card-name">CEEC</div>
+        <div class="card-desc">Senhores do Norte — guerreiros, anões e reis testados pelo próprio Nordheim</div>
+        <div class="card-meta">NORDHEIM · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="grimorio-card" href="./lobonegro/lobonegro-index.html">
+      <div class="card-sigil">🌑</div>
+      <div class="card-info">
+        <div class="card-name">Lobonegro</div>
+        <div class="card-desc">Lobos das Sombras — predadores espectrais que habitam as frestas entre os mundos</div>
+        <div class="card-meta">UMBRATH · 20 CRIATURAS · 5 TIERS</div>
       </div>
       <div class="card-arrow">→</div>
     </a>
 
   </div>
+
+  <div class="section-title" style="margin-top:2.5rem;">✦ Em breve</div>
+  <div class="grimorio-list">
+
+    <div class="grimorio-card soon">
+      <div class="card-sigil">⚔</div>
+      <div class="card-info">
+        <div class="card-name">Sons of Númenor</div>
+        <div class="card-desc">Guardiões Nobres — dragões reais, titãs de luz, cavaleiros celestiais</div>
+        <div class="card-meta">ALTHAR · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-soon-badge">Em breve</div>
+    </div>
+
+    <div class="grimorio-card soon">
+      <div class="card-sigil">🪶</div>
+      <div class="card-info">
+        <div class="card-name">Andorinha Jr</div>
+        <div class="card-desc">Aves Primordiais jovens — fênix nascente, grifo veloz, simurgh aprendiz</div>
+        <div class="card-meta">VELMUR · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-soon-badge">Em breve</div>
+    </div>
+
+    <div class="grimorio-card soon">
+      <div class="card-sigil">🤖</div>
+      <div class="card-info">
+        <div class="card-name">Otopatamá</div>
+        <div class="card-desc">Colossos Mecânicos — samurais-robô gigantes, leviatãs de aço, titãs forjados</div>
+        <div class="card-meta">TETSUKAI · 20 CRIATURAS · 5 TIERS</div>
+      </div>
+      <div class="card-soon-badge">Em breve</div>
+    </div>
+
+  </div>
+
 </main>
 
 <footer class="footer">
