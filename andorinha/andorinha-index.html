@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andorinha — Grimório · Liga Supertecniso 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0906;
+  --bg-card: #13100d;
+  --bg-surface: #1a1510;
+  --bg-hover: #221c14;
+  --ember: #c47c2b;
+  --ember-dim: #7a4e1a;
+  --ember-bright: #e8a050;
+  --ember-glow: rgba(196,124,43,0.10);
+  --crimson: #9b2a2a;
+  --crimson-bright: #c23535;
+  --stone: #c4bdb0;
+  --stone-dim: #7a7268;
+  --stone-faint: #3a342c;
+  --border: rgba(196,124,43,0.10);
+  --border-strong: rgba(196,124,43,0.22);
+  --sky: #4a78a0;
+  --sky-glow: rgba(74,120,160,0.12);
+  --tier-c: #6b7f5e;
+  --tier-b: #4a78a0;
+  --tier-a: #8860c0;
+  --tier-s: #c47c2b;
+  --tier-ss: #9b2a2a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--stone);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+::selection { background: var(--ember); color: var(--bg); }
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(74,120,160,0.09) 0%, transparent 65%),
+    radial-gradient(ellipse at 50% 0%, rgba(196,124,43,0.05) 0%, transparent 80%);
+  position: relative;
+}
+.header::before {
+  content: '✦ ✦ ✦';
+  display: block;
+  font-size: 10px;
+  letter-spacing: 10px;
+  color: var(--ember-dim);
+  margin-bottom: 1rem;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone-dim);
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--ember); }
+
+.sigil {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(74,120,160,0.4));
+}
+.header h1 {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  color: var(--ember);
+  letter-spacing: 4px;
+  line-height: 1.1;
+  text-shadow: 0 0 40px rgba(196,124,43,0.25);
+}
+.header-region {
+  font-size: 12px;
+  color: var(--sky);
+  margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.header-lore {
+  font-size: 15px;
+  color: var(--stone-dim);
+  margin-top: 0.8rem;
+  font-style: italic;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.header-league {
+  font-size: 11px;
+  color: var(--ember-dim);
+  margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.stat-item {
+  flex: 1;
+  max-width: 180px;
+  text-align: center;
+  padding: 14px 12px;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-val {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 18px;
+  color: var(--ember);
+  display: block;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--stone-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,9,6,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1rem;
+  overflow-x: auto;
+}
+.nav::-webkit-scrollbar { height: 0; }
+.nav-inner {
+  display: flex;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.nav-btn {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--stone-dim);
+  background: none;
+  border: none;
+  padding: 13px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.3s;
+  border-bottom: 2px solid transparent;
+}
+.nav-btn:hover { color: var(--stone); }
+.nav-btn.active { color: var(--ember); border-bottom-color: var(--ember); }
+
+/* CONTENT */
+.content {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+.section { display: none; }
+.section.active { display: block; }
+
+.section-title {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 18px;
+  color: var(--ember);
+  margin-bottom: 0.4rem;
+  letter-spacing: 1px;
+}
+.section-intro {
+  color: var(--stone-dim);
+  font-size: 15px;
+  margin-bottom: 2rem;
+  font-style: italic;
+  line-height: 1.55;
+  border-left: 2px solid var(--ember-dim);
+  padding-left: 1rem;
+}
+.group-title {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--stone-dim);
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+.group-title:first-child { margin-top: 0; }
+
+/* CREATURE CARD — GRIMÓRIO VIEW */
+.creature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: pointer;
+}
+.creature-card:hover { border-color: var(--border-strong); background: var(--bg-surface); }
+.creature-card.expanded { border-color: var(--border-strong); }
+
+.creature-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+}
+.tier-badge {
+  width: 36px; height: 36px;
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 16px;
+  flex-shrink: 0;
+  border: 1px solid;
+}
+.creature-meta { flex: 1; }
+.creature-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--stone);
+}
+.creature-epithet {
+  font-size: 13px;
+  color: var(--stone-dim);
+  font-style: italic;
+  margin-top: 1px;
+}
+.creature-toggle { color: var(--stone-dim); font-size: 11px; transition: transform 0.3s; }
+.creature-card.expanded .creature-toggle { transform: rotate(180deg); }
+
+.creature-body {
+  display: none;
+  border-top: 1px solid var(--border);
+}
+.creature-card.expanded .creature-body { display: flex; }
+
+.creature-image {
+  width: 200px;
+  min-height: 200px;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+}
+.creature-details {
+  flex: 1;
+  padding: 16px 18px;
+}
+.creature-lore {
+  font-size: 14px;
+  color: var(--stone-dim);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.creature-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.creature-stat {
+  padding: 4px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--stone-dim);
+}
+.creature-stat span { color: var(--ember); }
+
+/* SS SPECIAL */
+.creature-card.ss-card {
+  border-color: rgba(155,42,42,0.2);
+  background: rgba(155,42,42,0.03);
+}
+.creature-card.ss-card:hover { border-color: rgba(155,42,42,0.4); }
+.creature-card.ss-card.expanded { border-color: rgba(155,42,42,0.4); }
+.creature-card.ss-secret {
+  border-color: rgba(155,42,42,0.12);
+  background: rgba(155,42,42,0.02);
+}
+.creature-card.ss-secret .creature-name { color: var(--stone-dim); font-style: italic; }
+.secret-lock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(155,42,42,0.08);
+  border: 1px solid rgba(155,42,42,0.2);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--crimson-bright);
+  font-style: italic;
+}
+
+/* GRID VIEW */
+.grimoire-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+.grid-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.grid-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.grid-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--bg-surface);
+}
+.grid-card-info {
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+}
+.grid-card-tier {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.grid-card-name {
+  font-size: 12px;
+  color: var(--stone);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.grid-card-secret {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: rgba(155,42,42,0.8);
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 2px 5px;
+  color: #ff6b6b;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* LORE SECTION */
+.lore-block {
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.lore-block h3 {
+  font-family: 'Uncial Antiqua', serif;
+  font-size: 14px;
+  color: var(--ember);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.lore-block p {
+  font-size: 15px;
+  color: var(--stone-dim);
+  line-height: 1.75;
+}
+.lore-block p + p { margin-top: 0.8rem; }
+.lore-block p strong { color: var(--stone); }
+
+.note {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ember-dim);
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  color: var(--stone-dim);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+.note strong { color: var(--stone); }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,9,6,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.modal-body { padding: 20px 24px; }
+.modal-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-bottom: 6px; }
+.modal-name { font-family: 'Uncial Antiqua', serif; font-size: 22px; color: var(--ember); margin-bottom: 4px; }
+.modal-epithet { font-size: 15px; color: var(--stone-dim); font-style: italic; margin-bottom: 14px; }
+.modal-lore { font-size: 15px; color: var(--stone-dim); line-height: 1.7; }
+.modal-close {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(11,9,6,0.7);
+  border: 1px solid var(--border);
+  color: var(--stone-dim);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 16px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.modal-close:hover { color: var(--stone); border-color: var(--border-strong); }
+
+@media (max-width: 600px) {
+  .content { padding: 1.5rem 1rem 3rem; }
+  .creature-body { flex-direction: column; }
+  .creature-image { width: 100%; min-height: 220px; }
+  .stats-bar { flex-wrap: wrap; }
+  .stat-item { max-width: none; border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="../grimorio-regulamento.html" class="back-link">← Regulamento</a>
+  <span class="sigil">🦅</span>
+  <h1>Andorinha</h1>
+  <div class="header-region">Skyvara · Aves Ancestrais Alfa</div>
+  <div class="header-lore">Onde outras aves aprendem a voar, as de Skyvara já esqueceram como era não voar. Cada criatura deste grimório carrega milênios de ascendência — não são guardiões do céu, são o céu.</div>
+  <div class="header-league">Liga Supertecniso · Temporada 2026</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-val">20</span>
+    <div class="stat-label">Criaturas</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">6+5+4+3+2</span>
+    <div class="stat-label">Distribuição</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">Skyvara</span>
+    <div class="stat-label">Região</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-val">Anqa</span>
+    <div class="stat-label">Lendário</div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('grimorio',this)">Grimório</button>
+    <button class="nav-btn" onclick="show('galeria',this)">Galeria</button>
+    <button class="nav-btn" onclick="show('lore',this)">Lore</button>
+  </div>
+</nav>
+
+<div class="content">
+
+<!-- ═══════ GRIMÓRIO (lista) -->
+<div class="section active" id="s-grimorio">
+  <div class="section-title">O Grimório de Andorinha</div>
+  <div class="section-intro">As aves de Skyvara não são invocadas — elas descem. Cada portal é uma permissão que o céu concede ao invocador, e não o contrário.</div>
+
+  <!-- SS -->
+  <div class="group-title">SS · Lendário — ≥ 115 pts ou marco</div>
+
+  <div class="creature-card ss-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,0.10);">SS</div>
+      <div class="creature-meta">
+        <div class="creature-name">Anqa — A Ave do Juízo</div>
+        <div class="creature-epithet">O fim e o recomeço em forma de pluma</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/SS.jpg" alt="Anqa" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Antes que o primeiro sol nascesse sobre Eirendhal, Anqa já havia visto o último. Não envelhece — cicla. Cada morte sua reescreve as leis do mundo por uma fração de segundo, e nessa fração, todo equilibrio oscila.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>SS</span></div>
+          <div class="creature-stat">Bônus <span>+15</span></div>
+          <div class="creature-stat">Limiar <span>≥ 115 pts</span></div>
+          <div class="creature-stat">Tipo <span>Ave Ancestral</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card ss-secret" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-ss);border-color:rgba(155,42,42,0.3);background:rgba(155,42,42,0.05);">SS</div>
+      <div class="creature-meta">
+        <div class="creature-name">Ikar — Senhor das Nuvens</div>
+        <div class="creature-epithet">✦ Invocação Secreta</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/SS%20(2).jpg" alt="Ikar" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Ikar não pousa. Não se sabe se pode. Ele existe acima do plano em que outras criaturas vivem — sua sombra sobre o campo de batalha é suficiente para paralisar exércitos. O mais velho dos filhos de Skyvara, e o único que nunca desceu ao solo.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>SS</span></div>
+          <div class="creature-stat">Bônus <span>+15</span></div>
+          <div class="creature-stat">Tipo <span>Grifo Ancestral</span></div>
+        </div>
+        <div class="secret-lock">✦ Invocável apenas quando Andorinha derrota Andorinha Jr em duelo direto — o ancestral reivindica primazia sobre sua linhagem.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S -->
+  <div class="group-title">S · Épico — ≥ 100 pts</div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
+      <div class="creature-meta">
+        <div class="creature-name">Velorion — Arcanjo do Zéfiro</div>
+        <div class="creature-epithet">O primeiro a nomear os ventos</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/S.jpg" alt="Velorion" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Velorion é o único ser vivo que viajou além das bordas do mapa de Eirendhal e voltou. Não conta o que viu — apenas aponta para cima quando perguntado.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>S</span></div>
+          <div class="creature-stat">Bônus <span>+10</span></div>
+          <div class="creature-stat">Limiar <span>≥ 100 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
+      <div class="creature-meta">
+        <div class="creature-name">Pyrrhas — Fênix da Aurora</div>
+        <div class="creature-epithet">Renascida no exato momento do amanhecer</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/S%20(3).jpg" alt="Pyrrhas" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Cada vez que Pyrrhas morre, a próxima aurora é mais vermelha. Os habitantes de Skyvara aprenderam a contar suas mortes pelo tom do céu ao amanhecer.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>S</span></div>
+          <div class="creature-stat">Bônus <span>+10</span></div>
+          <div class="creature-stat">Limiar <span>≥ 100 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
+      <div class="creature-meta">
+        <div class="creature-name">Raoul — Lâmina do Vento</div>
+        <div class="creature-epithet">O único que corre mais rápido que suas próprias penas</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/S%20(2).jpg" alt="Raoul" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Raoul não voa — ele corre tão veloz que o ar se recusa a deixá-lo tocar o chão. Seu rastro em batalha é uma cicatriz esmeralda no céu que demora dias para desaparecer.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>S</span></div>
+          <div class="creature-stat">Bônus <span>+10</span></div>
+          <div class="creature-stat">Limiar <span>≥ 100 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A -->
+  <div class="group-title">A · Raro — ≥ 90 pts</div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
+      <div class="creature-meta">
+        <div class="creature-name">Eyrn — Rei das Tormentas</div>
+        <div class="creature-epithet">Comanda as tempestades com um olhar</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/A%20(3).jpg" alt="Eyrn" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Metade águia, metade algo que os mapas de Skyvara ainda não nomearam. Eyrn não convoca raios — os raios o seguem como súditos.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>A</span></div>
+          <div class="creature-stat">Bônus <span>+6</span></div>
+          <div class="creature-stat">Limiar <span>≥ 90 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
+      <div class="creature-meta">
+        <div class="creature-name">Aveline — Lâmina do Céu</div>
+        <div class="creature-epithet">A espada que corta o horizonte</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/A%20(4).jpg" alt="Aveline" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Aveline forjou sua própria espada com a luz de uma aurora. Ninguém mais pôde empunhá-la — a lâmina reconhece apenas a mão que a fez.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>A</span></div>
+          <div class="creature-stat">Bônus <span>+6</span></div>
+          <div class="creature-stat">Limiar <span>≥ 90 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
+      <div class="creature-meta">
+        <div class="creature-name">Aelsa — Domadora de Ventos</div>
+        <div class="creature-epithet">Cavalga criaturas que outros temem invocar</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/A.jpg" alt="Aelsa" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Aelsa não invoca criaturas — ela as convence. Seu grimório pessoal lista mais de quarenta espécies que aceitaram ser montaria por um dia, e nenhuma se arrependeu.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>A</span></div>
+          <div class="creature-stat">Bônus <span>+6</span></div>
+          <div class="creature-stat">Limiar <span>≥ 90 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
+      <div class="creature-meta">
+        <div class="creature-name">Syrelion — O Folheado</div>
+        <div class="creature-epithet">Nascido da fusão entre floresta e vento</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/A%20(2).jpg" alt="Syrelion" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Syrelion é o que acontece quando Skyvara decide que o céu e o chão devem se fundir. Metade árvore, metade vento — e completamente inclassificável nos bestiários convencionais.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>A</span></div>
+          <div class="creature-stat">Bônus <span>+6</span></div>
+          <div class="creature-stat">Limiar <span>≥ 90 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="group-title">B · Incomum — ≥ 80 pts</div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
+      <div class="creature-meta">
+        <div class="creature-name">Zyphar — Predador dos Céus</div>
+        <div class="creature-epithet">Mergulha a velocidades que partem o ar ao meio</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/B%20(3).jpg" alt="Zyphar" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Zyphar foi visto apenas em movimento. Nenhum registro estático existe — apenas borrões azuis nos mapas de batalha, e as marcas de garras em coisas que deveriam ser intocáveis.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>B</span></div>
+          <div class="creature-stat">Bônus <span>+3</span></div>
+          <div class="creature-stat">Limiar <span>≥ 80 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
+      <div class="creature-meta">
+        <div class="creature-name">Seraphine — Asa Prata</div>
+        <div class="creature-epithet">O elmo que reflete o sol como uma segunda arma</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/B.jpg" alt="Seraphine" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Seraphine foi forjada nas correntes de ar que circulam eternamente acima de Skyvara. Seus adversários juram que ela não pousa entre um duelo e o próximo.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>B</span></div>
+          <div class="creature-stat">Bônus <span>+3</span></div>
+          <div class="creature-stat">Limiar <span>≥ 80 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
+      <div class="creature-meta">
+        <div class="creature-name">Lyriel — Flecha Ardente</div>
+        <div class="creature-epithet">Nunca errou. Não porque seja perfeita — porque redefine o alvo ao atirar.</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/B%20(2).jpg" alt="Lyriel" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">O arco de Lyriel dispara luz concentrada de Skyvara. Seus aliados aprenderam a nunca ficar entre ela e o horizonte.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>B</span></div>
+          <div class="creature-stat">Bônus <span>+3</span></div>
+          <div class="creature-stat">Limiar <span>≥ 80 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
+      <div class="creature-meta">
+        <div class="creature-name">Ursyn — Guardião da Mata</div>
+        <div class="creature-epithet">O que defende as bordas onde Skyvara encontra o solo</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/B%20(5).jpg" alt="Ursyn" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Ursyn existe na fronteira entre o que voa e o que caminha. Nenhum dos dois reinos o reivindica — mas ambos o respeitam quando ele decide quem pode passar.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>B</span></div>
+          <div class="creature-stat">Bônus <span>+3</span></div>
+          <div class="creature-stat">Limiar <span>≥ 80 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
+      <div class="creature-meta">
+        <div class="creature-name">Ryouren — Pétala do Leão</div>
+        <div class="creature-epithet">Onde a elegância e a brutalidade se tornam a mesma coisa</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/B%20(6).jpg" alt="Ryouren" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Ryouren chegou a Skyvara sem explicação e recusou qualquer classificação. Os antigos tomos o catalogam simplesmente como "visitante que ficou".</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>B</span></div>
+          <div class="creature-stat">Bônus <span>+3</span></div>
+          <div class="creature-stat">Limiar <span>≥ 80 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="group-title">C · Comum — ≥ 65 pts</div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Aerakor — Dragão do Penhasco</div>
+        <div class="creature-epithet">Guarda a entrada de Skyvara há séculos</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C%20(5).jpg" alt="Aerakor" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Aerakor não ataca intrusos. Ele apenas aparece — e o tamanho da criatura resolve o problema.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Mireille — Chama Dourada</div>
+        <div class="creature-epithet">A mais jovem dos veteranos de Skyvara</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C.jpg" alt="Mireille" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Mireille entrou em batalha aos dezesseis anos. Agora tem cento e oito e ainda parece dezesseis. Os guerreiros que a subestimam não costumam aprender com o erro.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Nyssa — A Ágil</div>
+        <div class="creature-epithet">Não tem nome melhor — é simplesmente a mais rápida</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C%20(1).jpg" alt="Nyssa" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Nyssa escala estruturas que não deveriam ser escaláveis. Ela sorri quando dizem isso — como se "deveriam" fosse uma sugestão e não uma lei.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Aelra — Lança do Sol</div>
+        <div class="creature-epithet">Cada duelo é uma performance, não apenas uma batalha</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C%20(3).jpg" alt="Aelra" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Aelra foi treinada no coliseu de Skyvara, onde audiência e adversário são igualmente importantes. Ela nunca esqueceu que cada batalha conta uma história.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Borlin — Escudo Esmeralda</div>
+        <div class="creature-epithet">O mais improvável habitante de Skyvara</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C%20(2).jpg" alt="Borlin" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Borlin chegou a Skyvara numa tocha de resgate. Ficou porque, segundo ele, "as correntes de ar são melhores aqui". Ninguém entendeu. Ninguém perguntou de novo.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creature-card" onclick="toggleCard(this)">
+    <div class="creature-header">
+      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
+      <div class="creature-meta">
+        <div class="creature-name">Crestofagor — O Crestado</div>
+        <div class="creature-epithet">A criatura que os bestiários não conseguem categorizar</div>
+      </div>
+      <div class="creature-toggle">▾</div>
+    </div>
+    <div class="creature-body">
+      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/C%20(4).jpg" alt="Crestofagor" loading="lazy">
+      <div class="creature-details">
+        <div class="creature-lore">Os eruditos de Eirendhal passaram décadas debatendo a classificação de Crestofagor. Enquanto debatem, ele continua existindo, completamente alheio à discussão.</div>
+        <div class="creature-stats">
+          <div class="creature-stat">Tier <span>C</span></div>
+          <div class="creature-stat">Bônus <span>+0</span></div>
+          <div class="creature-stat">Limiar <span>≥ 65 pts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════ GALERIA -->
+<div class="section" id="s-galeria">
+  <div class="section-title">Galeria do Grimório</div>
+  <div class="section-intro">Todas as criaturas de Skyvara. Toque para ver os detalhes.</div>
+
+  <div class="grimoire-grid" id="grid-container"></div>
+</div>
+
+<!-- ═══════ LORE -->
+<div class="section" id="s-lore">
+  <div class="section-title">A Região de Skyvara</div>
+  <div class="section-intro">Onde o céu tem memória e as criaturas são mais antigas que o solo que jamais pisaram.</div>
+
+  <div class="lore-block">
+    <h3>Origem</h3>
+    <p>Skyvara não é um lugar no mapa de Eirendhal — é uma elevação. Toda montanha com mais de três mil metros tem alguma parte de seu pico pertencendo a Skyvara, mesmo que os moradores do vale abaixo nunca tenham notado. As criaturas que habitam essa região compartilham uma característica: <strong>a gravidade as afeta diferente</strong>. Não as ignora — apenas as consulta antes de agir.</p>
+    <p>A região tem uma relação complexa com <strong>Velmur</strong>, a mesma terra em outro tempo. O que Velmur é agora, Skyvara foi antes — e o que Skyvara se tornará, Velmur ainda não imagina.</p>
+  </div>
+
+  <div class="lore-block">
+    <h3>As Aves Ancestrais Alfa</h3>
+    <p>O grimório de Andorinha convoca as criaturas mais antigas de Skyvara — aquelas que já sobreviveram a pelo menos um ciclo completo de Eirendhal. Elas não são chamadas de "aves" porque voam: <strong>aves voa. Estas existem</strong>, e o voo é apenas uma consequência disso.</p>
+    <p>A diferença entre as criaturas de Andorinha e as de Andorinha Jr é simples: <strong>as de Skyvara já esqueceram quem as invocou pela primeira vez</strong>. Têm memória suficiente para saber que este grimório não é o primeiro — e suficiente indiferença para entrar nele mesmo assim.</p>
+  </div>
+
+  <div class="lore-block" style="border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);">
+    <h3>✦ Ikar e a Condição Secreta</h3>
+    <p>Ikar — Senhor das Nuvens nunca foi classificado como parte do grimório de Andorinha pelos registros oficiais de Eirendhal. Ele existe <strong>acima da hierarquia</strong> — tecnicamente pertence a Skyvara, mas se recusa a responder a qualquer invocação padrão.</p>
+    <p>A única condição em que Ikar desce é quando testemunha <strong>o ancestral superando o descendente</strong>. Se Andorinha derrota Andorinha Jr em duelo direto, Ikar interpreta isso como a ordem natural de Skyvara sendo restabelecida — e desce para confirmar a primazia.</p>
+  </div>
+
+  <div class="note">
+    <strong>Nota do Invocador:</strong> As criaturas de Skyvara respondem à consistência, não ao esforço isolado. Uma boa rodada abre um portal. Rodadas consistentes abrem portais maiores — e mantêm abertos os que já foram abertos.
+  </div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-tier" id="modal-tier"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-epithet" id="modal-epithet"></div>
+      <div class="modal-lore" id="modal-lore"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CDN = 'https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/';
+
+const creatures = [
+  { file:'SS.jpg', tier:'SS', name:'Anqa — A Ave do Juízo', epithet:'O fim e o recomeço em forma de pluma', lore:'Antes que o primeiro sol nascesse sobre Eirendhal, Anqa já havia visto o último. Não envelhece — cicla.', color:'var(--tier-ss)', secret:false },
+  { file:'SS%20(2).jpg', tier:'SS', name:'Ikar — Senhor das Nuvens', epithet:'✦ Invocação Secreta', lore:'Existe acima do plano em que outras criaturas vivem. Sua sombra sobre o campo de batalha é suficiente para paralisar exércitos.', color:'var(--tier-ss)', secret:true },
+  { file:'S.jpg', tier:'S', name:'Velorion — Arcanjo do Zéfiro', epithet:'O primeiro a nomear os ventos', lore:'Viajou além das bordas do mapa de Eirendhal e voltou. Não conta o que viu.', color:'var(--tier-s)', secret:false },
+  { file:'S%20(3).jpg', tier:'S', name:'Pyrrhas — Fênix da Aurora', epithet:'Renascida no exato momento do amanhecer', lore:'Cada vez que Pyrrhas morre, a próxima aurora é mais vermelha.', color:'var(--tier-s)', secret:false },
+  { file:'S%20(2).jpg', tier:'S', name:'Raoul — Lâmina do Vento', epithet:'Corre mais rápido que suas próprias penas', lore:'Não voa — corre tão veloz que o ar se recusa a deixá-lo tocar o chão.', color:'var(--tier-s)', secret:false },
+  { file:'A%20(3).jpg', tier:'A', name:'Eyrn — Rei das Tormentas', epithet:'Comanda as tempestades com um olhar', lore:'Metade águia, metade algo que os mapas ainda não nomearam.', color:'var(--tier-a)', secret:false },
+  { file:'A%20(4).jpg', tier:'A', name:'Aveline — Lâmina do Céu', epithet:'A espada que corta o horizonte', lore:'Forjou sua própria espada com a luz de uma aurora.', color:'var(--tier-a)', secret:false },
+  { file:'A.jpg', tier:'A', name:'Aelsa — Domadora de Ventos', epithet:'Cavalga criaturas que outros temem invocar', lore:'Aelsa não invoca criaturas — ela as convence.', color:'var(--tier-a)', secret:false },
+  { file:'A%20(2).jpg', tier:'A', name:'Syrelion — O Folheado', epithet:'Nascido da fusão entre floresta e vento', lore:'Metade árvore, metade vento — completamente inclassificável.', color:'var(--tier-a)', secret:false },
+  { file:'B%20(3).jpg', tier:'B', name:'Zyphar — Predador dos Céus', epithet:'Mergulha a velocidades que partem o ar ao meio', lore:'Apenas borrões azuis nos mapas de batalha, e marcas de garras em coisas que deveriam ser intocáveis.', color:'var(--tier-b)', secret:false },
+  { file:'B.jpg', tier:'B', name:'Seraphine — Asa Prata', epithet:'O elmo que reflete o sol como uma segunda arma', lore:'Forjada nas correntes de ar que circulam eternamente acima de Skyvara.', color:'var(--tier-b)', secret:false },
+  { file:'B%20(2).jpg', tier:'B', name:'Lyriel — Flecha Ardente', epithet:'Nunca errou. Não porque seja perfeita.', lore:'O arco de Lyriel dispara luz concentrada de Skyvara.', color:'var(--tier-b)', secret:false },
+  { file:'B%20(5).jpg', tier:'B', name:'Ursyn — Guardião da Mata', epithet:'O que defende as bordas de Skyvara', lore:'Existe na fronteira entre o que voa e o que caminha.', color:'var(--tier-b)', secret:false },
+  { file:'B%20(6).jpg', tier:'B', name:'Ryouren — Pétala do Leão', epithet:'Onde a elegância e a brutalidade se fundem', lore:'Chegou a Skyvara sem explicação e recusou qualquer classificação.', color:'var(--tier-b)', secret:false },
+  { file:'C%20(5).jpg', tier:'C', name:'Aerakor — Dragão do Penhasco', epithet:'Guarda a entrada de Skyvara há séculos', lore:'Não ataca intrusos. Ele apenas aparece — e o tamanho da criatura resolve o problema.', color:'var(--tier-c)', secret:false },
+  { file:'C.jpg', tier:'C', name:'Mireille — Chama Dourada', epithet:'A mais jovem dos veteranos', lore:'Entrou em batalha aos dezasseis anos. Agora tem cento e oito e ainda parece dezasseis.', color:'var(--tier-c)', secret:false },
+  { file:'C%20(1).jpg', tier:'C', name:'Nyssa — A Ágil', epithet:'Simplesmente a mais rápida', lore:'Escala estruturas que não deveriam ser escaláveis.', color:'var(--tier-c)', secret:false },
+  { file:'C%20(3).jpg', tier:'C', name:'Aelra — Lança do Sol', epithet:'Cada duelo é uma performance', lore:'Treinada no coliseu de Skyvara, onde audiência e adversário são igualmente importantes.', color:'var(--tier-c)', secret:false },
+  { file:'C%20(2).jpg', tier:'C', name:'Borlin — Escudo Esmeralda', epithet:'O mais improvável habitante de Skyvara', lore:'Chegou numa tocha de resgate. Ficou porque "as correntes de ar são melhores aqui".', color:'var(--tier-c)', secret:false },
+  { file:'C%20(4).jpg', tier:'C', name:'Crestofagor — O Crestado', epithet:'A criatura que os bestiários não conseguem categorizar', lore:'Os eruditos passaram décadas debatendo sua classificação. Ele continua existindo, alheio à discussão.', color:'var(--tier-c)', secret:false },
+];
+
+function buildGrid() {
+  const container = document.getElementById('grid-container');
+  creatures.forEach((c, i) => {
+    const card = document.createElement('div');
+    card.className = 'grid-card';
+    card.innerHTML = `
+      ${c.secret ? '<div class="grid-card-secret">✦ SECRETA</div>' : ''}
+      <img src="${CDN}${c.file}" alt="${c.name}" loading="lazy">
+      <div class="grid-card-info">
+        <div class="grid-card-tier" style="color:${c.color}">${c.tier}</div>
+        <div class="grid-card-name">${c.name.split('—')[0].trim()}</div>
+      </div>
+    `;
+    card.onclick = () => openModal(i);
+    container.appendChild(card);
+  });
+}
+
+function openModal(i) {
+  const c = creatures[i];
+  document.getElementById('modal-img').src = CDN + c.file;
+  document.getElementById('modal-tier').innerHTML = `<span style="color:${c.color};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;">${c.tier} · ${c.secret ? 'INVOCAÇÃO SECRETA' : tierLabel(c.tier)}</span>`;
+  document.getElementById('modal-name').textContent = c.name;
+  document.getElementById('modal-epithet').textContent = c.epithet;
+  document.getElementById('modal-lore').textContent = c.lore;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function tierLabel(t) {
+  return {SS:'Lendário',S:'Épico',A:'Raro',B:'Incomum',C:'Comum'}[t] || t;
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('s-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+}
+
+function toggleCard(el) {
+  el.classList.toggle('expanded');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+buildGrid();
+</script>
+</body>
+</html>
