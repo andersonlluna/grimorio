@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CEEC — Grimório · Liga Supertecnicos 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--accent:#7a9a7a;--accent-glow:rgba(122,154,122,0.12);}
 
-:root{--bg:#0b0906;--bg-card:#13100d;--bg-surface:#1a1510;--bg-hover:#221c14;--ember:#c47c2b;--ember-dim:#7a4e1a;--ember-bright:#e8a050;--ember-glow:rgba(196,124,43,0.10);--crimson:#9b2a2a;--crimson-bright:#c23535;--stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;--border:rgba(196,124,43,0.10);--border-strong:rgba(196,124,43,0.22);--tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;}
-*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--bg);color:var(--stone);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}::selection{background:var(--ember);color:var(--bg);}
+:root{--bg:#0d0a07;--bg-card:#171310;--bg-surface:#1e1812;--bg-hover:#261f16;--ember:#d4893a;--ember-dim:#9a6428;--ember-bright:#f0b060;--ember-glow:rgba(196,124,43,0.10);--crimson:#9b2a2a;--crimson-bright:#c23535;--stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;--border:rgba(212,137,58,0.18);--border-strong:rgba(212,137,58,0.35);--tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;}
+*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--bg);color:var(--stone);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}::selection{background:var(--ember);color:var(--bg);}
 .header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border);position:relative;}.header::before{content:'✦ ✦ ✦';display:block;font-size:10px;letter-spacing:10px;color:var(--ember-dim);margin-bottom:1rem;}
 .back-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--stone-dim);text-decoration:none;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s;}.back-link:hover{color:var(--ember);}
 .sigil{font-size:3rem;margin-bottom:.8rem;display:block;}
@@ -27,19 +27,19 @@
 .section-title{font-family:'Uncial Antiqua',serif;font-size:18px;color:var(--ember);margin-bottom:.4rem;letter-spacing:1px;}
 .section-intro{color:var(--stone-dim);font-size:18px;margin-bottom:2rem;font-style:italic;line-height:1.55;border-left:2px solid var(--ember-dim);padding-left:1rem;}
 .group-title{font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:2px;color:var(--stone-dim);margin:2rem 0 .75rem;padding-bottom:5px;border-bottom:1px solid var(--border);text-transform:uppercase;}.group-title:first-child{margin-top:0;}
-.creature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px;transition:border-color .3s,background .3s;cursor:pointer;}.creature-card:hover{border-color:var(--border-strong);background:var(--bg-surface);}.creature-card.expanded{border-color:var(--border-strong);}
-.creature-header{display:flex;align-items:center;gap:14px;padding:12px 16px;}
+.creature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;transition:border-color .3s,background .3s;cursor:pointer;}.creature-card:hover{border-color:var(--border-strong);background:var(--bg-surface);}.creature-card.expanded{border-color:var(--border-strong);}
+.creature-header{display:flex;align-items:center;gap:16px;padding:16px 20px;}
 .tier-badge{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Uncial Antiqua',serif;font-size:20px;flex-shrink:0;border:1px solid;}
-.creature-meta{flex:1;}.creature-name{font-family:'Crimson Pro',serif;font-size:18px;font-weight:600;color:var(--stone);}.creature-epithet{font-size:16px;color:var(--stone-dim);font-style:italic;margin-top:1px;}
+.creature-meta{flex:1;}.creature-name{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--stone);}.creature-epithet{font-size:16px;color:var(--stone-dim);font-style:italic;margin-top:1px;}
 .creature-toggle{color:var(--stone-dim);font-size:11px;transition:transform .3s;}.creature-card.expanded .creature-toggle{transform:rotate(180deg);}
 .creature-body{display:none;border-top:1px solid var(--border);}.creature-card.expanded .creature-body{display:flex;}
-.creature-image{width:200px;min-height:200px;object-fit:cover;object-position:center top;flex-shrink:0;background:var(--bg-surface);}
+.creature-image{width:240px;min-height:240px;object-fit:cover;object-position:center top;flex-shrink:0;background:var(--bg-surface);}
 .creature-details{flex:1;padding:16px 18px;}.creature-lore{font-size:17px;color:var(--stone-dim);line-height:1.65;font-style:italic;margin-bottom:12px;}
 .creature-stats{display:flex;gap:8px;flex-wrap:wrap;}.creature-stat{padding:6px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--stone-dim);}.creature-stat span{color:var(--ember);}
 .creature-card.ss-card{border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);}.creature-card.ss-card:hover,.creature-card.ss-card.expanded{border-color:rgba(155,42,42,0.4);}
 .creature-card.ss-secret{border-color:rgba(155,42,42,0.12);background:rgba(155,42,42,0.02);}.creature-card.ss-secret .creature-name{color:var(--stone-dim);font-style:italic;}
 .secret-lock{display:flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;background:rgba(155,42,42,0.08);border:1px solid rgba(155,42,42,0.2);border-radius:4px;font-size:16px;color:var(--crimson-bright);font-style:italic;}
-.grimoire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;}
+.grimoire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
 .grid-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .2s;cursor:pointer;position:relative;}.grid-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
 .grid-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;background:var(--bg-surface);}
 .grid-card-info{padding:8px 10px;border-top:1px solid var(--border);}.grid-card-tier{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;margin-bottom:3px;}.grid-card-name{font-size:14px;color:var(--stone);font-weight:600;line-height:1.3;}
