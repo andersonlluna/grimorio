@@ -8,28 +8,28 @@
 <meta property="og:description" content="Todos os grimórios de criaturas · Liga Supertecnicos 2026">
 <title>Grimório · Liga Supertecnicos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:          #0b0906;
-  --bg-card:     #13100d;
-  --bg-surface:  #1a1510;
-  --ember:       #c47c2b;
-  --ember-dim:   #7a4e1a;
+  --bg:          #0d0a07;
+  --bg-card:     #171310;
+  --bg-surface:  #1e1812;
+  --ember:       #d4893a;
+  --ember-dim:   #9a6428;
   --ember-glow:  rgba(196,124,43,0.10);
-  --stone:       #c4bdb0;
-  --stone-dim:   #7a7268;
-  --border:      rgba(196,124,43,0.10);
-  --border-strong: rgba(196,124,43,0.22);
+  --stone:       #e8e2d8;
+  --stone-dim:   #a09488;
+  --border:      rgba(212,137,58,0.18);
+  --border-strong: rgba(212,137,58,0.35);
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
   background: var(--bg);
   color: var(--stone);
-  font-family: 'Crimson Pro', Georgia, serif;
-  font-size: 17px;
-  line-height: 1.65;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  line-height: 1.75;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ body {
   text-shadow: 0 0 60px rgba(196,124,43,.3);
 }
 .header-sub {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--stone-dim);
   font-style: italic;
   margin-top: .6rem;
@@ -88,7 +88,7 @@ body {
   font-size: 16px;
   color: var(--ember);
   letter-spacing: 0;
-  font-family: 'Crimson Pro', serif;
+  font-family: 'Lora', serif;
   font-weight: 600;
   margin-top: 2px;
 }
@@ -103,8 +103,8 @@ body {
 
 .section-title {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 4px;
+  font-size: 13px;
+  letter-spacing: 3px;
   color: var(--ember-dim);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -114,7 +114,7 @@ body {
 .section-title + .section-title { margin-top: 2.5rem; }
 
 /* ── GRIMÓRIO CARD ── */
-.grimorio-list { display: grid; gap: 10px; }
+.grimorio-list { display: grid; gap: 14px; }
 
 .grimorio-card {
   background: var(--bg-card);
@@ -161,15 +161,15 @@ body {
 }
 .card-info { flex: 1; }
 .card-name {
-  font-family: 'Crimson Pro', serif;
-  font-size: 20px;
+  font-family: 'Lora', serif;
+  font-size: 22px;
   font-weight: 600;
   color: var(--ember);
   margin-bottom: 4px;
 }
 .soon .card-name { color: var(--stone-dim); }
 .card-desc {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--stone-dim);
   font-style: italic;
 }
