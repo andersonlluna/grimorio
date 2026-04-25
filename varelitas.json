@@ -1,0 +1,195 @@
+{
+  "slug": "varelitas",
+  "name": "Varelitas",
+  "tagline": "Lobos Épicos do Bosque",
+  "sigil": "🐺",
+  "region": "Sylvorn",
+  "accent": "#6a9a5a",
+  "headerLore": "Sylvorn não é uma floresta — é uma afirmação. Cada criatura deste grimório existe como prova de que o bosque não precisa de permissão para ser inviolável.",
+  "intro": "Sylvorn não é uma floresta — é uma afirmação. Cada criatura deste grimório existe como prova de que o bosque não precisa de permissão para ser inviolável.",
+  "stats": [
+    { "value": "20", "label": "Criaturas" },
+    { "value": "6+5+4+3+2", "label": "Distribuição" },
+    { "value": "Sylvorn", "label": "Região" },
+    { "value": "Lethgar", "label": "Lendário" }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Sylvorn é a floresta mais antiga de Eirendhal. Não a maior — a mais antiga. Existe antes de qualquer fronteira ter sido traçada, antes de qualquer reino ter nome. As árvores de Sylvorn <strong>não crescem em direção à luz: crescem em direção ao que querem</strong>. O resultado são formas impossíveis que os botânicos de outras regiões param de tentar catalogar depois de alguns anos."
+    },
+    {
+      "title": "As Criaturas do Grimório",
+      "content": "Os Lobos Épicos do Bosque de Varelitas são criaturas de territorialidade absoluta — não territorial no sentido de proteger um espaço, mas no sentido de <strong>ser o espaço</strong>. Vyxara, Verdung, Luminar: cada uma é uma manifestação diferente de Sylvorn tomando forma. Não habitam a floresta. São a floresta em movimento."
+    },
+    {
+      "title": "✦ Oakenheart e a Afirmação do Ancião",
+      "content": "Oakenheart não é uma criatura de Sylvorn — é Sylvorn. O treant ancestral gigantesco com rosto esculpido num tronco existe antes de qualquer outra coisa na floresta. Só emerge quando testemunha o bosque derrotando as sombras: <strong>Varelitas precisa derrotar Lobonegro em duelo direto</strong>. A luz da floresta reivindica primazia sobre o que existe nas frestas.",
+      "secret": true
+    }
+  ],
+  "endNote": "As criaturas de Sylvorn não reconhecem autoridade externa. O grimório de Varelitas responde à consistência com o bosque — invocações frequentes mantêm os portais abertos. Ausências longas os fecham.",
+  "creatures": [
+    {
+      "file": "SS (1).jpg",
+      "tier": "SS",
+      "name": "Lethgar, Devorador de Cidades",
+      "epithet": "Emergiu do pântano quando a cidade cresceu sobre ele",
+      "lore": "Lethgar não ataca cidades por malícia — ele simplesmente existe, e as cidades que foram construídas sobre seu território precisam ser desfeitas. É uma questão de organização, não de raiva.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Oakenheart, Ancestral da Floresta",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Oakenheart tem um rosto no tronco que ninguém esculpiu — cresceu assim, porque Sylvorn decidiu ter uma face para certas ocasiões. Os galhos retorcidos têm séculos de decisões inscritas como anéis internos. Invocável quando Varelitas derrota Lobonegro em duelo direto.",
+      "secret": true,
+      "secretCondition": "Invocável quando Varelitas derrota Lobonegro em duelo direto — a luz de Sylvorn reivindica primazia sobre as sombras de Umbrath."
+    },
+    {
+      "file": "S (1).jpg",
+      "tier": "S",
+      "name": "Aedran, Lâmina Silvana",
+      "epithet": "A espada esmeralda foi forjada dentro de uma árvore viva",
+      "lore": "Aedran deixou a espada dentro de um carvalho de Sylvorn por cem anos. Quando a retirou, a lâmina havia absorvido algo da árvore. Os dois ainda não decidiram quem pertence a quem.",
+      "secret": false
+    },
+    {
+      "file": "S (2).jpg",
+      "tier": "S",
+      "name": "Virelion, Guardião do Portal",
+      "epithet": "O portal de luz dourada só existe porque ele está na frente dele",
+      "lore": "Virelion não guarda portais físicos. Guarda o conceito de fronteira — o ponto onde Sylvorn decide o que pode entrar. A forma de treant é apenas a versão mais legível desse conceito.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Nyvaron, Lâmina Ardil",
+      "epithet": "A aura verde-neon é aviso, não decoração",
+      "lore": "Nyvaron descobriu que a floresta tem uma frequência que enfraquece armaduras metálicas. Passou décadas aprendendo a canalizá-la. O espadão dourado é o receptor.",
+      "secret": false
+    },
+    {
+      "file": "A (1).jpg",
+      "tier": "A",
+      "name": "Velrynn, Asa de Mariposa",
+      "epithet": "A armadura de quitina foi construída pela própria floresta ao redor dele",
+      "lore": "Velrynn ficou parado em Sylvorn por tanto tempo que a floresta começou a crescer sobre ele. Quando acordou, a armadura estava pronta. Ele a aceitou como presente.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Gorthal, Coração de Âmbar",
+      "epithet": "A pedra dourada no peito não é ornamental — é o coração",
+      "lore": "Gorthal tem âmbar onde outros têm carne. Os eruditos de Sylvorn explicam isso dizendo que a floresta simplesmente faz o que precisa quando cria algo novo.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Mogar, Filho do Lodo",
+      "epithet": "Nasceu no charco mais profundo de Sylvorn",
+      "lore": "Mogar não é uma criatura que habita o pântano — é o resultado do pântano tentando andar. Em Sylvorn, o ambiente cria defensores quando sente necessidade.",
+      "secret": false
+    },
+    {
+      "file": "A (4).jpg",
+      "tier": "A",
+      "name": "Erothan, Raiz Viva",
+      "epithet": "Os galhos entrelaçados são membros, não galhos",
+      "lore": "Erothan é o que acontece quando uma árvore de Sylvorn decide que prefere se mover. A raiz flamejante no peito é o ponto onde a decisão foi tomada — ainda arde.",
+      "secret": false
+    },
+    {
+      "file": "B (1).jpg",
+      "tier": "B",
+      "name": "Pyrovak, Carneiro da Lava",
+      "epithet": "As cristas ígneas não combinam com a floresta — esse é o ponto",
+      "lore": "Pyrovak existe na borda de Sylvorn onde a floresta encontra terreno vulcânico. É a prova de que Sylvorn não rejeita o que é incompatível — absorve e adapta.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "Verdung, Presas Verdes",
+      "epithet": "As presas cristalinas crescem — não foram colocadas",
+      "lore": "Verdung tem presas de cristal verde que brilham na floresta enevoada. São visíveis a duzentos metros. Em Sylvorn, isso é considerado cortesia — aviso antecipado.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Luminar, Guardião da Mata",
+      "epithet": "O viajante no vale não percebeu que já havia sido avaliado",
+      "lore": "Luminar aparece diante de viajantes e os avalia com olhos musgosos antes de decidir se Sylvorn permite a passagem. A maioria dos viajantes não entende o que acabou de acontecer.",
+      "secret": false
+    },
+    {
+      "file": "B (4).jpg",
+      "tier": "B",
+      "name": "Kyrathos, Oráculo das Águas",
+      "epithet": "As águas de Sylvorn têm memória — ele as lê",
+      "lore": "Kyrathos não prevê o futuro — lê o passado das águas de Sylvorn, que registram tudo que passou por elas. Com passado suficiente, o futuro se torna menos surpreendente.",
+      "secret": false
+    },
+    {
+      "file": "B (5).jpg",
+      "tier": "B",
+      "name": "Sylven, o Encapuzado",
+      "epithet": "Os chifres de cervo cresceram depois que entrou na floresta",
+      "lore": "Sylven entrou em Sylvorn como humano. Saiu com chifres. Ficou. Em Sylvorn, a floresta marca quem decide permanecer — e Sylven considerou isso aceitável.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Ysraal, Serpente da Floresta",
+      "epithet": "Flutua acima do lago porque prefere não tocar o chão",
+      "lore": "Ysraal é coberta de folhagem que cresceu durante séculos de hibernação. Acordou enrolada em si mesma e decidiu que a posição era confortável o suficiente para manter.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Kaelthus, o Anfíbio",
+      "epithet": "As escamas azuis não são de nenhum animal catalogado",
+      "lore": "Kaelthus é a criatura de Sylvorn que os bestiários de outras regiões mais frequentemente erram. A categoria mais próxima é crocodilo — mas crocodilos não rugem em frequências que racham pedra.",
+      "secret": false
+    },
+    {
+      "file": "C (3).jpg",
+      "tier": "C",
+      "name": "Vekrath, Presas Ácidas",
+      "epithet": "A língua verde-ácido é a arma mais gentil que ele tem",
+      "lore": "Vekrath exibe as presas antes de qualquer movimento. Em Sylvorn, isso é considerado cortesia. O que vem depois das presas é considerado consequência da recusa ao aviso.",
+      "secret": false
+    },
+    {
+      "file": "C (4).jpg",
+      "tier": "C",
+      "name": "Fenrir Esmeralda",
+      "epithet": "A aura chamejante esmeralda é a floresta acelerada",
+      "lore": "Fenrir Esmeralda corre em Sylvorn como se a floresta se afastasse para abrir caminho — porque é exatamente isso que acontece. Sylvorn reconhece sua própria criação.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Korvax, Tigre do Abismo",
+      "epithet": "Parte tigre, parte dragão, classificado como problema",
+      "lore": "Korvax existe onde Sylvorn encontra profundidade rochosa. As ruínas ao seu redor são de estruturas que tentaram separar o tigre do dragão. Nenhuma tentativa foi bem-sucedida.",
+      "secret": false
+    },
+    {
+      "file": "C (6).jpg",
+      "tier": "C",
+      "name": "Brongarr, Javali das Chamas",
+      "epithet": "Corre em campo em chamas porque prefere assim",
+      "lore": "Brongarr não foge do fogo — corre em direção a ele. Em Sylvorn, o fogo controlado renova. Brongarr aprendeu isso antes de aprender qualquer outra coisa.",
+      "secret": false
+    }
+  ]
+}
