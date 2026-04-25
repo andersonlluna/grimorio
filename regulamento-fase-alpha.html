@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulamento · Fase Alpha · Grimório</title>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0906;--bg-card:#13100d;--bg-surface:#1a1510;--bg-hover:#221c14;
+  --ember:#c47c2b;--ember-dim:#7a4e1a;--ember-bright:#e8a050;
+  --ember-glow:rgba(196,124,43,0.12);
+  --crimson:#9b2a2a;--crimson-bright:#c23535;
+  --stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;
+  --border:rgba(196,124,43,0.10);--border-strong:rgba(196,124,43,0.22);
+  --tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--stone);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}
+::selection{background:var(--ember);color:var(--bg);}
+
+/* HEADER */
+.header{text-align:center;padding:3.5rem 1.5rem 2.5rem;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at 50% 0%,rgba(196,124,43,0.07) 0%,transparent 70%);}
+.header::before{content:'✦ ✦ ✦';display:block;font-size:10px;letter-spacing:10px;color:var(--ember-dim);margin-bottom:1rem;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:2px;color:var(--stone-dim);text-decoration:none;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s;}
+.back-link:hover{color:var(--ember);}
+.header h1{font-family:'Uncial Antiqua',serif;font-size:clamp(2rem,7vw,3.5rem);color:var(--ember);letter-spacing:4px;
+  line-height:1.1;text-shadow:0 0 40px rgba(196,124,43,0.3);}
+.header-sub{font-size:15px;color:var(--stone-dim);margin-top:.6rem;font-style:italic;letter-spacing:1px;}
+.header-league{font-size:11px;color:var(--ember-dim);margin-top:.3rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:3px;text-transform:uppercase;}
+.phase-badge{display:inline-block;margin-top:1rem;padding:5px 16px;border:1px solid var(--border-strong);
+  border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;
+  color:var(--ember);text-transform:uppercase;background:var(--ember-glow);}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(11,9,6,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);padding:0 1rem;overflow-x:auto;}
+.nav::-webkit-scrollbar{height:0;}
+.nav-inner{display:flex;max-width:820px;margin:0 auto;}
+.nav-btn{font-family:'Uncial Antiqua',serif;font-size:11px;letter-spacing:1.5px;color:var(--stone-dim);
+  background:none;border:none;padding:13px;cursor:pointer;white-space:nowrap;transition:color .3s;
+  border-bottom:2px solid transparent;}
+.nav-btn:hover{color:var(--stone);}
+.nav-btn.active{color:var(--ember);border-bottom-color:var(--ember);}
+
+/* CONTENT */
+.content{max-width:780px;margin:0 auto;padding:2rem 1.5rem 5rem;}
+.section{display:none;}
+.section.active{display:block;}
+.section-title{font-family:'Uncial Antiqua',serif;font-size:20px;color:var(--ember);margin-bottom:.4rem;letter-spacing:1px;}
+.section-intro{color:var(--stone-dim);font-size:16px;margin-bottom:2rem;font-style:italic;line-height:1.55;
+  border-left:2px solid var(--ember-dim);padding-left:1rem;}
+.group-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ember-dim);margin:2rem 0 .8rem;}
+
+/* FLOW */
+.flow-step{display:flex;gap:16px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;margin-bottom:3px;}
+.flow-num{width:30px;height:30px;border-radius:50%;background:var(--ember-glow);border:1px solid var(--ember-dim);
+  color:var(--ember);display:flex;align-items:center;justify-content:center;font-family:'Uncial Antiqua',serif;font-size:13px;flex-shrink:0;margin-top:2px;}
+.flow-connector{width:1px;height:12px;background:var(--border-strong);margin:0 0 0 29px;}
+.flow-text{font-size:15px;color:var(--stone-dim);line-height:1.55;}
+.flow-text strong{color:var(--stone);font-weight:600;}
+
+/* TOME BOX */
+.tome-box{margin-top:2rem;padding:18px 22px;background:var(--ember-glow);border:1px solid var(--border-strong);border-radius:6px;}
+.tome-box-title{font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--ember);letter-spacing:1px;margin-bottom:8px;}
+.tome-box-text{font-size:15px;color:var(--stone-dim);line-height:1.65;}
+.tome-box-text strong{color:var(--stone);}
+
+/* TIER ROWS */
+.tier-row{display:flex;align-items:flex-start;gap:16px;padding:14px 18px;background:var(--bg-card);
+  border:1px solid var(--border);border-radius:6px;margin-bottom:3px;}
+.tier-badge{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:600;border:1px solid;flex-shrink:0;}
+.tier-info{flex:1;}
+.tier-name{font-weight:600;font-size:16px;margin-bottom:2px;}
+.tier-desc{font-size:14px;color:var(--stone-dim);line-height:1.5;}
+.tier-pts{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;white-space:nowrap;padding-top:4px;}
+
+/* NOTE */
+.note{margin-top:1rem;padding:12px 16px;background:rgba(196,124,43,0.05);border:1px solid var(--border);
+  border-left:3px solid var(--ember-dim);border-radius:0 6px 6px 0;font-size:14px;color:var(--stone-dim);line-height:1.6;}
+.note strong{color:var(--stone);}
+
+/* CONQUISTAS */
+.cq-row{display:flex;align-items:flex-start;gap:16px;padding:14px 18px;background:var(--bg-card);
+  border:1px solid var(--border);border-radius:6px;margin-bottom:3px;}
+.cq-icon{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;border:1px solid;}
+.cq-info{flex:1;}
+.cq-name{font-weight:600;font-size:16px;margin-bottom:2px;}
+.cq-desc{font-size:14px;color:var(--stone-dim);line-height:1.5;}
+.cq-pts{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;white-space:nowrap;padding-top:4px;}
+
+/* TABLES */
+.power-table{width:100%;border-collapse:collapse;margin:1rem 0;}
+.power-table th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--stone-dim);padding:10px 14px;text-align:left;border-bottom:1px solid var(--border-strong);background:var(--bg-surface);}
+.power-table td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:15px;color:var(--stone-dim);}
+.power-table td:first-child{color:var(--stone);}
+.power-table tr:last-child td{border-bottom:none;}
+
+/* CONFRONTOS CALENDÁRIO */
+.round-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg-card);
+  border:1px solid var(--border);border-radius:6px;margin-bottom:3px;}
+.rr-num{font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--ember);width:70px;flex-shrink:0;}
+.rr-confs{display:flex;flex-wrap:wrap;gap:8px;flex:1;}
+.conf-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 10px;border-radius:3px;
+  background:var(--bg-surface);border:1px solid var(--border);color:var(--stone-dim);}
+
+/* TIMES */
+.team-card{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;margin-bottom:3px;overflow:hidden;}
+.team-header{display:flex;align-items:center;gap:14px;padding:14px 18px;cursor:pointer;user-select:none;transition:background .2s;}
+.team-header:hover{background:var(--bg-hover);}
+.team-sigil{font-size:1.8rem;width:36px;text-align:center;}
+.team-name{font-family:'Uncial Antiqua',serif;font-size:16px;color:var(--stone);}
+.team-type{font-size:13px;color:var(--stone-dim);margin-top:1px;}
+.team-toggle{margin-left:auto;font-size:10px;color:var(--stone-dim);transition:transform .3s;}
+.team-card.expanded .team-toggle{transform:rotate(180deg);}
+.team-body{display:none;padding:0 18px 14px;border-top:1px solid var(--border);}
+.team-card.expanded .team-body{display:block;}
+.creature-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border);}
+.creature-row:last-child{border-bottom:none;}
+.creature-tier-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+  padding:2px 8px;border-radius:3px;flex-shrink:0;}
+.creature-names{font-size:14px;color:var(--stone-dim);}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="fase-alpha.html" class="back-link">← Hub Alpha</a>
+  <h1>Regulamento · Fase Alpha</h1>
+  <div class="header-sub">O primeiro teste. Seis invocadores, cinco portais, as mesmas regras da liga.</div>
+  <div class="header-league">Grimório · Liga Supertécnicos 2026</div>
+  <div class="phase-badge">✦ Fase de Teste · 6 Times · 5 Rodadas</div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('visao',this)">Visão Geral</button>
+    <button class="nav-btn" onclick="show('estrutura',this)">Estrutura</button>
+    <button class="nav-btn" onclick="show('invocacao',this)">Invocação</button>
+    <button class="nav-btn" onclick="show('conquistas',this)">Conquistas</button>
+    <button class="nav-btn" onclick="show('embate',this)">Embate</button>
+    <button class="nav-btn" onclick="show('times',this)">Os 6 Times</button>
+    <button class="nav-btn" onclick="show('fluxo',this)">Fluxo</button>
+  </div>
+</nav>
+
+<div class="content">
+
+<!-- ═══ VISÃO GERAL ═══ -->
+<div class="section active" id="s-visao">
+  <div class="section-title">O que é a Fase Alpha</div>
+  <div class="section-intro">Um laboratório. A Fase Alpha existe para validar o sistema de regras antes da liga completa. Seis grimórios, cinco portais — as mesmas mecânicas da temporada oficial, em escala reduzida.</div>
+
+  <div class="flow-step"><div class="flow-num">I</div><div class="flow-text"><strong>Seis invocadores participam.</strong> Cada um carrega um grimório ancestral com criaturas exclusivas do seu tipo. As pontuações do Cartola FC determinam o que é invocado.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">II</div><div class="flow-text"><strong>Cinco rodadas de portal.</strong> A cada rodada, a pontuação abre um portal — quanto maior, mais rara a criatura. Conquistas são atribuídas automaticamente pela posição e pela pontuação atingida.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">III</div><div class="flow-text"><strong>Três confrontos por rodada.</strong> O calendário é fixo. Cada time enfrenta um adversário diferente a cada rodada — todos os seis se enfrentam exatamente uma vez ao longo da fase.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">IV</div><div class="flow-text"><strong>O poder de batalha decide.</strong> Pontos da rodada + bônus do tier invocado + bônus das conquistas. O maior poder vence o confronto. Sem empate.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">V</div><div class="flow-text"><strong>Classificação por vitórias.</strong> Ao fim das 5 rodadas, o invocador com mais vitórias lidera. Empate desfeito pelo total de pontos acumulados na fase.</div></div>
+
+  <div class="tome-box">
+    <div class="tome-box-title">✦ Propósito da Alpha</div>
+    <div class="tome-box-text">A Fase Alpha não decide campeão. Ela <strong>valida o sistema</strong> — testa se os thresholds fazem sentido, se as conquistas equilibram o poder de batalha, se a narrativa funciona com dados reais. Os resultados informam os ajustes da Fase Beta e da temporada completa.</div>
+  </div>
+</div>
+
+<!-- ═══ ESTRUTURA ═══ -->
+<div class="section" id="s-estrutura">
+  <div class="section-title">Estrutura da Fase</div>
+  <div class="section-intro">Seis times, cinco rodadas, quinze confrontos. Cada par se enfrenta exatamente uma vez.</div>
+
+  <div class="group-title">Parâmetros</div>
+
+  <table class="power-table">
+    <thead><tr><th>Parâmetro</th><th>Valor</th><th>Nota</th></tr></thead>
+    <tbody>
+      <tr><td>Times</td><td><strong>6</strong></td><td>Ironverdict, Icebergteam, Andorinha, CEEC, Varelitas, Lobonegro</td></tr>
+      <tr><td>Rodadas</td><td><strong>5</strong></td><td>Rodadas 1–5 do Cartola FC 2026</td></tr>
+      <tr><td>Confrontos por rodada</td><td><strong>3</strong></td><td>Todos os 6 times jogam em cada rodada</td></tr>
+      <tr><td>Total de confrontos</td><td><strong>15</strong></td><td>Cada par se enfrenta exatamente 1 vez</td></tr>
+      <tr><td>Critério de vitória</td><td><strong>Maior PB</strong></td><td>Pontos + tier + conquistas</td></tr>
+      <tr><td>Desempate</td><td><strong>Total de pontos</strong></td><td>Soma das pontuações do Cartola nas 5 rodadas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="group-title">Calendário de confrontos</div>
+
+  <div class="round-row">
+    <div class="rr-num">Rodada 1</div>
+    <div class="rr-confs">
+      <span class="conf-pill">Ironverdict × Lobonegro</span>
+      <span class="conf-pill">Icebergteam × Varelitas</span>
+      <span class="conf-pill">CEEC × Andorinha</span>
+    </div>
+  </div>
+  <div class="round-row">
+    <div class="rr-num">Rodada 2</div>
+    <div class="rr-confs">
+      <span class="conf-pill">Ironverdict × Andorinha</span>
+      <span class="conf-pill">Icebergteam × CEEC</span>
+      <span class="conf-pill">Varelitas × Lobonegro</span>
+    </div>
+  </div>
+  <div class="round-row">
+    <div class="rr-num">Rodada 3</div>
+    <div class="rr-confs">
+      <span class="conf-pill">Ironverdict × CEEC</span>
+      <span class="conf-pill">Icebergteam × Lobonegro</span>
+      <span class="conf-pill">Andorinha × Varelitas</span>
+    </div>
+  </div>
+  <div class="round-row">
+    <div class="rr-num">Rodada 4</div>
+    <div class="rr-confs">
+      <span class="conf-pill">Ironverdict × Varelitas</span>
+      <span class="conf-pill">CEEC × Lobonegro</span>
+      <span class="conf-pill">Icebergteam × Andorinha</span>
+    </div>
+  </div>
+  <div class="round-row">
+    <div class="rr-num">Rodada 5</div>
+    <div class="rr-confs">
+      <span class="conf-pill">Ironverdict × Icebergteam</span>
+      <span class="conf-pill">CEEC × Varelitas</span>
+      <span class="conf-pill">Andorinha × Lobonegro</span>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:1.5rem;"><strong>Distribuição perfeita:</strong> cada time disputa exatamente 5 confrontos em 5 rodadas — um por rodada, contra adversários diferentes. Nenhum time fica em repouso.</div>
+</div>
+
+<!-- ═══ INVOCAÇÃO ═══ -->
+<div class="section" id="s-invocacao">
+  <div class="section-title">Portais de Invocação</div>
+  <div class="section-intro">A pontuação do Cartola FC determina qual portal se abre. A criatura invocada é do tipo exclusivo do time — não há mistura entre grimórios.</div>
+
+  <div class="group-title">Thresholds de invocação</div>
+
+  <div class="tier-row">
+    <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.08);">C</div>
+    <div class="tier-info">
+      <div class="tier-name" style="color:var(--tier-c);">Comum</div>
+      <div class="tier-desc">O portal mínimo. A criatura mais acessível do grimório responde ao chamado.</div>
+    </div>
+    <div class="tier-pts" style="color:var(--tier-c);">≥ 65 pts</div>
+  </div>
+  <div class="tier-row">
+    <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.08);">B</div>
+    <div class="tier-info">
+      <div class="tier-name" style="color:var(--tier-b);">Incomum</div>
+      <div class="tier-desc">Uma boa rodada abre este portal. A criatura ganha poder e presença.</div>
+    </div>
+    <div class="tier-pts" style="color:var(--tier-b);">≥ 80 pts</div>
+  </div>
+  <div class="tier-row">
+    <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.08);">A</div>
+    <div class="tier-info">
+      <div class="tier-name" style="color:var(--tier-a);">Raro</div>
+      <div class="tier-desc">Uma rodada forte. Poucos invocadores chegam aqui. O portal é profundo e exigente.</div>
+    </div>
+    <div class="tier-pts" style="color:var(--tier-a);">≥ 90 pts</div>
+  </div>
+  <div class="tier-row">
+    <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.08);">S</div>
+    <div class="tier-info">
+      <div class="tier-name" style="color:var(--tier-s);">Épico</div>
+      <div class="tier-desc">Pontuação excepcional <em>e</em> conquista obrigatória. Sem o ritual, o portal fecha em A.</div>
+    </div>
+    <div class="tier-pts" style="color:var(--tier-s);">≥ 100 pts + conquista</div>
+  </div>
+  <div class="tier-row">
+    <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,0.08);">SS</div>
+    <div class="tier-info">
+      <div class="tier-name" style="color:var(--tier-ss);">Lendário</div>
+      <div class="tier-desc">O portal do caos. Exige pontuação absurda <em>e</em> Soberano obrigatório. Sem o 1º lugar, nem 115 pts bastam.</div>
+    </div>
+    <div class="tier-pts" style="color:var(--tier-ss);">≥ 115 pts + Soberano</div>
+  </div>
+
+  <div class="note"><strong>Sem invocação:</strong> pontuação abaixo de 65 pts — o grimório permanece fechado naquela rodada. O time não invoca criatura e entra no confronto sem poder de tier.</div>
+
+  <div class="group-title">Bônus de tier no poder de batalha</div>
+
+  <table class="power-table">
+    <thead><tr><th>Tier</th><th>Bônus PB</th><th>Exemplo: 85 pts na rodada</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--tier-c);font-family:'JetBrains Mono',monospace;font-weight:600">C</td><td><strong>+0</strong></td><td>85 + 0 = 85 PB</td></tr>
+      <tr><td style="color:var(--tier-b);font-family:'JetBrains Mono',monospace;font-weight:600">B</td><td><strong>+3</strong></td><td>85 + 3 = 88 PB</td></tr>
+      <tr><td style="color:var(--tier-a);font-family:'JetBrains Mono',monospace;font-weight:600">A</td><td><strong>+6</strong></td><td>85 + 6 = 91 PB</td></tr>
+      <tr><td style="color:var(--tier-s);font-family:'JetBrains Mono',monospace;font-weight:600">S</td><td><strong>+10</strong></td><td>85 + 10 = 95 PB</td></tr>
+      <tr><td style="color:var(--tier-ss);font-family:'JetBrains Mono',monospace;font-weight:600">SS</td><td><strong>+15</strong></td><td>85 + 15 = 100 PB</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ CONQUISTAS ═══ -->
+<div class="section" id="s-conquistas">
+  <div class="section-title">Conquistas</div>
+  <div class="section-intro">Atribuídas automaticamente a cada rodada. Somam poder de batalha e são o único caminho para invocar criaturas S e SS.</div>
+
+  <div class="group-title">As três conquistas da Alpha</div>
+
+  <div class="cq-row" style="border-color:rgba(196,124,43,0.3);background:rgba(196,124,43,0.05);">
+    <div class="cq-icon" style="color:var(--ember);border-color:rgba(196,124,43,0.3);background:rgba(196,124,43,0.1);">👑</div>
+    <div class="cq-info">
+      <div class="cq-name" style="color:var(--ember);">Soberano</div>
+      <div class="cq-desc">Concedido ao time com <strong>maior pontuação na rodada</strong> — o 1º lugar entre os 6. Um único Soberano por rodada. Obrigatório para invocar criatura SS. Ranking calculado apenas entre os 6 times da Alpha.</div>
+    </div>
+    <div class="cq-pts" style="color:var(--ember);">+10 PB</div>
+  </div>
+
+  <div class="cq-row" style="border-color:rgba(74,120,160,0.3);background:rgba(74,120,160,0.04);">
+    <div class="cq-icon" style="color:var(--tier-b);border-color:rgba(74,120,160,0.3);background:rgba(74,120,160,0.1);">🥇</div>
+    <div class="cq-info">
+      <div class="cq-name" style="color:var(--tier-b);">Arauto</div>
+      <div class="cq-desc">Concedido aos times em <strong>2º e 3º lugar</strong> na rodada. Dois Arautos por rodada.</div>
+    </div>
+    <div class="cq-pts" style="color:var(--tier-b);">+3 PB</div>
+  </div>
+
+  <div class="cq-row" style="border-color:rgba(136,96,192,0.3);background:rgba(136,96,192,0.04);">
+    <div class="cq-icon" style="color:var(--tier-a);border-color:rgba(136,96,192,0.3);background:rgba(136,96,192,0.1);">💀</div>
+    <div class="cq-info">
+      <div class="cq-name" style="color:var(--tier-a);">Despertar</div>
+      <div class="cq-desc">Concedido a <strong>qualquer time que pontuar ≥ 80 pts</strong>. Múltiplos por rodada. Obrigatório para invocar criatura S. O bônus escala com a intensidade da pontuação.</div>
+    </div>
+    <div class="cq-pts" style="color:var(--tier-a);">+5 PB base</div>
+  </div>
+
+  <div class="group-title">Despertar — escala por intensidade</div>
+
+  <table class="power-table">
+    <thead><tr><th>Pontuação</th><th>Bônus base</th><th>Bônus extra</th><th>Total ao PB</th></tr></thead>
+    <tbody>
+      <tr><td>≥ 80 pts</td><td>+5</td><td>—</td><td><strong style="color:var(--tier-a)">+5 PB</strong></td></tr>
+      <tr><td>≥ 90 pts</td><td>+5</td><td>+4</td><td><strong style="color:var(--tier-a)">+9 PB</strong></td></tr>
+      <tr><td>≥ 100 pts</td><td>+5</td><td>+8</td><td><strong style="color:var(--tier-s)">+13 PB</strong></td></tr>
+      <tr><td>≥ 110 pts</td><td>+5</td><td>+14</td><td><strong style="color:var(--tier-ss)">+19 PB</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="group-title">Portais S e SS — conquista obrigatória</div>
+
+  <div class="note" style="border-left-color:var(--tier-s);">
+    <strong style="color:var(--tier-s)">Portal S (≥ 100 pts):</strong> exige <strong>Soberano</strong> ou <strong>Despertar</strong> na mesma rodada. Sem conquista, o portal fecha em tier A.
+  </div>
+  <div class="note" style="margin-top:6px;border-left-color:var(--tier-ss);">
+    <strong style="color:var(--tier-ss)">Portal SS (≥ 115 pts):</strong> exige <strong>Soberano obrigatório</strong>. Apenas o 1º lugar pode convocar uma entidade lendária. 115 pts sem Soberano fecha em S.
+  </div>
+
+  <div class="group-title" style="margin-top:2rem;">SS Secreto — O Portal Oculto</div>
+
+  <div class="note" style="border-left-color:var(--tier-ss);margin-bottom:1.5rem;">
+    Cada grimório possui uma segunda criatura SS — o <strong style="color:var(--tier-ss)">SS Secreto</strong>. Ela não obedece ao limiar de 115 pts. Em vez disso, responde a uma condição única, narrativa e exclusiva daquele time. Quando a condição é cumprida, o portal se abre independentemente da pontuação ou de conquistas.
+  </div>
+
+  <div style="display:grid;gap:10px;margin-bottom:2rem;">
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">⚙</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">Ironverdict — Prometheus Máximo</div>
+        <div style="font-size:15px;color:var(--stone);">Vencer <strong>3 dos 5 confrontos</strong> ao longo da fase. A máquina não precisa de um momento — precisa de marcha contínua.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">❄</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">Icebergteam — Leviatã Glacial</div>
+        <div style="font-size:15px;color:var(--stone);">Pontuar <strong>≥ 95 pts em qualquer rodada</strong>. O leviatã não precisa de sequência — apenas emergir uma vez das profundezas.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">🦅</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">Andorinha — Simurgh Ancestral</div>
+        <div style="font-size:15px;color:var(--stone);">Pontuar <strong>≥ 80 pts em 3 das 5 rodadas</strong>. A ave ancestral não demonstra poder num voo — demonstra num padrão.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">⛰</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">CEEC — Ymir, o Colosso Primordial</div>
+        <div style="font-size:15px;color:var(--stone);">Ter a <strong>maior pontuação da liga em 2 rodadas distintas</strong>. O colosso do Norte não se ergue uma vez — ele domina o horizonte.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">🌿</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">Varelitas — Fenrir do Bosque</div>
+        <div style="font-size:15px;color:var(--stone);">Vencer um confronto com <strong>margem ≥ 15 pontos de PB</strong>. O bando não apenas vence — devora.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--tier-ss);border-radius:6px;">
+      <div style="font-size:20px;flex-shrink:0;margin-top:2px;">🌑</div>
+      <div>
+        <div style="font-family:'Uncial Antiqua',serif;font-size:13px;color:var(--tier-ss);margin-bottom:4px;">Lobonegro — Nyx, a Escuridão que Respira</div>
+        <div style="font-size:15px;color:var(--stone);">Vencer um confronto <strong>pontuando abaixo de 70 pts</strong>. A sombra não precisa brilhar — apenas sobreviver quando os outros caem mais fundo.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tome-box" style="margin-top:2rem;">
+    <div class="tome-box-title">✦ Exemplo completo de cálculo</div>
+    <div class="tome-box-text">
+      Andorinha pontua <strong>103.45 pts</strong> e termina em 1º lugar na rodada.<br>
+      Conquistas: <strong>Soberano (+10 PB)</strong> + <strong>Despertar ≥ 100 pts (+13 PB)</strong>.<br>
+      Tier invocado: <strong>S</strong> — ≥ 100 pts com Soberano ✓<br>
+      Poder de batalha: 103.45 + 10 (tier S) + 10 + 13 = <strong>136.45 PB</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EMBATE ═══ -->
+<div class="section" id="s-embate">
+  <div class="section-title">O Embate</div>
+  <div class="section-intro">Cada rodada resolve três confrontos simultaneamente. O calendário é fixo — não há sorteio, não há escolha.</div>
+
+  <div class="group-title">Fórmula do poder de batalha</div>
+
+  <div class="flow-step"><div class="flow-num">◈</div><div class="flow-text"><strong>PB = Pontos do Cartola</strong> + bônus do tier invocado + bônus das conquistas obtidas na rodada.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">◈</div><div class="flow-text"><strong>O time com maior PB vence o confronto.</strong> Vitória registrada no grimório. Nenhuma punição ao perdedor — cada rodada é independente.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">◈</div><div class="flow-text"><strong>Time sem invocação</strong> (abaixo de 65 pts) entra no confronto apenas com seus pontos brutos — sem bônus de tier, sem bônus de conquista.</div></div>
+
+  <div class="group-title">Desempate</div>
+
+  <div class="note"><strong>PB igual:</strong> o time com maior pontuação bruta do Cartola vence. Se ainda igual, o time com mais vitórias acumuladas na fase vence.</div>
+
+  <div class="group-title">Classificação final</div>
+
+  <table class="power-table">
+    <thead><tr><th>Critério</th><th>Ordem</th></tr></thead>
+    <tbody>
+      <tr><td>Vitórias acumuladas</td><td>Primário</td></tr>
+      <tr><td>Total de pontos Cartola na fase</td><td>Desempate 1</td></tr>
+      <tr><td>Maior PB em um único confronto</td><td>Desempate 2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ OS 6 TIMES ═══ -->
+<div class="section" id="s-times">
+  <div class="section-title">Os Seis Grimórios</div>
+  <div class="section-intro">Cada time possui um tipo ancestral exclusivo. Todas as criaturas invocadas emergem apenas desse tipo — não há mistura entre grimórios.</div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">⚙</div>
+      <div><div class="team-name">Ironverdict</div><div class="team-type">Máquinas de Guerra · Ferrathis</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Sir Aldric, o Penitente · Iryon, Joelho Firme · Elyse, Véu Turquesa · Toryn, o Sacerdote Rúnico · Varkhan, Portador do Fogo Rúnico</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Morethar, o Coroado em Cinzas · Vareth, o Caído · Solaron, Leão do Sol · Varmoth, Ancião Pétreo · Brenna, a Chama Ruiva · Kaelmar, o Juramentado</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Seraphiel, o Alvo · Auraviel, o Solar · Mirella, Lâmina da Alvorada · Thyra, Escudo Dourado</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Solarion, Arcanjo do Alvorecer · Morveth, o Apóstata · Rhyana, Guerreira Eterna</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Aeloros, Leão da Montanha Sagrada · Pyrethiel, Chama Divina</strong></span></div>
+    </div>
+  </div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">❄</div>
+      <div><div class="team-name">Icebergteam</div><div class="team-type">Bestas do Ártico · Kelvrak</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Irukar, Leão das Neves · Bromthal, Auroque das Geleiras · Vargoth, Bruto da Neve · Kaldrak, Urso Branco · Halvar, Lâmina Gelada · Osric, Arquimago do Permafrost</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Mordryn, Druida do Inverno · Kael'Ven, Príncipe das Tempestades · Gurroth, o Peludo · Selvyra, Rainha dos Espinhos · Thornar, Garra do Inverno</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Vyxara, Dragão do Gelo · Kryor, Rei das Geleiras · Frosten, o Rúnico · Sylvara, Domadora de Vyxara</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Malkor, o Lich Gelado · Ithariel, Olhar de Cristal · Drav'nir, Lâmina Luminosa</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Khurgoth, Pai das Geleiras · Aerok, Sentinela das Alturas</strong></span></div>
+    </div>
+  </div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">🦅</div>
+      <div><div class="team-name">Andorinha</div><div class="team-type">Aves Ancestrais Alfa · Skyvara</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Mireille, Chama Dourada · Nyssa, a Ágil · Borlin, Escudo Esmeralda · Aelra, Lança do Sol · Crestofagor, o Crestado · Aerakor, Dragão do Penhasco</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Seraphine, Asa Prata · Lyriel, Flecha Ardente · Zyphar, Predador dos Céus · Ursyn, Guardião da Mata · Ryouren, Pétala do Leão</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Aelsa, Domadora de Ventos · Syrelion, o Folheado · Eyrn, Rei das Tormentas · Aveline, Lâmina do Céu</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Velorion, Arcanjo do Zéfiro · Raoul, Lâmina do Vento · Pyrrhas, Fênix da Aurora</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Sveralith, Grande Dragão · Ikar, Senhor das Nuvens</strong></span></div>
+    </div>
+  </div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">⛰</div>
+      <div><div class="team-name">CEEC</div><div class="team-type">Senhores do Norte · Nordheim</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Kervan, Braço Pesado · Astrid, Lâmina do Norte · Sigrid, Véu Vermelho · Irmãos Flamejantes · Helga, a Escudeira · Oddvar, Chifre de Guerra</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Drokgar, o Gigante · Rei Harald, Barba Antiga · Rognar, Trovão Ruivo · Skjol, o Trançado · Dregar, o Montês</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Raugnir, Cavaleiro das Caveiras · Thorvik, Forjador de Ferro · Bjorn, Lâmina Dourada · Vael, Pétalas de Sangue</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Vrakhul, Senhor Caído · Sir Mordek, o Renegado · Ketrakh, Golem de Ferro</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Skarngrath, o Incendiário · Aurelon, Dragão Ancião</strong></span></div>
+    </div>
+  </div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">🌿</div>
+      <div><div class="team-name">Varelitas</div><div class="team-type">Lobos Épicos do Bosque · Sylvorn</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Ysraal, Serpente da Floresta · Kaelthus, o Anfíbio · Vekrath, Presas Ácidas · Fenrir Esmeralda · Korvax, Tigre do Abismo · Brongarr, Javali das Chamas</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Pyrovak, Carneiro da Lava · Verdung, Presas Verdes · Luminar, Guardião da Mata · Kyrathos, Oráculo das Águas · Sylven, o Encapuzado</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Velrynn, Asa de Mariposa · Gorthal, Coração de Âmbar · Mogar, Filho do Lodo · Erothan, Raiz Viva</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Aedran, Lâmina Silvana · Virelion, Guardião do Portal · Nyvaron, Lâmina Ardil</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Lethgar, Devorador de Cidades · Oakenheart, Ancestral da Floresta</strong></span></div>
+    </div>
+  </div>
+
+  <div class="team-card" onclick="toggleTeam(this)">
+    <div class="team-header">
+      <div class="team-sigil">🌑</div>
+      <div><div class="team-name">Lobonegro</div><div class="team-type">Lobos das Sombras · Valdrek</div></div>
+      <div class="team-toggle">▾</div>
+    </div>
+    <div class="team-body">
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(107,127,94,0.15);color:var(--tier-c);">C</span><span class="creature-names">Kreven, o Corvídeo · Nyss'eara, Fada Crepuscular · Shadorn, o Silente · Grib, Garra de Ferro · Arachna, Tecelã do Sangue · Vhar'kel, o Tridente</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(74,120,160,0.15);color:var(--tier-b);">B</span><span class="creature-names">Vornath, Raízes Ardentes · Fangor, Garra Elétrica · Kaenra, Tigre da Lava · Vraekor, Lobo Negro · Korrok, Urso das Ruínas</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(136,96,192,0.15);color:var(--tier-a);">A</span><span class="creature-names">Vraekhar, Duas Foices · Malegar, Chama Sombria · Nyxara, Lâmina Verde · Rei Morhak, Coroa de Osso</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(196,124,43,0.15);color:var(--tier-s);">S</span><span class="creature-names">Zorath, Alpha do Crepúsculo · Malrik, Sentinela do Osso · Thyran, Ceifador das Almas</span></div>
+      <div class="creature-row"><span class="creature-tier-tag" style="background:rgba(155,42,42,0.15);color:var(--tier-ss);">SS</span><span class="creature-names"><strong>Nergharoth, Serpente dos Abismos · Valdrek, o Senhor Sombrio</strong></span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FLUXO ═══ -->
+<div class="section" id="s-fluxo">
+  <div class="section-title">Fluxo por Rodada</div>
+  <div class="section-intro">O que acontece automaticamente após cada rodada do Cartola FC fechar.</div>
+
+  <div class="flow-step"><div class="flow-num">1</div><div class="flow-text"><strong>Rodada fecha.</strong> Os 6 times recebem suas pontuações. O sistema registra e ordena os resultados entre os participantes da Alpha.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">2</div><div class="flow-text"><strong>Conquistas atribuídas.</strong> Soberano ao 1º lugar, Arauto ao 2º e 3º, Despertar a quem atingiu ≥ 80 pts. O ranking é calculado apenas entre os 6 times da Alpha.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">3</div><div class="flow-text"><strong>Portais de invocação abrem.</strong> Cada time verifica threshold e conquistas. Tiers C/B/A por pontuação. Tiers S e SS exigem conquista obrigatória.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">4</div><div class="flow-text"><strong>Poder de batalha calculado.</strong> PB = Pontos + bônus do tier + bônus das conquistas. Calculado para cada time em cada confronto da rodada.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">5</div><div class="flow-text"><strong>Três confrontos resolvidos.</strong> Conforme o calendário da fase — o time com maior PB vence. Vitória registrada. Nenhuma punição ao perdedor.</div></div>
+  <div class="flow-connector"></div>
+  <div class="flow-step"><div class="flow-num">6</div><div class="flow-text"><strong>Boletim gerado.</strong> Conquistas, criaturas invocadas, confrontos, classificação atualizada.</div></div>
+
+  <div class="tome-box" style="margin-top:2rem;">
+    <div class="tome-box-title">✦ Encerramento da Fase Alpha</div>
+    <div class="tome-box-text">Após a Rodada 5, a classificação final é calculada por <strong>vitórias acumuladas</strong>. Os resultados e aprendizados da Alpha são usados para ajustar o sistema antes da Fase Beta — com 10 times, 9 rodadas e o sistema de conquistas consolidado.</div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
+}
+function toggleTeam(el) { el.classList.toggle('expanded'); }
+</script>
+</body>
+</html>
