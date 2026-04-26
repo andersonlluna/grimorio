@@ -4,468 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Icebergteam — Grimório · Liga Supertecnicos 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Icebergteam — Grimório da Liga Supertecnicos">
+<meta property="og:title" content="Icebergteam — Grimório">
+<meta property="og:description" content="Liga Supertecnicos · Temporada 2026">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/grimorio.css">
 <style>
-:root{--accent:#5a9ab8;--accent-glow:rgba(90,154,184,0.12);}
-
-:root{--bg:#0d0a07;--bg-card:#171310;--bg-surface:#1e1812;--bg-hover:#261f16;--ember:#d4893a;--ember-dim:#9a6428;--ember-bright:#f0b060;--ember-glow:rgba(196,124,43,0.10);--crimson:#9b2a2a;--crimson-bright:#c23535;--stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;--border:rgba(212,137,58,0.18);--border-strong:rgba(212,137,58,0.35);--tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;}
-*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--bg);color:var(--stone);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}::selection{background:var(--ember);color:var(--bg);}
-.header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border);position:relative;}.header::before{content:'✦ ✦ ✦';display:block;font-size:10px;letter-spacing:10px;color:var(--ember-dim);margin-bottom:1rem;}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--stone-dim);text-decoration:none;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s;}.back-link:hover{color:var(--ember);}
-.sigil{font-size:3rem;margin-bottom:.8rem;display:block;}
-.header h1{font-family:'Uncial Antiqua',serif;font-size:clamp(2.2rem,7vw,3.8rem);color:var(--ember);letter-spacing:4px;line-height:1.1;text-shadow:0 0 40px rgba(196,124,43,0.25);}
-.header-region{font-size:12px;margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;opacity:.8;}
-.header-lore{font-size:18px;color:var(--stone-dim);margin-top:.8rem;font-style:italic;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;}
-.header-league{font-size:11px;color:var(--ember-dim);margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;}
-.stats-bar{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--border);background:var(--bg-card);}
-.stat-item{flex:1;max-width:180px;text-align:center;padding:14px 12px;border-right:1px solid var(--border);}.stat-item:last-child{border-right:none;}
-.stat-val{font-family:'Uncial Antiqua',serif;font-size:22px;color:var(--ember);display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stone-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
-.nav{position:sticky;top:0;z-index:100;background:rgba(11,9,6,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1rem;overflow-x:auto;}.nav::-webkit-scrollbar{height:0;}
-.nav-inner{display:flex;max-width:860px;margin:0 auto;}
-.nav-btn{font-family:'Uncial Antiqua',serif;font-size:11px;letter-spacing:1.5px;color:var(--stone-dim);background:none;border:none;padding:13px 14px;cursor:pointer;white-space:nowrap;transition:color .3s;border-bottom:2px solid transparent;}.nav-btn:hover{color:var(--stone);}.nav-btn.active{color:var(--ember);border-bottom-color:var(--ember);}
-.content{max-width:840px;margin:0 auto;padding:2rem 1.5rem 5rem;}.section{display:none;}.section.active{display:block;}
-.section-title{font-family:'Uncial Antiqua',serif;font-size:18px;color:var(--ember);margin-bottom:.4rem;letter-spacing:1px;}
-.section-intro{color:var(--stone-dim);font-size:18px;margin-bottom:2rem;font-style:italic;line-height:1.55;border-left:2px solid var(--ember-dim);padding-left:1rem;}
-.group-title{font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:2px;color:var(--stone-dim);margin:2rem 0 .75rem;padding-bottom:5px;border-bottom:1px solid var(--border);text-transform:uppercase;}.group-title:first-child{margin-top:0;}
-.creature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;transition:border-color .3s,background .3s;cursor:pointer;}.creature-card:hover{border-color:var(--border-strong);background:var(--bg-surface);}.creature-card.expanded{border-color:var(--border-strong);}
-.creature-header{display:flex;align-items:center;gap:16px;padding:16px 20px;}
-.tier-badge{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Uncial Antiqua',serif;font-size:20px;flex-shrink:0;border:1px solid;}
-.creature-meta{flex:1;}.creature-name{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--stone);}.creature-epithet{font-size:16px;color:var(--stone-dim);font-style:italic;margin-top:1px;}
-.creature-toggle{color:var(--stone-dim);font-size:11px;transition:transform .3s;}.creature-card.expanded .creature-toggle{transform:rotate(180deg);}
-.creature-body{display:none;border-top:1px solid var(--border);}.creature-card.expanded .creature-body{display:flex;}
-.creature-image{width:240px;min-height:240px;object-fit:cover;object-position:center top;flex-shrink:0;background:var(--bg-surface);}
-.creature-details{flex:1;padding:16px 18px;}.creature-lore{font-size:17px;color:var(--stone-dim);line-height:1.65;font-style:italic;margin-bottom:12px;}
-.creature-stats{display:flex;gap:8px;flex-wrap:wrap;}.creature-stat{padding:6px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--stone-dim);}.creature-stat span{color:var(--ember);}
-.creature-card.ss-card{border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);}.creature-card.ss-card:hover,.creature-card.ss-card.expanded{border-color:rgba(155,42,42,0.4);}
-.creature-card.ss-secret{border-color:rgba(155,42,42,0.12);background:rgba(155,42,42,0.02);}.creature-card.ss-secret .creature-name{color:var(--stone-dim);font-style:italic;}
-.secret-lock{display:flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;background:rgba(155,42,42,0.08);border:1px solid rgba(155,42,42,0.2);border-radius:4px;font-size:16px;color:var(--crimson-bright);font-style:italic;}
-.grimoire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.grid-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .2s;cursor:pointer;position:relative;}.grid-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.grid-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;background:var(--bg-surface);}
-.grid-card-info{padding:8px 10px;border-top:1px solid var(--border);}.grid-card-tier{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;margin-bottom:3px;}.grid-card-name{font-size:14px;color:var(--stone);font-weight:600;line-height:1.3;}
-.grid-card-secret{position:absolute;top:8px;right:8px;background:rgba(155,42,42,0.8);border-radius:3px;font-size:10px;padding:2px 5px;color:#ff6b6b;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
-.lore-block{padding:20px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;}.lore-block h3{font-family:'Uncial Antiqua',serif;font-size:14px;color:var(--ember);margin-bottom:10px;letter-spacing:1px;}.lore-block p{font-size:17px;color:var(--stone-dim);line-height:1.75;}.lore-block p+p{margin-top:.8rem;}.lore-block p strong{color:var(--stone);}
-.note{padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--ember-dim);border-radius:0 6px 6px 0;font-size:17px;color:var(--stone-dim);line-height:1.6;margin-top:1rem;}.note strong{color:var(--stone);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,9,6,0.92);z-index:1000;align-items:center;justify-content:center;padding:1rem;}.modal-overlay.open{display:flex;}
-.modal{background:var(--bg-card);border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
-.modal-img{width:100%;max-height:380px;object-fit:cover;object-position:center top;display:block;}.modal-body{padding:20px 24px;}
-.modal-tier{font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:6px;}.modal-name{font-family:'Uncial Antiqua',serif;font-size:26px;color:var(--ember);margin-bottom:4px;}.modal-epithet{font-size:17px;color:var(--stone-dim);font-style:italic;margin-bottom:14px;}.modal-lore{font-size:18px;color:var(--stone-dim);line-height:1.7;}
-.modal-close{position:absolute;top:12px;right:12px;background:rgba(11,9,6,0.7);border:1px solid var(--border);color:var(--stone-dim);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:color .2s,border-color .2s;}.modal-close:hover{color:var(--stone);border-color:var(--border-strong);}
-@media(max-width:600px){.content{padding:1.5rem 1rem 3rem;}.creature-body{flex-direction:column;}.creature-image{width:100%;min-height:220px;}.stats-bar{flex-wrap:wrap;}.stat-item{max-width:none;border-right:none;border-bottom:1px solid var(--border);}.stat-item:last-child{border-bottom:none;}}
-
-.header{background:radial-gradient(ellipse at 50% 0%,rgba(90,154,184,0.09) 0%,transparent 65%),radial-gradient(ellipse at 50% 0%,rgba(196,124,43,0.05) 0%,transparent 80%);}
-.sigil{filter:drop-shadow(0 0 20px rgba(90,154,184,0.4));}
-.header-region{color:var(--accent);}
+  :root {
+    --accent: #5ab8e0;
+    --accent-soft: rgba(90,184,224, 0.10);
+    --accent-strong: rgba(90,184,224, 0.35);
+  }
+  .header {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(90,184,224, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 80%);
+  }
 </style>
 </head>
 <body>
-<div class="header">
-  <a href="../grimorio-regulamento.html" class="back-link">← Regulamento</a>
-  <span class="sigil">❄</span>
-  <h1>Icebergteam</h1>
-  <div class="header-region">Kelvrak · Bestas do Ártico</div>
-  <div class="header-lore">Kelvrak não é frio — é paciente. Cada criatura deste grimório carrega o peso de geleiras que se movem um milímetro por século. Lentas, inevitáveis, absolutas.</div>
-  <div class="header-league">Liga Supertecnicos · Temporada 2026</div>
-</div>
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-val">20</span><div class="stat-label">Criaturas</div></div>
-  <div class="stat-item"><span class="stat-val">6+5+4+3+2</span><div class="stat-label">Distribuição</div></div>
-  <div class="stat-item"><span class="stat-val">Kelvrak</span><div class="stat-label">Região</div></div>
-  <div class="stat-item"><span class="stat-val">Khurgoth</span><div class="stat-label">Lendário</div></div>
-</div>
+
+<div class="header" id="grimorio-header"></div>
+<div class="stats-bar" id="grimorio-stats"></div>
+
 <nav class="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="show('grimorio',this)">Grimório</button>
-    <button class="nav-btn" onclick="show('galeria',this)">Galeria</button>
-    <button class="nav-btn" onclick="show('lore',this)">Lore</button>
+    <button class="nav-btn active" onclick="show('grimorio', this)">Grimório</button>
+    <button class="nav-btn" onclick="show('galeria', this)">Galeria</button>
+    <button class="nav-btn" onclick="show('lore', this)">Lore</button>
   </div>
 </nav>
+
 <div class="content">
-<div class="section active" id="s-grimorio">
-  <div class="section-title">O Grimório de Icebergteam</div>
-  <div class="section-intro">Kelvrak não é frio — é paciente. Cada criatura deste grimório carrega o peso de geleiras que se movem um milímetro por século. Lentas, inevitáveis, absolutas.</div>
-  <div class="group-title">SS · Lendário — ≥ 115 pts ou marco</div>
-  <div class="creature-card ss-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,0.10);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Khurgoth, Pai das Geleiras</div>
-        <div class="creature-epithet">O rosto no vale congelado tem séculos de expressão</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/SS.jpg" alt="Khurgoth, Pai das Geleiras" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Khurgoth não se move. Ele já está em todos os lugares que importam — apenas espera que o mundo perceba. Seu rosto emerge do gelo de um vale inteiro, e o guerreiro que o contempla não tem referência de escala para processar o que vê.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div><div class="creature-stat">Limiar <span>≥ 115 pts ou marco</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card ss-secret" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:rgba(155,42,42,0.3);background:rgba(155,42,42,0.05);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Aerok, Sentinela das Alturas</div>
-        <div class="creature-epithet">✦ Invocação Secreta</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/SS%20%282%29.jpg" alt="Aerok, Sentinela das Alturas" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Aerok só desce quando testemunha o padrão sagrado de Kelvrak: silêncio total seguido de tempestade máxima. Invocável quando Icebergteam entra em repouso forçado numa rodada e invoca tier S ou superior na rodada seguinte.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div></div>
-        <div class="secret-lock">✦ Invocável quando Icebergteam entra em repouso forçado e na rodada seguinte invoca tier S ou SS — o silêncio precede a maior tempestade.</div>
-      </div>
-    </div>
-  </div>
-  <div class="group-title">S · Épico — ≥ 100 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Malkor, o Lich Gelado</div>
-        <div class="creature-epithet">A morte em Kelvrak não apodrece — cristaliza</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/S.jpg" alt="Malkor, o Lich Gelado" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Malkor morreu há tanto tempo que o frio o preservou perfeitamente. Agora reina sobre um trono de gelo com a clareza de quem não tem mais nada a perder.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Ithariel, Olhar de Cristal</div>
-        <div class="creature-epithet">Os olhos azuis veem através de armaduras e intenções</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/S%20%282%29.jpg" alt="Ithariel, Olhar de Cristal" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Ithariel não usa espada para atacar — usa o olhar. A espada é para quando a batalha já terminou e alguém não percebeu.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Dravnir, Lâmina Luminosa</div>
-        <div class="creature-epithet">A luz que emana de seu espadão não aquece</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/S%20%283%29.jpg" alt="Dravnir, Lâmina Luminosa" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Dravnir descobriu que a luz do gelo é mais fria que a escuridão. Sua lâmina prova isso a cada duelo.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">A · Raro — ≥ 90 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vyxara, Dragão do Gelo</div>
-        <div class="creature-epithet">Branco sobre lava — o contraste que define Kelvrak</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/A.jpg" alt="Vyxara, Dragão do Gelo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vyxara foi visto sobrevoando campos de lava com as asas geladas. O vapor criado dura dias. Os mapas que registram o evento existem em três museus diferentes.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Kryor, Rei das Geleiras</div>
-        <div class="creature-epithet">A coroa pontiaguda não é simbólica</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/A%20%282%29.jpg" alt="Kryor, Rei das Geleiras" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Kryor governa por tecnologia arcana e por temperatura. Seus súditos sabem que o rei chegou quando o ar fica três graus mais frio.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Frosten, o Rúnico</div>
-        <div class="creature-epithet">As runas azuis são a gramática do gelo</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/A%20%283%29.jpg" alt="Frosten, o Rúnico" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Frosten passou um século inscrevendo runas em sua armadura. Cada uma é uma lei de Kelvrak em forma de símbolo.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Sylvara, Domadora de Vyxara</div>
-        <div class="creature-epithet">Cavalga o dragão que outros fogem</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/A%20%284%29.jpg" alt="Sylvara, Domadora de Vyxara" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Sylvara não domou Vyxara com força — domou com paciência. Esperou que o dragão ficasse entediado de ser temido e propôs algo diferente.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">B · Incomum — ≥ 80 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Mordryn, Druida do Inverno</div>
-        <div class="creature-epithet">O druida que escolheu o inverno como estação permanente</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/B.jpg" alt="Mordryn, Druida do Inverno" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Mordryn descobriu que as plantas do inverno são mais resistentes que as do verão. Passou o resto da eternidade provando esse ponto.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">KaelVen, Príncipe das Tempestades</div>
-        <div class="creature-epithet">A eletricidade azul no torso não é ferimento</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/B%20%282%29.jpg" alt="KaelVen, Príncipe das Tempestades" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">KaelVen absorveu um raio há duzentos anos. O raio ainda está lá — o príncipe simplesmente decidiu ficar com ele.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Gurroth, o Peludo</div>
-        <div class="creature-epithet">Parece manso. Essa é a estratégia.</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/B%20%283%29.jpg" alt="Gurroth, o Peludo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Gurroth tem olhos laranja que não combinam com nada mais nele. É justamente isso que os adversários notam — um segundo tarde demais.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Selvyra, Rainha dos Espinhos</div>
-        <div class="creature-epithet">A coroa de chifres cresceu — não foi colocada</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/B%20%284%29.jpg" alt="Selvyra, Rainha dos Espinhos" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Selvyra não aceitou uma coroa. A coroa cresceu nela, porque Kelvrak reconhece quem manda sem precisar de cerimônia.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Thornar, Garra do Inverno</div>
-        <div class="creature-epithet">O martelo de cristal ressoa em frequências que desestabilizam</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/B%20%285%29.jpg" alt="Thornar, Garra do Inverno" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Thornar não precisa acertar para destruir. A vibração do martelo de cristal faz o trabalho antes do impacto.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">C · Comum — ≥ 65 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Irukar, Leão das Neves</div>
-        <div class="creature-epithet">O rei das planícies geladas não tem trono fixo</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C.jpg" alt="Irukar, Leão das Neves" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Irukar caminha. Isso é tudo. O caminho que deixa é um mapa de quem governa o que em Kelvrak.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Bromthal, Auroque das Geleiras</div>
-        <div class="creature-epithet">Os chifres curvos mediram o vento por milênios</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C%20%281%29.jpg" alt="Bromthal, Auroque das Geleiras" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Bromthal é a criatura mais antiga de Kelvrak que ainda se move. O que ele viu está nos anéis de seus chifres — se alguém soubesse como ler.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vargoth, Bruto da Neve</div>
-        <div class="creature-epithet">A postura agachada é posição de repouso — não de ataque</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C%20%282%29.jpg" alt="Vargoth, Bruto da Neve" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vargoth em repouso parece uma rocha. Em movimento, a rocha tem opiniões muito firmes sobre quem pode passar.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Kaldrak, Urso Branco</div>
-        <div class="creature-epithet">A neve que voa com ele não cai de volta</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C%20%283%29.jpg" alt="Kaldrak, Urso Branco" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Kaldrak corre e a neve o segue como se fosse dele. Em Kelvrak, pode ser que seja.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Halvar, Lâmina Gelada</div>
-        <div class="creature-epithet">O viking que aprendeu a gostar do frio</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C%20%284%29.jpg" alt="Halvar, Lâmina Gelada" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Halvar veio do sul. Ficou porque Kelvrak prova seus guerreiros de um modo que nenhuma outra região consegue. Ele sobreviveu. Kelvrak o aceitou.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Osric, Arquimago do Permafrost</div>
-        <div class="creature-epithet">A barba branca cresceu junto com o conhecimento</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/C%20%285%29.jpg" alt="Osric, Arquimago do Permafrost" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Osric chegou a Kelvrak para estudar o gelo. Depois de trezentos anos, ainda não terminou. Diz que o gelo muda a cada estação — e cada mudança é um novo capítulo.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
+  <div class="section active" id="s-grimorio"></div>
+  <div class="section" id="s-galeria"></div>
+  <div class="section" id="s-lore"></div>
 </div>
-<div class="section" id="s-galeria">
-  <div class="section-title">Galeria do Grimório</div>
-  <div class="section-intro">Todas as criaturas de Kelvrak. Toque para ver detalhes.</div>
-  <div class="grimoire-grid" id="grid-container"></div>
-</div>
-<div class="section" id="s-lore">
-  <div class="section-title">A Região de Kelvrak</div>
-  <div class="section-intro">Kelvrak não é frio — é paciente. Cada criatura deste grimório carrega o peso de geleiras que se movem um milímetro por século. Lentas, inevitáveis, absolutas.</div>
-  <div class="lore-block"><h3>Origem</h3><p>Kelvrak é o que acontece quando o inverno decide ficar. Não uma estação — uma decisão geológica. As criaturas que habitam essa região <strong>não toleram o gelo: são feitas dele</strong>. Suas veias conduzem água que não lembra como foi líquida.</p></div>
-  <div class="lore-block"><h3>As Criaturas do Grimório</h3><p>As Bestas do Ártico de Kelvrak são criaturas de profundidade, não de superfície. O que se vê no campo de batalha é apenas a ponta — como o iceberg que deu nome ao time. O que está abaixo da superfície é o que destrói navios.</p></div>
-  <div class="lore-block" style="border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);">
-    <h3>✦ Aerok e o Silêncio que Antecede</h3><p>Aerok, o colosso grifo-águia de pedra e gelo, não emerge de força — emerge de contraste. O silêncio do repouso forçado, seguido pela tempestade de uma invocação máxima: <strong>é esse padrão que abre o portal de Aerok</strong>. Kelvrak ensina que a maior tempestade nasce do maior silêncio.</p>
-  </div>
-  <div class="note">As criaturas de Kelvrak não aumentam de intensidade — aumentam de escala. A diferença entre um C e um SS de Kelvrak não é velocidade ou agressividade. É tamanho. O SS é simplesmente algo que não cabe em conceitos normais.</div>
-</div>
-</div>
+
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModalDirect()">✕</button>
@@ -478,63 +57,11 @@
     </div>
   </div>
 </div>
+
+<script src="../assets/grimorio.js"></script>
 <script>
-const CDN='https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/';
-const creatures=[
-  {file:'SS.jpg',tier:'SS',name:'Khurgoth, Pai das Geleiras',epithet:'O rosto no vale congelado tem séculos de expressão',lore:'Khurgoth não se move. Ele já está em todos os lugares que importam — apenas espera que o mundo perceba. Seu rosto emerge do gelo de um vale inteiro, e o guerreiro que o contempla não tem referência de escala para processar o que vê.',color:'var(--tier-ss)',secret:false},
-  {file:'SS (2).jpg',tier:'SS',name:'Aerok, Sentinela das Alturas',epithet:'✦ Invocação Secreta',lore:'Aerok só desce quando testemunha o padrão sagrado de Kelvrak: silêncio total seguido de tempestade máxima. Invocável quando Icebergteam entra em repouso forçado numa rodada e invoca tier S ou superior na rodada seguinte.',color:'var(--tier-ss)',secret:true},
-  {file:'S.jpg',tier:'S',name:'Malkor, o Lich Gelado',epithet:'A morte em Kelvrak não apodrece — cristaliza',lore:'Malkor morreu há tanto tempo que o frio o preservou perfeitamente. Agora reina sobre um trono de gelo com a clareza de quem não tem mais nada a perder.',color:'var(--tier-s)',secret:false},
-  {file:'S (2).jpg',tier:'S',name:'Ithariel, Olhar de Cristal',epithet:'Os olhos azuis veem através de armaduras e intenções',lore:'Ithariel não usa espada para atacar — usa o olhar. A espada é para quando a batalha já terminou e alguém não percebeu.',color:'var(--tier-s)',secret:false},
-  {file:'S (3).jpg',tier:'S',name:'Dravnir, Lâmina Luminosa',epithet:'A luz que emana de seu espadão não aquece',lore:'Dravnir descobriu que a luz do gelo é mais fria que a escuridão. Sua lâmina prova isso a cada duelo.',color:'var(--tier-s)',secret:false},
-  {file:'A.jpg',tier:'A',name:'Vyxara, Dragão do Gelo',epithet:'Branco sobre lava — o contraste que define Kelvrak',lore:'Vyxara foi visto sobrevoando campos de lava com as asas geladas. O vapor criado dura dias. Os mapas que registram o evento existem em três museus diferentes.',color:'var(--tier-a)',secret:false},
-  {file:'A (2).jpg',tier:'A',name:'Kryor, Rei das Geleiras',epithet:'A coroa pontiaguda não é simbólica',lore:'Kryor governa por tecnologia arcana e por temperatura. Seus súditos sabem que o rei chegou quando o ar fica três graus mais frio.',color:'var(--tier-a)',secret:false},
-  {file:'A (3).jpg',tier:'A',name:'Frosten, o Rúnico',epithet:'As runas azuis são a gramática do gelo',lore:'Frosten passou um século inscrevendo runas em sua armadura. Cada uma é uma lei de Kelvrak em forma de símbolo.',color:'var(--tier-a)',secret:false},
-  {file:'A (4).jpg',tier:'A',name:'Sylvara, Domadora de Vyxara',epithet:'Cavalga o dragão que outros fogem',lore:'Sylvara não domou Vyxara com força — domou com paciência. Esperou que o dragão ficasse entediado de ser temido e propôs algo diferente.',color:'var(--tier-a)',secret:false},
-  {file:'B.jpg',tier:'B',name:'Mordryn, Druida do Inverno',epithet:'O druida que escolheu o inverno como estação permanente',lore:'Mordryn descobriu que as plantas do inverno são mais resistentes que as do verão. Passou o resto da eternidade provando esse ponto.',color:'var(--tier-b)',secret:false},
-  {file:'B (2).jpg',tier:'B',name:'KaelVen, Príncipe das Tempestades',epithet:'A eletricidade azul no torso não é ferimento',lore:'KaelVen absorveu um raio há duzentos anos. O raio ainda está lá — o príncipe simplesmente decidiu ficar com ele.',color:'var(--tier-b)',secret:false},
-  {file:'B (3).jpg',tier:'B',name:'Gurroth, o Peludo',epithet:'Parece manso. Essa é a estratégia.',lore:'Gurroth tem olhos laranja que não combinam com nada mais nele. É justamente isso que os adversários notam — um segundo tarde demais.',color:'var(--tier-b)',secret:false},
-  {file:'B (4).jpg',tier:'B',name:'Selvyra, Rainha dos Espinhos',epithet:'A coroa de chifres cresceu — não foi colocada',lore:'Selvyra não aceitou uma coroa. A coroa cresceu nela, porque Kelvrak reconhece quem manda sem precisar de cerimônia.',color:'var(--tier-b)',secret:false},
-  {file:'B (5).jpg',tier:'B',name:'Thornar, Garra do Inverno',epithet:'O martelo de cristal ressoa em frequências que desestabilizam',lore:'Thornar não precisa acertar para destruir. A vibração do martelo de cristal faz o trabalho antes do impacto.',color:'var(--tier-b)',secret:false},
-  {file:'C.jpg',tier:'C',name:'Irukar, Leão das Neves',epithet:'O rei das planícies geladas não tem trono fixo',lore:'Irukar caminha. Isso é tudo. O caminho que deixa é um mapa de quem governa o que em Kelvrak.',color:'var(--tier-c)',secret:false},
-  {file:'C (1).jpg',tier:'C',name:'Bromthal, Auroque das Geleiras',epithet:'Os chifres curvos mediram o vento por milênios',lore:'Bromthal é a criatura mais antiga de Kelvrak que ainda se move. O que ele viu está nos anéis de seus chifres — se alguém soubesse como ler.',color:'var(--tier-c)',secret:false},
-  {file:'C (2).jpg',tier:'C',name:'Vargoth, Bruto da Neve',epithet:'A postura agachada é posição de repouso — não de ataque',lore:'Vargoth em repouso parece uma rocha. Em movimento, a rocha tem opiniões muito firmes sobre quem pode passar.',color:'var(--tier-c)',secret:false},
-  {file:'C (3).jpg',tier:'C',name:'Kaldrak, Urso Branco',epithet:'A neve que voa com ele não cai de volta',lore:'Kaldrak corre e a neve o segue como se fosse dele. Em Kelvrak, pode ser que seja.',color:'var(--tier-c)',secret:false},
-  {file:'C (4).jpg',tier:'C',name:'Halvar, Lâmina Gelada',epithet:'O viking que aprendeu a gostar do frio',lore:'Halvar veio do sul. Ficou porque Kelvrak prova seus guerreiros de um modo que nenhuma outra região consegue. Ele sobreviveu. Kelvrak o aceitou.',color:'var(--tier-c)',secret:false},
-  {file:'C (5).jpg',tier:'C',name:'Osric, Arquimago do Permafrost',epithet:'A barba branca cresceu junto com o conhecimento',lore:'Osric chegou a Kelvrak para estudar o gelo. Depois de trezentos anos, ainda não terminou. Diz que o gelo muda a cada estação — e cada mudança é um novo capítulo.',color:'var(--tier-c)',secret:false}
-];
-
-function enc(f){return f.replace(/ /g,'%20').replace(/\(/g,'%28').replace(/\)/g,'%29');}
-function buildGrid(){
-  const c=document.getElementById('grid-container');
-  creatures.forEach((cr,i)=>{
-    const d=document.createElement('div');d.className='grid-card';
-    d.innerHTML=`${cr.secret?'<div class="grid-card-secret">✦ SECRETA</div>':''}<img src="${CDN}${enc(cr.file)}" alt="${cr.name}" loading="lazy"><div class="grid-card-info"><div class="grid-card-tier" style="color:${cr.color}">${cr.tier}</div><div class="grid-card-name">${cr.name.split(',')[0]}</div></div>`;
-    d.onclick=()=>openModal(i);c.appendChild(d);
-  });
-}
-function openModal(i){
-  const c=creatures[i];
-  document.getElementById('modal-img').src=CDN+enc(c.file);
-  document.getElementById('modal-tier').innerHTML=`<span style="color:${c.color};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;">${c.tier} · ${c.secret?'INVOCAÇÃO SECRETA':tierLabel(c.tier)}</span>`;
-  document.getElementById('modal-name').textContent=c.name;
-  document.getElementById('modal-epithet').textContent=c.epithet;
-  document.getElementById('modal-lore').textContent=c.lore;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function tierLabel(t){return {SS:'Lendário',S:'Épico',A:'Raro',B:'Incomum',C:'Comum'}[t]||t;}
-function closeModal(e){if(e.target===document.getElementById('modal'))closeModalDirect();}
-function closeModalDirect(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-function show(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('s-'+id).classList.add('active');btn.classList.add('active');
-  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
-}
-function toggleCard(el){el.classList.toggle('expanded');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
-buildGrid();
-
+  initGrimorio('../data/icebergteam.json');
 </script>
+
 </body>
 </html>
