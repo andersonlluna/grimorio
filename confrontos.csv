@@ -1,0 +1,16 @@
+rodada,time_a,time_b
+1,Ironverdict,Lobonegro
+1,Icebergteam,Varelitas
+1,CEEC,Andorinha
+2,Ironverdict,Andorinha
+2,Icebergteam,CEEC
+2,Varelitas,Lobonegro
+3,Ironverdict,CEEC
+3,Icebergteam,Lobonegro
+3,Andorinha,Varelitas
+4,Ironverdict,Varelitas
+4,CEEC,Lobonegro
+4,Icebergteam,Andorinha
+5,Ironverdict,Icebergteam
+5,CEEC,Varelitas
+5,Andorinha,Lobonegro
