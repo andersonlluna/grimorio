@@ -1,0 +1,207 @@
+{
+  "slug": "icebergteam",
+  "name": "Icebergteam",
+  "tagline": "Bestas do Ártico",
+  "sigil": "❄",
+  "region": "Kelvrak",
+  "accent": "#5a9ab8",
+  "headerLore": "Kelvrak não é frio — é paciente. Cada criatura deste grimório carrega o peso de geleiras que se movem um milímetro por século. Lentas, inevitáveis, absolutas.",
+  "intro": "Kelvrak não é frio — é paciente. Cada criatura deste grimório carrega o peso de geleiras que se movem um milímetro por século. Lentas, inevitáveis, absolutas.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Criaturas"
+    },
+    {
+      "value": "6+5+4+3+2",
+      "label": "Distribuição"
+    },
+    {
+      "value": "Kelvrak",
+      "label": "Região"
+    },
+    {
+      "value": "Khurgoth",
+      "label": "Lendário"
+    }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Kelvrak é o que acontece quando o inverno decide ficar. Não uma estação — uma decisão geológica. As criaturas que habitam essa região <strong>não toleram o gelo: são feitas dele</strong>. Suas veias conduzem água que não lembra como foi líquida."
+    },
+    {
+      "title": "As Criaturas do Grimório",
+      "content": "As Bestas do Ártico de Kelvrak são criaturas de profundidade, não de superfície. O que se vê no campo de batalha é apenas a ponta — como o iceberg que deu nome ao time. O que está abaixo da superfície é o que destrói navios."
+    },
+    {
+      "title": "✦ Aerok e o Silêncio que Antecede",
+      "content": "Aerok, o colosso grifo-águia de pedra e gelo, não emerge de força — emerge de contraste. O silêncio do repouso forçado, seguido pela tempestade de uma invocação máxima: <strong>é esse padrão que abre o portal de Aerok</strong>. Kelvrak ensina que a maior tempestade nasce do maior silêncio.",
+      "secret": true
+    }
+  ],
+  "endNote": "As criaturas de Kelvrak não aumentam de intensidade — aumentam de escala. A diferença entre um C e um SS de Kelvrak não é velocidade ou agressividade. É tamanho. O SS é simplesmente algo que não cabe em conceitos normais.",
+  "creatures": [
+    {
+      "file": "SS.jpg",
+      "tier": "SS",
+      "name": "Khurgoth, Pai das Geleiras",
+      "epithet": "O rosto no vale congelado tem séculos de expressão",
+      "lore": "Khurgoth não se move. Ele já está em todos os lugares que importam — apenas espera que o mundo perceba. Seu rosto emerge do gelo de um vale inteiro, e o guerreiro que o contempla não tem referência de escala para processar o que vê.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Aerok, Sentinela das Alturas",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Aerok só desce quando testemunha o padrão sagrado de Kelvrak: silêncio total seguido de tempestade máxima. Invocável quando Icebergteam entra em repouso forçado numa rodada e invoca tier S ou superior na rodada seguinte.",
+      "secret": true,
+      "secretCondition": "✦ Invocável quando Icebergteam entra em repouso forçado e na rodada seguinte invoca tier S ou SS — o silêncio precede a maior tempestade."
+    },
+    {
+      "file": "S.jpg",
+      "tier": "S",
+      "name": "Malkor, o Lich Gelado",
+      "epithet": "A morte em Kelvrak não apodrece — cristaliza",
+      "lore": "Malkor morreu há tanto tempo que o frio o preservou perfeitamente. Agora reina sobre um trono de gelo com a clareza de quem não tem mais nada a perder.",
+      "secret": false
+    },
+    {
+      "file": "S (2).jpg",
+      "tier": "S",
+      "name": "Ithariel, Olhar de Cristal",
+      "epithet": "Os olhos azuis veem através de armaduras e intenções",
+      "lore": "Ithariel não usa espada para atacar — usa o olhar. A espada é para quando a batalha já terminou e alguém não percebeu.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Dravnir, Lâmina Luminosa",
+      "epithet": "A luz que emana de seu espadão não aquece",
+      "lore": "Dravnir descobriu que a luz do gelo é mais fria que a escuridão. Sua lâmina prova isso a cada duelo.",
+      "secret": false
+    },
+    {
+      "file": "A.jpg",
+      "tier": "A",
+      "name": "Vyxara, Dragão do Gelo",
+      "epithet": "Branco sobre lava — o contraste que define Kelvrak",
+      "lore": "Vyxara foi visto sobrevoando campos de lava com as asas geladas. O vapor criado dura dias. Os mapas que registram o evento existem em três museus diferentes.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Kryor, Rei das Geleiras",
+      "epithet": "A coroa pontiaguda não é simbólica",
+      "lore": "Kryor governa por tecnologia arcana e por temperatura. Seus súditos sabem que o rei chegou quando o ar fica três graus mais frio.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Frosten, o Rúnico",
+      "epithet": "As runas azuis são a gramática do gelo",
+      "lore": "Frosten passou um século inscrevendo runas em sua armadura. Cada uma é uma lei de Kelvrak em forma de símbolo.",
+      "secret": false
+    },
+    {
+      "file": "A (4).jpg",
+      "tier": "A",
+      "name": "Sylvara, Domadora de Vyxara",
+      "epithet": "Cavalga o dragão que outros fogem",
+      "lore": "Sylvara não domou Vyxara com força — domou com paciência. Esperou que o dragão ficasse entediado de ser temido e propôs algo diferente.",
+      "secret": false
+    },
+    {
+      "file": "B.jpg",
+      "tier": "B",
+      "name": "Mordryn, Druida do Inverno",
+      "epithet": "O druida que escolheu o inverno como estação permanente",
+      "lore": "Mordryn descobriu que as plantas do inverno são mais resistentes que as do verão. Passou o resto da eternidade provando esse ponto.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "KaelVen, Príncipe das Tempestades",
+      "epithet": "A eletricidade azul no torso não é ferimento",
+      "lore": "KaelVen absorveu um raio há duzentos anos. O raio ainda está lá — o príncipe simplesmente decidiu ficar com ele.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Gurroth, o Peludo",
+      "epithet": "Parece manso. Essa é a estratégia.",
+      "lore": "Gurroth tem olhos laranja que não combinam com nada mais nele. É justamente isso que os adversários notam — um segundo tarde demais.",
+      "secret": false
+    },
+    {
+      "file": "B (4).jpg",
+      "tier": "B",
+      "name": "Selvyra, Rainha dos Espinhos",
+      "epithet": "A coroa de chifres cresceu — não foi colocada",
+      "lore": "Selvyra não aceitou uma coroa. A coroa cresceu nela, porque Kelvrak reconhece quem manda sem precisar de cerimônia.",
+      "secret": false
+    },
+    {
+      "file": "B (5).jpg",
+      "tier": "B",
+      "name": "Thornar, Garra do Inverno",
+      "epithet": "O martelo de cristal ressoa em frequências que desestabilizam",
+      "lore": "Thornar não precisa acertar para destruir. A vibração do martelo de cristal faz o trabalho antes do impacto.",
+      "secret": false
+    },
+    {
+      "file": "C.jpg",
+      "tier": "C",
+      "name": "Irukar, Leão das Neves",
+      "epithet": "O rei das planícies geladas não tem trono fixo",
+      "lore": "Irukar caminha. Isso é tudo. O caminho que deixa é um mapa de quem governa o que em Kelvrak.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Bromthal, Auroque das Geleiras",
+      "epithet": "Os chifres curvos mediram o vento por milênios",
+      "lore": "Bromthal é a criatura mais antiga de Kelvrak que ainda se move. O que ele viu está nos anéis de seus chifres — se alguém soubesse como ler.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Vargoth, Bruto da Neve",
+      "epithet": "A postura agachada é posição de repouso — não de ataque",
+      "lore": "Vargoth em repouso parece uma rocha. Em movimento, a rocha tem opiniões muito firmes sobre quem pode passar.",
+      "secret": false
+    },
+    {
+      "file": "C (3).jpg",
+      "tier": "C",
+      "name": "Kaldrak, Urso Branco",
+      "epithet": "A neve que voa com ele não cai de volta",
+      "lore": "Kaldrak corre e a neve o segue como se fosse dele. Em Kelvrak, pode ser que seja.",
+      "secret": false
+    },
+    {
+      "file": "C (4).jpg",
+      "tier": "C",
+      "name": "Halvar, Lâmina Gelada",
+      "epithet": "O viking que aprendeu a gostar do frio",
+      "lore": "Halvar veio do sul. Ficou porque Kelvrak prova seus guerreiros de um modo que nenhuma outra região consegue. Ele sobreviveu. Kelvrak o aceitou.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Osric, Arquimago do Permafrost",
+      "epithet": "A barba branca cresceu junto com o conhecimento",
+      "lore": "Osric chegou a Kelvrak para estudar o gelo. Depois de trezentos anos, ainda não terminou. Diz que o gelo muda a cada estação — e cada mudança é um novo capítulo.",
+      "secret": false
+    }
+  ]
+}

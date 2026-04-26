@@ -1,0 +1,207 @@
+{
+  "slug": "ironverdict",
+  "name": "Ironverdict",
+  "tagline": "Julgadores Divinos",
+  "sigil": "⚙",
+  "region": "Ferrathis",
+  "accent": "#b89060",
+  "headerLore": "Em Ferrathis, o julgamento não é proferido por vozes — é executado por lâminas de luz. Cada criatura deste grimório é um veredicto andando: bela, inevitável, sem apelo.",
+  "intro": "Em Ferrathis, o julgamento não é proferido por vozes — é executado por lâminas de luz. Cada criatura deste grimório é um veredicto andando: bela, inevitável, sem apelo.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Criaturas"
+    },
+    {
+      "value": "6+5+4+3+2",
+      "label": "Distribuição"
+    },
+    {
+      "value": "Ferrathis",
+      "label": "Região"
+    },
+    {
+      "value": "Aeloros",
+      "label": "Lendário"
+    }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Ferrathis não é uma região de ferro, como o nome sugere aos desavisados. É uma região de <strong>julgamento</strong>. As montanhas de Ferrathis são os degraus de um tribunal que ninguém construiu conscientemente — elas simplesmente cresceram assim, porque o peso de tantos veredictos precisava de algum lugar para pousar."
+    },
+    {
+      "title": "As Criaturas do Grimório",
+      "content": "As criaturas de Ferrathis são todas, sem exceção, <strong>executoras</strong>. Anjos, paladinos, arcanjos — não são guardiões da bondade. São guardiões do equilíbrio. Quando o grimório de Ironverdict é invocado, o adversário não enfrenta uma criatura. Enfrenta uma sentença."
+    },
+    {
+      "title": "✦ Pyrethiel e a Chama Suprema",
+      "content": "Pyrethiel existe acima da hierarquia de Ferrathis — não por poder, mas por função. Ela não julga casos individuais. Ela julga <strong>padrões</strong>. Só desce quando testemunha domínio consistente e repetido — prova de que o veredicto de Ironverdict não foi acidente.",
+      "secret": true
+    }
+  ],
+  "endNote": "As criaturas de Ferrathis não reconhecem derrota — apenas adiamento do veredicto. Perder uma batalha não invalida a sentença. Ela será executada na próxima sessão.",
+  "creatures": [
+    {
+      "file": "SS.jpg",
+      "tier": "SS",
+      "name": "Aeloros, Leão da Montanha Sagrada",
+      "epithet": "O julgamento que não precisa de palavras",
+      "lore": "Aeloros pousa no pico mais alto de Ferrathis e os réus chegam até ele. Não porque sejam obrigados — porque a alternativa é pior. Um leão branco do tamanho de uma catedral, silencioso como o veredicto que já foi tomado.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Pyrethiel, Chama Divina",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Três halos. Asas de fogo. Pyrethiel não é uma criatura de batalha — é a personificação do momento em que o tribunal encerra a sessão. Só invocável quando Ironverdict registra a maior pontuação da liga em duas rodadas consecutivas.",
+      "secret": true,
+      "secretCondition": "✦ Invocável quando Ironverdict registra a maior pontuação da liga em duas rodadas consecutivas — o padrão de dominância confirma o veredicto."
+    },
+    {
+      "file": "S.jpg",
+      "tier": "S",
+      "name": "Solarion, Arcanjo do Alvorecer",
+      "epithet": "O primeiro raio de sol é uma ordem",
+      "lore": "Solarion não anuncia o amanhecer — ele o autoriza. Cada manhã em Ferrathis começa com sua permissão.",
+      "secret": false
+    },
+    {
+      "file": "S (2).jpg",
+      "tier": "S",
+      "name": "Morveth, o Apóstata",
+      "epithet": "Julgou o próprio tribunal e foi absolvido",
+      "lore": "O único em Ferrathis que questionou o sistema de dentro. Sobreviveu. Isso diz tudo sobre o que ele é.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Rhyana, Guerreira Eterna",
+      "epithet": "Nunca foi derrotada — apenas pausada",
+      "lore": "Rhyana foi derrotada uma vez. Ela voltou com asas negras onde antes havia brancas. Ninguém perguntou o que aconteceu com o adversário.",
+      "secret": false
+    },
+    {
+      "file": "A (1).jpg",
+      "tier": "A",
+      "name": "Seraphiel, o Alvo",
+      "epithet": "Caminha de costas para que os inimigos vejam o que vem",
+      "lore": "Seraphiel é o único em Ferrathis que vira as costas para o adversário. Não por descuido — por confiança absoluta no que carrega.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Auraviel, o Solar",
+      "epithet": "A armadura dourada não é decoração — é aviso",
+      "lore": "Auraviel foi forjado sob um eclipse. A luz que o criou não era do sol — era do que o sol se torna quando some por um momento.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Mirella, Lâmina da Alvorada",
+      "epithet": "Corta névoa antes de cortar carne",
+      "lore": "Mirella foi vista caminhando por campos de batalha onde todos tinham desistido. Ela não sabia que a batalha havia terminado.",
+      "secret": false
+    },
+    {
+      "file": "A (4).jpg",
+      "tier": "A",
+      "name": "Thyra, Escudo Dourado",
+      "epithet": "Os raios que caem atrás dela não são fenômeno natural",
+      "lore": "Thyra não controla os raios. Eles simplesmente decidem que ir na mesma direção que ela é a melhor opção.",
+      "secret": false
+    },
+    {
+      "file": "B.jpg",
+      "tier": "B",
+      "name": "Morethar, o Coroado em Cinzas",
+      "epithet": "A coroa de um rei que julgou demais",
+      "lore": "Morethar era justo. Depois de mil anos julgando, o peso dobrou a coroa e escureceu a armadura. Ele ainda é justo — apenas de um modo diferente.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "Vareth, o Caído",
+      "epithet": "Caiu por escolha, não por fraqueza",
+      "lore": "Vareth escolheu a morte para entender o que julgava. Voltou. Agora julga com autoridade que os vivos não têm.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Solaron, Leão do Sol",
+      "epithet": "Parte leão, parte veredicto solar",
+      "lore": "Solaron existe no limiar entre criatura e fenômeno. Os bestiários de Ferrathis o classificam como ambos e pedem desculpas pela imprecisão.",
+      "secret": false
+    },
+    {
+      "file": "B (4).jpg",
+      "tier": "B",
+      "name": "Varmoth, Ancião Pétreo",
+      "epithet": "Cresceu tão devagar que a floresta cresceu dentro dele",
+      "lore": "Varmoth tem séculos de batalhas registradas em suas fissuras como anéis de uma árvore. Cada rachadura é uma guerra.",
+      "secret": false
+    },
+    {
+      "file": "B (5).jpg",
+      "tier": "B",
+      "name": "Brenna, a Chama Ruiva",
+      "epithet": "Ergueu o espadão uma vez. Bastou.",
+      "lore": "Brenna não tem histórico de batalhas secundárias. Cada confronto termina no primeiro gesto.",
+      "secret": false
+    },
+    {
+      "file": "B (6).jpg",
+      "tier": "B",
+      "name": "Kaelmar, o Juramentado",
+      "epithet": "A espada cravada no solo é o juramento em si",
+      "lore": "Kaelmar fez um voto que ninguém ouviu, mas todos sentiram. A espada no chão marca o lugar onde o voto foi feito.",
+      "secret": false
+    },
+    {
+      "file": "C.jpg",
+      "tier": "C",
+      "name": "Sir Aldric, o Penitente",
+      "epithet": "A espada baixa é mais ameaçadora que a erguida",
+      "lore": "Aldric não exibe força. Ela simplesmente existe, e quem o enfrenta percebe isso no momento errado.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Iryon, Joelho Firme",
+      "epithet": "Ajoelhado porque escolheu — não porque foi forçado",
+      "lore": "Iryon se ajoelha antes de cada batalha. Não em sinal de respeito — em sinal de que o que vem a seguir merece atenção plena.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Elyse, Véu Turquesa",
+      "epithet": "A chuva para quando ela aparece. Ou começa.",
+      "lore": "Elyse não comanda o clima. O clima simplesmente tem dificuldade de ignorá-la.",
+      "secret": false
+    },
+    {
+      "file": "C (3).jpg",
+      "tier": "C",
+      "name": "Toryn, o Sacerdote Rúnico",
+      "epithet": "As runas no cajado não são decoração",
+      "lore": "Toryn inscreveu cada runa após uma batalha diferente. O cajado está quase sem espaço.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Varkhan, Portador do Fogo Rúnico",
+      "epithet": "A armadura negra absorve a luz para devolvê-la como fogo",
+      "lore": "Varkhan foi criado em Ferrathis como teste: o que acontece quando o julgamento usa a escuridão como ferramenta? A resposta empunha uma espada em chamas.",
+      "secret": false
+    }
+  ]
+}

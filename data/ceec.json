@@ -1,0 +1,207 @@
+{
+  "slug": "ceec",
+  "name": "CEEC",
+  "tagline": "Senhores do Norte",
+  "sigil": "🏔",
+  "region": "Nordheim",
+  "accent": "#7a9a7a",
+  "headerLore": "Nordheim não produz heróis — produz sobreviventes. Cada criatura deste grimório carrega a marca de algo que tentou matá-la e falhou. Essa marca é chamada de experiência.",
+  "intro": "Nordheim não produz heróis — produz sobreviventes. Cada criatura deste grimório carrega a marca de algo que tentou matá-la e falhou. Essa marca é chamada de experiência.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Criaturas"
+    },
+    {
+      "value": "6+5+4+3+2",
+      "label": "Distribuição"
+    },
+    {
+      "value": "Nordheim",
+      "label": "Região"
+    },
+    {
+      "value": "Skarngrath",
+      "label": "Lendário"
+    }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Nordheim é o tipo de lugar que os mapas colocam no canto superior com a nota que diz que aqui existem coisas. As coisas concordam com a nota. As montanhas de Nordheim têm nomes que só fazem sentido em linguagens que não se fala mais — <strong>porque os que as falavam não sobreviveram para ensinar aos filhos</strong>."
+    },
+    {
+      "title": "As Criaturas do Grimório",
+      "content": "Os Senhores do Norte de CEEC são guerreiros, anões, bárbaros e reis — todos, sem exceção, testados. Não por algum sistema de avaliação. Testados pelo próprio Nordheim, que considera a sobrevivência como o único critério que importa."
+    },
+    {
+      "title": "✦ Aurelon e o Reconhecimento do Ancião",
+      "content": "Aurelon, o Dragão Ancião de cabeça colossal dourada, não reconhece invocadores por força — reconhece por <strong>persistência acumulada</strong>. Quinze vitórias ao longo de uma temporada são a prova de que o invocador de CEEC não é um acidente. Aurelon só desce para confirmar o que já era inevitável.",
+      "secret": true
+    }
+  ],
+  "endNote": "As criaturas de Nordheim não se impressionam com pontuações altas isoladas. Elas respondem a histórico. Um time que pontua bem uma vez invoca uma criatura. Um time que pontua bem sempre invoca um Senhor.",
+  "creatures": [
+    {
+      "file": "SS.jpg",
+      "tier": "SS",
+      "name": "Skarngrath, o Incendiário",
+      "epithet": "O cavaleiro e o dragão são a mesma entidade",
+      "lore": "Skarngrath não monta o dragão. Ele e o dragão existem como um sistema único — o cavaleiro decide a direção, o dragão decide o que sobra. Nenhuma cidade que Skarngrath visitou ficou igual depois.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Aurelon, Dragão Ancião",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Aurelon tem uma cabeça do tamanho de um cânion. Os guerreiros que o contemplam são figuras minúsculas aos seus pés — e ele os avalia com a indiferença de quem já viu mil temporadas. Invocável quando CEEC acumula 15 vitórias na temporada.",
+      "secret": true,
+      "secretCondition": "✦ Invocável quando CEEC acumula 15 vitórias totais na temporada — Aurelon só desce para reconhecer o que já era inevitável."
+    },
+    {
+      "file": "S.jpg",
+      "tier": "S",
+      "name": "Vrakhul, Senhor Caído",
+      "epithet": "Caiu de tão alto que a queda virou lenda",
+      "lore": "Vrakhul governou antes de Nordheim ter nome. A queda foi espetacular — as ruínas ainda fumegam. Ele emergiu das cinzas com machados duplos flamejantes e opiniões firmes sobre redenção.",
+      "secret": false
+    },
+    {
+      "file": "S (2).jpg",
+      "tier": "S",
+      "name": "Sir Mordek, o Renegado",
+      "epithet": "Abandonou a ordem — a ordem nunca o abandonou",
+      "lore": "Mordek saiu da ordem dos paladinos de Nordheim por discordância filosófica. Carrega a armadura deles como lembrete de que saiu por princípio, não por fraqueza.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Ketrakh, Golem de Ferro",
+      "epithet": "Sem rosto porque não precisa de um",
+      "lore": "Ketrakh foi construído por um ferreiro que morreu antes de terminar o rosto. Ketrakh ficou assim. Em Nordheim, inacabado não significa incompleto.",
+      "secret": false
+    },
+    {
+      "file": "A.jpg",
+      "tier": "A",
+      "name": "Raugnir, Cavaleiro das Caveiras",
+      "epithet": "A pilha de caveiras é um arquivo, não uma ameaça",
+      "lore": "Raugnir cataloga cada adversário vencido. A pilha de caveiras ao seu redor é menos demonstração de poder e mais sistema de arquivamento. Nordheim tem métodos próprios.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Thorvik, Forjador de Ferro",
+      "epithet": "Forjou sua própria armadura com ferro que extraiu ele mesmo",
+      "lore": "Thorvik conhece cada peça de sua armadura por nome. Não metaforicamente — ele as nomeou durante a forja e as cumprimenta antes de cada batalha.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Bjorn, Lâmina Dourada",
+      "epithet": "A espada ornamentada corta exatamente como uma simples",
+      "lore": "Bjorn manda fazer espadas belas porque acredita que o adversário merece ser derrotado por algo bonito. É respeito, à sua maneira.",
+      "secret": false
+    },
+    {
+      "file": "A (4).jpg",
+      "tier": "A",
+      "name": "Vael, Pétalas de Sangue",
+      "epithet": "O campo de pétalas não era assim antes da batalha",
+      "lore": "Vael luta em lugares que ficam diferentes depois. Os campos de pétalas são o resultado — ninguém planta nada. Nordheim simplesmente responde ao que aconteceu ali.",
+      "secret": false
+    },
+    {
+      "file": "B (1).jpg",
+      "tier": "B",
+      "name": "Drokgar, o Gigante",
+      "epithet": "O espadão monstruoso é proporcional — para ele",
+      "lore": "Drokgar cabe mal em ambientes construídos para humanos. Em campo aberto é onde ele prefere estar — sem teto limitando o arco do espadão.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "Rei Harald, Barba Antiga",
+      "epithet": "A coroa sob a chuva não enferruja — nenhuma das duas",
+      "lore": "Harald reina há tanto tempo que a barba cresceu para dentro da armadura em alguns pontos. Ele considera isso fusão, não problema.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Rognar, Trovão Ruivo",
+      "epithet": "O machado sobe junto com o raio — ou o raio desce junto com o machado",
+      "lore": "Rognar e as tempestades de Nordheim têm uma relação de cooperação mútua que nenhum dos dois sabe explicar.",
+      "secret": false
+    },
+    {
+      "file": "B (4).jpg",
+      "tier": "B",
+      "name": "Skjol, o Trançado",
+      "epithet": "A barba trançada tem nós que registram vitórias",
+      "lore": "Skjol acrescenta um nó à barba a cada batalha vencida. Contar os nós é contar sua história — e a barba é longa.",
+      "secret": false
+    },
+    {
+      "file": "B (5).jpg",
+      "tier": "B",
+      "name": "Dregar, o Montês",
+      "epithet": "Veio das montanhas e trouxe parte delas",
+      "lore": "Dregar tem manto de pele de algo que não existe mais — porque era ele quem existia primeiro. A neblina florestal o acompanha por hábito.",
+      "secret": false
+    },
+    {
+      "file": "C.jpg",
+      "tier": "C",
+      "name": "Kervan, Braço Pesado",
+      "epithet": "O espadão pesado é o argumento mais direto de Nordheim",
+      "lore": "Kervan não discute. Kervan ergue o espadão. Em Nordheim, esses são considerados o mesmo ato.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Astrid, Lâmina do Norte",
+      "epithet": "O machado viking decorado corta igualmente bem",
+      "lore": "Astrid entalhei flores no cabo do machado. Os adversários ficam confusos por um momento. É suficiente.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Sigrid, Véu Vermelho",
+      "epithet": "A máscara não esconde — enquadra",
+      "lore": "Sigrid usa elmo rúnico e capuz vermelho em campo de batalha. Não para esconder o rosto — para que o adversário saiba exatamente onde olhar.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Irmãos Flamejantes",
+      "epithet": "Dois guerreiros que nunca precisaram de sinais",
+      "lore": "Os Irmãos Flamejantes lutam costas com costas por reflexo, não por treinamento. Nordheim tem histórias de como isso começou. Nenhuma é confirmada.",
+      "secret": false
+    },
+    {
+      "file": "C (7).jpg",
+      "tier": "C",
+      "name": "Helga, a Escudeira",
+      "epithet": "O escudo estilhaçado é evidência, não fraqueza",
+      "lore": "Helga entra em batalha com o escudo já partido. É aviso: ela já absolveu o impacto que quebraria qualquer defesa — e está de pé.",
+      "secret": false
+    },
+    {
+      "file": "C (9).jpg",
+      "tier": "C",
+      "name": "Oddvar, Chifre de Guerra",
+      "epithet": "Corre para a batalha antes de ser convocado",
+      "lore": "Oddvar não espera ordens. Nordheim o treinou para reconhecer quando uma batalha precisa de alguém — e ele aparece antes do aviso.",
+      "secret": false
+    }
+  ]
+}

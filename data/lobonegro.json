@@ -1,0 +1,207 @@
+{
+  "slug": "lobonegro",
+  "name": "Lobonegro",
+  "tagline": "Lobos das Sombras",
+  "sigil": "🌑",
+  "region": "Valdrek",
+  "accent": "#7a60a0",
+  "headerLore": "Valdrek não está no mapa de Eirendhal — está nos espaços entre os mapas. As criaturas deste grimório não habitam territórios. Habitam frestas.",
+  "intro": "Valdrek não está no mapa de Eirendhal — está nos espaços entre os mapas. As criaturas deste grimório não habitam territórios. Habitam frestas.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Criaturas"
+    },
+    {
+      "value": "6+5+4+3+2",
+      "label": "Distribuição"
+    },
+    {
+      "value": "Valdrek",
+      "label": "Região"
+    },
+    {
+      "value": "Nergharoth",
+      "label": "Lendário"
+    }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Valdrek existe nos espaços entre todas as outras regiões de Eirendhal. <strong>Não é um lugar — é uma ausência</strong>. Quando dois reinos fazem fronteira, o que existe nessa linha é Valdrek. Quando a noite cai sobre Kelvrak, a sombra que forma é feita de Valdrek. Quando alguém olha para o canto de um cômodo e sente que não está sozinho, está certo."
+    },
+    {
+      "title": "As Criaturas do Grimório",
+      "content": "Os Lobos das Sombras de Lobonegro não são lobos no sentido estrito. São a ideia de predador tornada criatura. Algumas têm forma de lobo. Algumas têm forma humana. Algumas têm forma de nada visível — apenas presença, som, consequência."
+    },
+    {
+      "title": "✦ Valdrek e o Portal do Fracasso Coletivo",
+      "content": "Valdrek, o Senhor Sombrio, é o governante de Valdrek — e Valdrek só existe quando o resto de Eirendhal falha. Quando a média geral da liga cai abaixo de 65 pontos, os outros portais fecham por falta de energia. <strong>O portal de Valdrek se abre</strong> — porque o caos coletivo é o único combustível que Valdrek reconhece.",
+      "secret": true
+    }
+  ],
+  "endNote": "As criaturas de Valdrek não têm desvantagem em batalha — têm vantagem de contexto. Elas sabem mais sobre o adversário do que o adversário sabe sobre si mesmo. O grimório de Lobonegro não registra vitórias. Registra inevitabilidades.",
+  "creatures": [
+    {
+      "file": "SS.jpg",
+      "tier": "SS",
+      "name": "Nergharoth, Serpente dos Abismos",
+      "epithet": "O barco que afunda não viu o que afundou",
+      "lore": "Nergharoth não ataca — aparece. O barco minúsculo no mar tempestuoso não enfrenta uma serpente. Enfrenta a percepção repentina de que sempre houve algo imenso abaixo da superfície, e esse algo decidiu ser visível por um momento.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Valdrek, o Senhor Sombrio",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Valdrek governa Valdrek da arena de lava que é seu trono e seu campo de batalha. Sua armadura negra e vermelha não reflete luz — a absorve. Invocável apenas quando a média geral da liga cai abaixo de 65 pts na rodada: o fracasso coletivo de Eirendhal é o único portal que leva a Valdrek.",
+      "secret": true,
+      "secretCondition": "✦ Invocável quando a média geral da liga cai abaixo de 65 pts na rodada — o caos coletivo de Eirendhal abre o portal de Valdrek."
+    },
+    {
+      "file": "S.jpg",
+      "tier": "S",
+      "name": "Zorath, Alpha do Crepúsculo",
+      "epithet": "O rugido que se ouve antes de perceber que ouviu",
+      "lore": "Zorath é o alpha de uma alcateia que ninguém viu reunida. Os membros existem em locais diferentes de Valdrek — mas respondem ao rugido em milissegundos.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Malrik, Sentinela do Osso",
+      "epithet": "Guarda o deserto entre os mundos",
+      "lore": "Malrik patrulha as fronteiras de Valdrek há mais tempo do que qualquer um se lembra. O deserto que ele guarda não aparece nos mapas. Isso é o ponto.",
+      "secret": false
+    },
+    {
+      "file": "S (4).jpg",
+      "tier": "S",
+      "name": "Thyran, Ceifador das Almas",
+      "epithet": "A foice verde-ácida não colhe trigo",
+      "lore": "Thyran existe para encerrar batalhas que os outros não conseguem terminar. É chamado quando a situação exige alguém sem problema com o que vem depois.",
+      "secret": false
+    },
+    {
+      "file": "A.jpg",
+      "tier": "A",
+      "name": "Vraekhar, Duas Foices",
+      "epithet": "As foices curvas foram moldadas para colheitas específicas",
+      "lore": "Vraekhar não usa espada porque espada é ferramenta de ataque. Duas foices são uma ferramenta de encerramento. Ele não ataca — encerra.",
+      "secret": false
+    },
+    {
+      "file": "A (1).jpg",
+      "tier": "A",
+      "name": "Malegar, Chama Sombria",
+      "epithet": "A chama verde-neon queima o que a chama comum não toca",
+      "lore": "Malegar descobriu que existem coisas que o fogo convencional não pode destruir. Passou décadas refinando uma chama que pudesse. O espadão flamejante é o resultado.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Nyxara, Lâmina Verde",
+      "epithet": "Os olhos luminosos veem em todos os espectros de Valdrek",
+      "lore": "Nyxara não precisa de luz para ver. Em Valdrek, a ausência de luz é apenas outra frequência visual — e ela vê muito bem nessa frequência.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Rei Morhak, Coroa de Osso",
+      "epithet": "Governa os que vieram antes e ainda estão aqui",
+      "lore": "Morhak reina sobre a porção de Valdrek onde os mortos que não querem ir embora permanecem. Ele não os forçou a ficar — simplesmente apareceu como rei e nenhum deles contestou.",
+      "secret": false
+    },
+    {
+      "file": "B.jpg",
+      "tier": "B",
+      "name": "Vornath, Raízes Ardentes",
+      "epithet": "A floresta sombria cresceu dele — não ao redor",
+      "lore": "Vornath não habita a floresta escura. A floresta escura é uma extensão de Vornath — os galhos são seus braços, os olhos verdes são seus olhos, e as raízes vão onde ele manda.",
+      "secret": false
+    },
+    {
+      "file": "B (1).jpg",
+      "tier": "B",
+      "name": "Fangor, Garra Elétrica",
+      "epithet": "O ciberpunk de Valdrek — porque a sombra evolui",
+      "lore": "Fangor surgiu quando Valdrek começou a absorver tecnologia de outras regiões. A aura elétrica é o que acontece quando a escuridão aprende sobre corrente.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "Kaenra, Tigre da Lava",
+      "epithet": "O braço flamejante é a parte mais fria dele",
+      "lore": "Kaenra luta sob luar por preferência — a luz da lua não interfere, e a escuridão entre as nuvens é confortável. O braço de lava ilumina o suficiente quando necessário.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Vraekor, Lobo Negro",
+      "epithet": "Os olhos dourados são o único aviso que os outros recebem",
+      "lore": "Vraekor corre na nevasca e a neve não o retarda — colabora. Em Valdrek, os elementos entendem quem serve a quê.",
+      "secret": false
+    },
+    {
+      "file": "B (4).jpg",
+      "tier": "B",
+      "name": "Korrok, Urso das Ruínas",
+      "epithet": "As ruínas nevadas ao redor dele não existiam antes",
+      "lore": "Korrok tem olhos vermelhos que funcionam como intenção declarada. As ruínas ao redor dele são ruínas porque Korrok esteve lá.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Kreven, o Corvídeo",
+      "epithet": "As penas negras guardam memórias de Valdrek",
+      "lore": "Kreven é parte corvo, parte mensageiro, parte coisa que o deserto não nomeou. Seus olhos verdes veem correspondências entre eventos que parecem separados.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Nyss eara, Fada Crepuscular",
+      "epithet": "As asas de borboleta não são decorativas",
+      "lore": "Nyss eara existe no limiar entre belo e perturbador — exatamente onde Valdrek gosta de operar. A floresta profunda que ela habita fica mais profunda quando ela está presente.",
+      "secret": false
+    },
+    {
+      "file": "C (3).jpg",
+      "tier": "C",
+      "name": "Shadorn, o Silente",
+      "epithet": "Nunca foi ouvido. Só visto — e raramente.",
+      "lore": "Shadorn salta entre telhados à noite em cidades que não ficam em nenhum mapa oficial. Os moradores sabem que ele existe porque às vezes veem os dentes verdes no escuro.",
+      "secret": false
+    },
+    {
+      "file": "C (4).jpg",
+      "tier": "C",
+      "name": "Grib, Garra de Ferro",
+      "epithet": "Pequeno. Ruidoso. Mais perigoso do que parece.",
+      "lore": "Grib é o tipo de criatura que Valdrek usa quando precisa que algo seja feito e não quer que ninguém saiba que Valdrek esteve envolvido.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Arachna, Tecelã do Sangue",
+      "epithet": "A teia não é para prender — é para entender o que passa",
+      "lore": "Arachna não ataca com a teia. Usa a teia para sentir vibração — cada passo, cada respiração, cada hesitação do adversário. O ataque vem depois.",
+      "secret": false
+    },
+    {
+      "file": "C (6).jpg",
+      "tier": "C",
+      "name": "Vharkel, o Tridente",
+      "epithet": "Habita as águas de Valdrek — as que não aparecem no mapa",
+      "lore": "Vharkel nada nas profundezas subaquáticas de Valdrek — os rios subterrâneos que conectam todas as fronteiras de Eirendhal. Ele conhece cada passagem que nenhum mapa registrou.",
+      "secret": false
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "slug": "andorinha",
+  "name": "Andorinha",
+  "tagline": "Aves Ancestrais Alfa",
+  "sigil": "🦅",
+  "region": "Skyvara",
+  "headerLore": "Onde outras aves aprendem a voar, as de Skyvara já esqueceram como era não voar. Cada criatura deste grimório carrega milênios de ascendência — não são guardiões do céu, são o céu.",
+  "intro": "As aves de Skyvara não são invocadas — elas descem. Cada portal é uma permissão que o céu concede ao invocador, e não o contrário.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Criaturas"
+    },
+    {
+      "value": "6+5+4+3+2",
+      "label": "Distribuição"
+    },
+    {
+      "value": "Skyvara",
+      "label": "Região"
+    },
+    {
+      "value": "Sveralith",
+      "label": "Lendário"
+    }
+  ],
+  "lore": [
+    {
+      "title": "Origem",
+      "content": "Skyvara não é um lugar no mapa de Eirendhal — é uma elevação. Toda montanha com mais de três mil metros tem alguma parte de seu pico pertencendo a Skyvara, mesmo que os moradores do vale abaixo nunca tenham notado. As criaturas que habitam essa região compartilham uma característica: <strong>a gravidade as afeta diferente</strong>. Não as ignora — apenas as consulta antes de agir.<br><br>A região tem uma relação complexa com <strong>Velmur</strong>, a mesma terra em outro tempo. O que Velmur é agora, Skyvara foi antes — e o que Skyvara se tornará, Velmur ainda não imagina."
+    },
+    {
+      "title": "As Aves Ancestrais Alfa",
+      "content": "O grimório de Andorinha convoca as criaturas mais antigas de Skyvara — aquelas que já sobreviveram a pelo menos um ciclo completo de Eirendhal. Elas não são chamadas de \"aves\" porque voam: <strong>aves voa. Estas existem</strong>, e o voo é apenas uma consequência disso.<br><br>A diferença entre as criaturas de Andorinha e as de Andorinha Jr é simples: <strong>as de Skyvara já esqueceram quem as invocou pela primeira vez</strong>. Têm memória suficiente para saber que este grimório não é o primeiro — e suficiente indiferença para entrar nele mesmo assim."
+    },
+    {
+      "title": "✦ Ikar e a Condição Secreta",
+      "content": "Ikar — Senhor das Nuvens nunca foi classificado como parte do grimório de Andorinha pelos registros oficiais de Eirendhal. Ele existe <strong>acima da hierarquia</strong> — tecnicamente pertence a Skyvara, mas se recusa a responder a qualquer invocação padrão.<br><br>A única condição em que Ikar desce é quando testemunha <strong>o ancestral superando o descendente</strong>. Se Andorinha derrota Andorinha Jr em duelo direto, Ikar interpreta isso como a ordem natural de Skyvara sendo restabelecida — e desce para confirmar a primazia.",
+      "secret": true
+    }
+  ],
+  "endNote": "<strong>Nota do Invocador:</strong> As criaturas de Skyvara respondem à consistência, não ao esforço isolado. Uma boa rodada abre um portal. Rodadas consistentes abrem portais maiores — e mantêm abertos os que já foram abertos.",
+  "creatures": [
+    {
+      "file": "SS.jpg",
+      "tier": "SS",
+      "name": "Sveralith — Grande Dragão",
+      "epithet": "Emergiu de uma cachoeira no primeiro dia de Skyvara e nunca voltou",
+      "lore": "Sveralith não habita Skyvara — Skyvara habita Sveralith. A região existe em torno dele como água em torno de uma pedra antiga.",
+      "secret": false
+    },
+    {
+      "file": "SS (2).jpg",
+      "tier": "SS",
+      "name": "Ikar — Senhor das Nuvens",
+      "epithet": "✦ Invocação Secreta",
+      "lore": "Existe acima do plano em que outras criaturas vivem. Sua sombra sobre o campo de batalha é suficiente para paralisar exércitos.",
+      "secret": true,
+      "secretCondition": "✦ Invocável apenas quando Andorinha derrota Andorinha Jr em duelo direto — o ancestral reivindica primazia sobre sua linhagem."
+    },
+    {
+      "file": "S.jpg",
+      "tier": "S",
+      "name": "Velorion — Arcanjo do Zéfiro",
+      "epithet": "O primeiro a nomear os ventos",
+      "lore": "Viajou além das bordas do mapa de Eirendhal e voltou. Não conta o que viu.",
+      "secret": false
+    },
+    {
+      "file": "S (3).jpg",
+      "tier": "S",
+      "name": "Pyrrhas — Fênix da Aurora",
+      "epithet": "Renascida no exato momento do amanhecer",
+      "lore": "Cada vez que Pyrrhas morre, a próxima aurora é mais vermelha.",
+      "secret": false
+    },
+    {
+      "file": "S (2).jpg",
+      "tier": "S",
+      "name": "Raoul — Lâmina do Vento",
+      "epithet": "Corre mais rápido que suas próprias penas",
+      "lore": "Não voa — corre tão veloz que o ar se recusa a deixá-lo tocar o chão.",
+      "secret": false
+    },
+    {
+      "file": "A (3).jpg",
+      "tier": "A",
+      "name": "Eyrn — Rei das Tormentas",
+      "epithet": "Comanda as tempestades com um olhar",
+      "lore": "Metade águia, metade algo que os mapas ainda não nomearam.",
+      "secret": false
+    },
+    {
+      "file": "A (4).jpg",
+      "tier": "A",
+      "name": "Aveline — Lâmina do Céu",
+      "epithet": "A espada que corta o horizonte",
+      "lore": "Forjou sua própria espada com a luz de uma aurora.",
+      "secret": false
+    },
+    {
+      "file": "A.jpg",
+      "tier": "A",
+      "name": "Aelsa — Domadora de Ventos",
+      "epithet": "Cavalga criaturas que outros temem invocar",
+      "lore": "Aelsa não invoca criaturas — ela as convence.",
+      "secret": false
+    },
+    {
+      "file": "A (2).jpg",
+      "tier": "A",
+      "name": "Syrelion — O Folheado",
+      "epithet": "Nascido da fusão entre floresta e vento",
+      "lore": "Metade árvore, metade vento — completamente inclassificável.",
+      "secret": false
+    },
+    {
+      "file": "B (3).jpg",
+      "tier": "B",
+      "name": "Zyphar — Predador dos Céus",
+      "epithet": "Mergulha a velocidades que partem o ar ao meio",
+      "lore": "Apenas borrões azuis nos mapas de batalha, e marcas de garras em coisas que deveriam ser intocáveis.",
+      "secret": false
+    },
+    {
+      "file": "B.jpg",
+      "tier": "B",
+      "name": "Seraphine — Asa Prata",
+      "epithet": "O elmo que reflete o sol como uma segunda arma",
+      "lore": "Forjada nas correntes de ar que circulam eternamente acima de Skyvara.",
+      "secret": false
+    },
+    {
+      "file": "B (2).jpg",
+      "tier": "B",
+      "name": "Lyriel — Flecha Ardente",
+      "epithet": "Nunca errou. Não porque seja perfeita.",
+      "lore": "O arco de Lyriel dispara luz concentrada de Skyvara.",
+      "secret": false
+    },
+    {
+      "file": "B (5).jpg",
+      "tier": "B",
+      "name": "Ursyn — Guardião da Mata",
+      "epithet": "O que defende as bordas de Skyvara",
+      "lore": "Existe na fronteira entre o que voa e o que caminha.",
+      "secret": false
+    },
+    {
+      "file": "B (6).jpg",
+      "tier": "B",
+      "name": "Ryouren — Pétala do Leão",
+      "epithet": "Onde a elegância e a brutalidade se fundem",
+      "lore": "Chegou a Skyvara sem explicação e recusou qualquer classificação.",
+      "secret": false
+    },
+    {
+      "file": "C (5).jpg",
+      "tier": "C",
+      "name": "Aerakor — Dragão do Penhasco",
+      "epithet": "Guarda a entrada de Skyvara há séculos",
+      "lore": "Não ataca intrusos. Ele apenas aparece — e o tamanho da criatura resolve o problema.",
+      "secret": false
+    },
+    {
+      "file": "C.jpg",
+      "tier": "C",
+      "name": "Mireille — Chama Dourada",
+      "epithet": "A mais jovem dos veteranos",
+      "lore": "Entrou em batalha aos dezasseis anos. Agora tem cento e oito e ainda parece dezasseis.",
+      "secret": false
+    },
+    {
+      "file": "C (1).jpg",
+      "tier": "C",
+      "name": "Nyssa — A Ágil",
+      "epithet": "Simplesmente a mais rápida",
+      "lore": "Escala estruturas que não deveriam ser escaláveis.",
+      "secret": false
+    },
+    {
+      "file": "C (3).jpg",
+      "tier": "C",
+      "name": "Aelra — Lança do Sol",
+      "epithet": "Cada duelo é uma performance",
+      "lore": "Treinada no coliseu de Skyvara, onde audiência e adversário são igualmente importantes.",
+      "secret": false
+    },
+    {
+      "file": "C (2).jpg",
+      "tier": "C",
+      "name": "Borlin — Escudo Esmeralda",
+      "epithet": "O mais improvável habitante de Skyvara",
+      "lore": "Chegou numa tocha de resgate. Ficou porque \"as correntes de ar são melhores aqui\".",
+      "secret": false
+    },
+    {
+      "file": "C (4).jpg",
+      "tier": "C",
+      "name": "Crestofagor — O Crestado",
+      "epithet": "A criatura que os bestiários não conseguem categorizar",
+      "lore": "Os eruditos passaram décadas debatendo sua classificação. Ele continua existindo, alheio à discussão.",
+      "secret": false
+    }
+  ]
+}
