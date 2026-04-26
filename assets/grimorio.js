@@ -1,16 +1,11 @@
 /* ════════════════════════════════════════════════════════════════
-   GRIMÓRIO — JS BASE COMPARTILHADO
+   GRIMÓRIO — JS BASE · v3
    Liga Supertecnicos · Temporada 2026
 
-   Uso na página de cada grimório:
-     <script src="../assets/grimorio.js"></script>
-     <script>initGrimorio('../data/varelitas.json');</script>
-
-   O JSON é a fonte da verdade — toda mudança de carta/lore
-   é feita lá, não em HTML.
+   Renderiza cards estilo coleção. O grimório agora é um grid
+   de cartas com imagem visível; click abre modal com lore.
    ════════════════════════════════════════════════════════════════ */
 
-// Bônus por tier (alinhado ao motor-alpha)
 const TIER_BONUS = { SS: '+15', S: '+10', A: '+6', B: '+3', C: '+0' };
 const TIER_LIMIAR = {
   SS: '≥ 115 pts ou marco',
@@ -21,26 +16,21 @@ const TIER_LIMIAR = {
 };
 const TIER_LABEL = { SS: 'Lendário', S: 'Épico', A: 'Raro', B: 'Incomum', C: 'Comum' };
 const TIER_TITLE = {
-  SS: 'SS · Lendário — ≥ 115 pts ou marco',
-  S:  'S · Épico — ≥ 100 pts',
-  A:  'A · Raro — ≥ 90 pts',
-  B:  'B · Incomum — ≥ 80 pts',
-  C:  'C · Comum — ≥ 65 pts'
+  SS: 'SS · Lendário',
+  S:  'S · Épico',
+  A:  'A · Raro',
+  B:  'B · Incomum',
+  C:  'C · Comum'
 };
 const TIER_ORDER = ['SS', 'S', 'A', 'B', 'C'];
 
-// Encoding seguro de URL (preserva os arquivos com espaços e parênteses)
 function encFile(f) {
   return f.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
 }
 
-// Estado global (escopo do módulo)
 let _data = null;
 let _cdnBase = '';
 
-// ═══════════════════════════════════════════
-// BOOTSTRAP — carrega o JSON e renderiza tudo
-// ═══════════════════════════════════════════
 async function initGrimorio(jsonPath) {
   try {
     const res = await fetch(jsonPath);
@@ -54,28 +44,27 @@ async function initGrimorio(jsonPath) {
     renderGaleria();
     renderLore();
 
-    // Acessibilidade: ESC fecha modal
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeModalDirect();
     });
   } catch (err) {
     console.error('Falha ao carregar grimório:', err);
     const root = document.querySelector('.content') || document.body;
-    root.innerHTML = `<div style="padding:2rem;color:#c87;font-family:monospace;">
-      Erro ao carregar dados do grimório.<br>${err.message}
+    root.innerHTML = `<div style="padding:2rem;color:#ff8888;font-family:monospace;text-align:center;">
+      Erro ao carregar dados do grimório.<br><br>${err.message}
     </div>`;
   }
 }
 
-// ═══════════════════════════════════════════
-// RENDER — Header, Stats, Sections
-// ═══════════════════════════════════════════
 function renderHeader() {
   const h = document.getElementById('grimorio-header');
   if (!h) return;
   h.innerHTML = `
     <a href="../index.html" class="back-link">← Grimório Geral</a>
-    <a href="../regulamento-fase-alpha.html" class="back-link">Regulamento ←</a>
+    <a href="../regulamento-fase-alpha.html" class="back-link">Regulamento →</a>
+    <div class="header-ornament">
+      <span class="header-ornament-icon">✦</span>
+    </div>
     <span class="sigil">${_data.sigil}</span>
     <h1>${_data.name}</h1>
     <div class="header-region">${_data.region} · ${_data.tagline}</div>
@@ -98,11 +87,10 @@ function renderGrimorio() {
   const sec = document.getElementById('s-grimorio');
   if (!sec) return;
 
-  // Agrupar criaturas por tier
   const grouped = {};
-  for (const t of TIER_ORDER) grouped[t] = [];
-  _data.creatures.forEach(c => {
-    if (grouped[c.tier]) grouped[c.tier].push(c);
+  TIER_ORDER.forEach(t => grouped[t] = []);
+  _data.creatures.forEach((c, idx) => {
+    if (grouped[c.tier]) grouped[c.tier].push({ creature: c, idx });
   });
 
   let html = `
@@ -112,48 +100,43 @@ function renderGrimorio() {
 
   for (const tier of TIER_ORDER) {
     if (grouped[tier].length === 0) continue;
-    html += `<div class="group-title">${TIER_TITLE[tier]}</div>`;
-    grouped[tier].forEach(c => {
-      html += renderCreatureCard(c);
+    html += `
+      <div class="group-title">
+        <span class="group-title-icon">◆</span>
+        ${TIER_TITLE[tier]}
+        <span class="group-title-icon">◆</span>
+      </div>
+      <div class="creature-grid">
+    `;
+    grouped[tier].forEach(({ creature, idx }) => {
+      html += renderCreatureCard(creature, idx);
     });
+    html += `</div>`;
   }
 
   sec.innerHTML = html;
 }
 
-function renderCreatureCard(c) {
-  const ssClass = c.tier === 'SS' ? (c.secret ? ' ss-secret' : ' ss-card') : '';
-  const lockHTML = c.secret && c.secretCondition
-    ? `<div class="secret-lock">✦ ${c.secretCondition}</div>`
-    : '';
-  const limiar = c.secret
-    ? ''
-    : `<div class="creature-stat">Limiar <span>${TIER_LIMIAR[c.tier]}</span></div>`;
+function renderCreatureCard(c, idx) {
+  const tierLow = c.tier.toLowerCase();
+  const ssClass = c.tier === 'SS' ? (c.secret ? ' ss-secret' : '') : '';
+  const secretBadge = c.secret ? '<div class="card-secret-tag">✦ Secreta</div>' : '';
+  const shortName = c.name.split(',')[0].split(' — ')[0];
 
   return `
-    <div class="creature-card${ssClass}" onclick="toggleCard(this)">
-      <div class="creature-header">
-        <div class="tier-badge t-${c.tier.toLowerCase()}">${c.tier}</div>
-        <div class="creature-meta">
-          <div class="creature-name">${escapeHtml(c.name)}</div>
-          <div class="creature-epithet">${escapeHtml(c.epithet)}</div>
-        </div>
-        <div class="creature-toggle">▾</div>
-      </div>
-      <div class="creature-body">
-        <img class="creature-image"
+    <div class="creature-card t-${tierLow}${ssClass}" onclick="openModal(${idx})">
+      ${secretBadge}
+      <div class="card-image-wrap">
+        <img class="card-image"
              src="${_cdnBase}${encFile(c.file)}"
              alt="${escapeHtml(c.name)}"
              loading="lazy" decoding="async">
-        <div class="creature-details">
-          <div class="creature-lore">${escapeHtml(c.lore)}</div>
-          <div class="creature-stats">
-            <div class="creature-stat">Tier <span>${c.tier}</span></div>
-            <div class="creature-stat">Bônus <span>${TIER_BONUS[c.tier]}</span></div>
-            ${limiar}
-          </div>
-          ${lockHTML}
-        </div>
+        <div class="card-image-shade"></div>
+        <div class="card-tier-badge t-${tierLow}">${c.tier}</div>
+      </div>
+      <div class="card-info">
+        <div class="card-name">${escapeHtml(shortName)}</div>
+        <div class="card-epithet">${escapeHtml(c.epithet)}</div>
       </div>
     </div>
   `;
@@ -163,14 +146,14 @@ function renderGaleria() {
   const sec = document.getElementById('s-galeria');
   if (!sec) return;
   let html = `
-    <div class="section-title">Galeria do Grimório</div>
-    <div class="section-intro">Todas as criaturas de ${_data.region}. Toque para ver detalhes.</div>
+    <div class="section-title">Galeria</div>
+    <div class="section-intro">Visão completa de todas as criaturas de ${_data.region}.</div>
     <div class="grimoire-grid">
   `;
   _data.creatures.forEach((c, i) => {
     const tierColor = `var(--tier-${c.tier.toLowerCase()})`;
-    const secretBadge = c.secret ? '<div class="grid-card-secret">✦ SECRETA</div>' : '';
-    const shortName = c.name.split(',')[0];
+    const secretBadge = c.secret ? '<div class="grid-card-secret">✦ Secreta</div>' : '';
+    const shortName = c.name.split(',')[0].split(' — ')[0];
     html += `
       <div class="grid-card" onclick="openModal(${i})">
         ${secretBadge}
@@ -209,13 +192,6 @@ function renderLore() {
   sec.innerHTML = html;
 }
 
-// ═══════════════════════════════════════════
-// INTERAÇÕES — toggle, nav, modal
-// ═══════════════════════════════════════════
-function toggleCard(el) {
-  el.classList.toggle('expanded');
-}
-
 function show(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -228,15 +204,22 @@ function show(id, btn) {
 function openModal(i) {
   const c = _data.creatures[i];
   if (!c) return;
-  document.getElementById('modal-img').src = _cdnBase + encFile(c.file);
   const tierColor = `var(--tier-${c.tier.toLowerCase()})`;
+  document.getElementById('modal-img').src = _cdnBase + encFile(c.file);
   document.getElementById('modal-tier').innerHTML =
-    `<span style="color:${tierColor};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;">
-       ${c.tier} · ${c.secret ? 'INVOCAÇÃO SECRETA' : TIER_LABEL[c.tier]}
+    `<span style="color:${tierColor};font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;">
+       ${c.tier} · ${c.secret ? 'Invocação Secreta' : TIER_LABEL[c.tier]}
+       ${!c.secret ? ` · Bônus ${TIER_BONUS[c.tier]}` : ''}
      </span>`;
   document.getElementById('modal-name').textContent = c.name;
   document.getElementById('modal-epithet').textContent = c.epithet;
-  document.getElementById('modal-lore').textContent = c.lore;
+
+  let loreHtml = escapeHtml(c.lore);
+  if (c.secret && c.secretCondition) {
+    loreHtml += `<div class="modal-secret-cond">${escapeHtml(c.secretCondition)}</div>`;
+  }
+  document.getElementById('modal-lore').innerHTML = loreHtml;
+
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -250,9 +233,6 @@ function closeModalDirect() {
   document.body.style.overflow = '';
 }
 
-// ═══════════════════════════════════════════
-// UTIL
-// ═══════════════════════════════════════════
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s)
