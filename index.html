@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Grimório — Liga Supertecnicos 2026. Todos os grimórios de criaturas da liga.">
-<meta property="og:title" content="Grimório — Liga Supertecnicos">
-<meta property="og:description" content="Todos os grimórios de criaturas · Liga Supertecnicos 2026">
 <title>Grimório · Liga Supertecnicos 2026</title>
+<meta name="description" content="Liga Supertecnicos 2026 — bestiário oficial e estado da liga em tempo real">
+<meta property="og:title" content="Grimório — Liga Supertecnicos">
+<meta property="og:description" content="Liga Supertecnicos · Temporada 2026">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,419 +14,288 @@
 
 <style>
 :root {
-  --bg:           #0f1115;
-  --bg-card:      #1a1d26;
-  --bg-surface:   #232633;
-  --bg-elevated:  #2c2f3d;
-
-  --text-primary:   #e4e4ec;
-  --text-secondary: #a8a8b8;
-  --text-tertiary:  #6a6a7a;
-
-  --border:        rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.20);
-
-  --accent:        #e8c87a;
-  --accent-soft:   rgba(232, 200, 122, 0.10);
-  --accent-strong: rgba(232, 200, 122, 0.40);
-
-  --tier-ss-rgb: 220, 80, 80;
+  --bg:#0f1115; --bg-card:#1a1d26; --bg-surface:#232633;
+  --text-primary:#e4e4ec; --text-secondary:#a8a8b8; --text-tertiary:#6a6a7a;
+  --border:rgba(255,255,255,0.08); --border-strong:rgba(255,255,255,0.20);
+  --accent:#e8c87a; --accent-soft:rgba(232,200,122,0.10); --accent-strong:rgba(232,200,122,0.40);
+  --tier-ss:#ff7878; --tier-ss-rgb:220,80,80;
+  --tier-s:#f0c060;  --tier-s-rgb:232,168,80;
+  --tier-a:#c8a4e8;  --tier-a-rgb:160,120,200;
+  --tier-b:#88c0e0;  --tier-b-rgb:80,140,180;
+  --tier-c:#a0c0a0;  --tier-c-rgb:120,140,120;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--bg);
-  color: var(--text-primary);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: var(--bg); color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px; line-height: 1.65; min-height: 100vh;
+  display: flex; flex-direction: column;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 ::selection { background: var(--accent); color: var(--bg); }
 
-/* ═══════════ HEADER ═══════════ */
+/* HEADER */
 .header {
-  text-align: center;
-  padding: 4rem 1.5rem 3rem;
+  text-align: center; padding: 3.5rem 1.5rem 2.5rem;
   border-bottom: 1px solid var(--border);
-  background:
-    radial-gradient(ellipse at 50% 0%, var(--accent-soft) 0%, transparent 65%),
-    radial-gradient(ellipse at 50% 100%, rgba(var(--tier-ss-rgb), .04) 0%, transparent 70%);
-  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, var(--accent-soft) 0%, transparent 65%);
 }
-
-.header-ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 1.25rem;
-  color: var(--accent);
-  opacity: .55;
-}
-.header-ornament::before, .header-ornament::after {
-  content: '';
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, currentColor, transparent);
-}
-.header-ornament-icon {
-  font-size: 11px;
-  letter-spacing: 4px;
-}
-
-.header-sigil {
-  font-size: 5rem;
-  line-height: 1;
-  margin-bottom: 1rem;
-  display: block;
-  filter: drop-shadow(0 0 36px var(--accent-strong));
-}
-
+.header-ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 1rem; color: var(--accent); opacity: .55; }
+.header-ornament::before, .header-ornament::after { content: ''; width: 80px; height: 1px; background: linear-gradient(90deg, transparent, currentColor, transparent); }
+.header-sigil { font-size: 4.5rem; line-height: 1; margin-bottom: .85rem; display: block; filter: drop-shadow(0 0 32px var(--accent-strong)); }
 .header h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2.5rem, 7vw, 4.2rem);
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 4px;
-  line-height: 1;
-  text-transform: uppercase;
+  font-size: clamp(2.2rem, 6.5vw, 3.8rem);
+  font-weight: 700; color: var(--accent);
+  letter-spacing: 4px; line-height: 1; text-transform: uppercase;
 }
-
 .header-sub {
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-top: 1.25rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.65;
+  font-size: 17px; color: var(--text-secondary);
+  margin-top: 1rem; max-width: 560px;
+  margin-left: auto; margin-right: auto; line-height: 1.6;
 }
-
 .header-meta {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg-card);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
+  display: flex; justify-content: center; gap: 0;
+  margin-top: 2rem; flex-wrap: wrap;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--bg-card); max-width: 720px;
+  margin-left: auto; margin-right: auto; overflow: hidden;
 }
 .header-meta-item {
-  flex: 1;
-  min-width: 140px;
+  flex: 1; min-width: 140px;
   padding: 14px 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-  border-right: 1px solid var(--border);
-  text-align: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  color: var(--text-tertiary); text-transform: uppercase;
+  border-right: 1px solid var(--border); text-align: center;
 }
 .header-meta-item:last-child { border-right: none; }
 .header-meta-item span {
-  display: block;
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: .5px;
+  display: block; font-family: 'Cinzel', serif;
+  font-size: 22px; font-weight: 600; color: var(--accent);
   margin-top: 4px;
 }
 
-/* ═══════════ MAIN ═══════════ */
-.main {
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 3rem 1.5rem 5rem;
-  flex: 1;
-}
+/* MAIN */
+.main { max-width: 1100px; margin: 0 auto; width: 100%; padding: 2.5rem 1.5rem 5rem; flex: 1; }
 
 .section-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: var(--text-secondary);
-  margin: 0 0 1.75rem;
-  text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; font-family: 'Cinzel', serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 4px; color: var(--text-secondary);
+  margin: 0 0 1.5rem; text-transform: uppercase;
 }
 .section-title::before, .section-title::after {
-  content: '';
-  flex: 1;
-  max-width: 220px;
-  height: 1px;
+  content: ''; flex: 1; max-width: 220px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   opacity: .35;
 }
 .section-title-icon { color: var(--accent); font-size: 10px; opacity: .7; }
-.section-title.next { margin-top: 4rem; }
+.section-title.section-spaced { margin-top: 4rem; }
 
-/* ═══════════ GRIMORIO CARDS ═══════════ */
+/* ═══════ HOME VIVA ═══════ */
+.home-status {
+  text-align: center; padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 13px; color: var(--text-tertiary);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
+}
+.home-status.loading { color: var(--accent); }
+.home-status.error { color: var(--tier-ss); }
+
+/* CONFRONTO COMPACTO (no index) */
+.home-confrontos {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-bottom: 1.25rem;
+}
+.home-confronto {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 10px;
+}
+.home-confronto-team { font-size: 14px; }
+.home-confronto-team.left { text-align: right; }
+.home-confronto-team.right { text-align: left; }
+.home-confronto-team .name {
+  font-family: 'Cinzel', serif; font-size: 14px;
+  font-weight: 600; color: var(--text-tertiary);
+}
+.home-confronto-team.winner .name { color: var(--accent); font-weight: 700; }
+.home-confronto-team .pb {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--text-secondary); margin-top: 2px;
+}
+.home-confronto-vs {
+  font-family: 'Cinzel', serif; font-size: 14px;
+  color: var(--text-tertiary); font-weight: 600;
+}
+.home-confronto-creature-mini {
+  display: inline-block; font-size: 11px;
+  color: var(--text-secondary); margin-top: 2px;
+}
+
+/* PRÓXIMA RODADA */
+.proxima-rodada {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 1rem;
+}
+.proxima-confronto {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-strong);
+  border-radius: 8px; padding: 10px 14px;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 10px; font-family: 'Cinzel', serif; font-size: 14px;
+  color: var(--text-primary); align-items: center;
+}
+.proxima-confronto .vs { color: var(--text-tertiary); font-size: 11px; }
+.proxima-confronto .left { text-align: right; }
+
+/* HOME STANDINGS COMPACTO */
+.home-standings { display: grid; gap: 4px; max-width: 600px; margin: 0 auto; }
+.home-standing-row {
+  display: grid; grid-template-columns: 32px 1fr auto auto;
+  gap: 12px; padding: 10px 16px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 6px; align-items: center; font-size: 14px;
+}
+.home-standing-row.top1 { background: var(--accent-soft); border-color: var(--accent-strong); }
+.home-standing-row .pos { font-family: 'Cinzel', serif; color: var(--text-tertiary); font-weight: 700; }
+.home-standing-row.top1 .pos { color: var(--accent); }
+.home-standing-row .name { font-family: 'Cinzel', serif; color: var(--text-primary); font-weight: 600; }
+.home-standing-row .v { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--text-primary); }
+.home-standing-row.top1 .v { color: var(--accent); }
+.home-standing-row .pts { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); }
+
+.home-cta {
+  text-align: center; padding-top: 1rem;
+}
+.home-cta a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Cinzel', serif; font-size: 12px;
+  color: var(--accent); text-decoration: none;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 10px 22px; border: 1px solid var(--border-strong);
+  border-radius: 6px; transition: all .2s;
+}
+.home-cta a:hover { background: var(--accent-soft); border-color: var(--accent); }
+
+/* ═══════ GRIMORIO CARDS (já existente) ═══════ */
 .grimorio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 18px;
 }
-
 .grimorio-card {
-  position: relative;
-  display: block;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform .35s cubic-bezier(.2,.8,.2,1),
-              box-shadow .35s,
-              border-color .25s;
-  aspect-ratio: 4 / 5;
+  position: relative; display: block;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  text-decoration: none; color: inherit; cursor: pointer;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .25s;
+  aspect-ratio: 4/5;
 }
-
 .grimorio-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent-strong);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, .55),
-              0 0 0 1px var(--accent-soft);
+  box-shadow: 0 16px 36px rgba(0,0,0,.55), 0 0 0 1px var(--accent-soft);
 }
-
 .card-bg-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform .55s cubic-bezier(.2,.8,.2,1), opacity .35s;
-  opacity: .85;
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform .55s, opacity .35s; opacity: .85;
 }
-.grimorio-card:hover .card-bg-image {
-  transform: scale(1.08);
-  opacity: 1;
-}
-
+.grimorio-card:hover .card-bg-image { transform: scale(1.08); opacity: 1; }
 .card-shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg,
-      rgba(15, 17, 21, .25) 0%,
-      rgba(15, 17, 21, .50) 45%,
-      rgba(15, 17, 21, .92) 80%,
-      rgba(15, 17, 21, .98) 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,17,21,.25) 0%, rgba(15,17,21,.50) 45%, rgba(15,17,21,.92) 80%, rgba(15,17,21,.98) 100%);
   pointer-events: none;
 }
-
 .card-accent-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--card-accent, var(--accent));
-  opacity: .8;
-  z-index: 2;
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-accent, var(--accent)); opacity: .8; z-index: 2;
 }
-
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.25rem 1.4rem 1.4rem;
-  z-index: 2;
-}
-
-.card-sigil {
-  font-size: 2.25rem;
-  line-height: 1;
-  margin-bottom: .75rem;
-  display: block;
-  filter: drop-shadow(0 0 16px var(--card-accent, var(--accent)));
-}
-
+.card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.4rem 1.4rem; z-index: 2; }
+.card-sigil { font-size: 2.25rem; line-height: 1; margin-bottom: .75rem; display: block; filter: drop-shadow(0 0 16px var(--card-accent, var(--accent))); }
 .card-name {
-  font-family: 'Cinzel', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--card-accent, var(--accent));
-  letter-spacing: 1px;
-  line-height: 1.1;
-  margin-bottom: .35rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, .6);
+  font-family: 'Cinzel', serif; font-size: 26px;
+  font-weight: 700; color: var(--card-accent, var(--accent));
+  letter-spacing: 1px; line-height: 1.1; margin-bottom: .35rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6);
 }
-
-.card-tagline {
-  font-size: 14px;
-  color: var(--text-primary);
-  line-height: 1.5;
-  margin-bottom: .85rem;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, .8);
-}
-
+.card-tagline { font-size: 14px; color: var(--text-primary); line-height: 1.5; margin-bottom: .85rem; text-shadow: 0 1px 8px rgba(0,0,0,.8); }
 .card-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-size: 10px; font-weight: 600; color: var(--text-secondary);
+  letter-spacing: 1.5px; text-transform: uppercase;
 }
 .card-meta-region {
-  padding: 3px 8px;
-  background: rgba(15, 17, 21, .65);
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  padding: 3px 8px; background: rgba(15,17,21,.65);
+  border: 1px solid var(--border); border-radius: 4px;
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
 .card-meta-stats { color: var(--text-tertiary); }
-
 .card-arrow {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(15, 17, 21, .65);
-  border: 1px solid var(--border);
+  position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(15,17,21,.65); border: 1px solid var(--border);
   color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  z-index: 2;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all .25s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; z-index: 2; backdrop-filter: blur(8px); transition: all .25s;
 }
-.grimorio-card:hover .card-arrow {
-  background: var(--card-accent, var(--accent));
-  color: var(--bg);
-  border-color: transparent;
-  transform: translateX(3px);
-}
+.grimorio-card:hover .card-arrow { background: var(--card-accent, var(--accent)); color: var(--bg); border-color: transparent; transform: translateX(3px); }
 
-/* SOON */
-.grimorio-card.soon {
-  cursor: default;
-  pointer-events: none;
-  opacity: .55;
-}
-.grimorio-card.soon .card-bg-image {
-  filter: grayscale(.7) brightness(.7);
-}
+.grimorio-card.soon { cursor: default; pointer-events: none; opacity: .55; }
+.grimorio-card.soon .card-bg-image { filter: grayscale(.7) brightness(.7); }
 .card-soon-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(15, 17, 21, .85);
-  border: 1px solid var(--border-strong);
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(15,17,21,.85); border: 1px solid var(--border-strong);
   color: var(--text-secondary);
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 4px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  z-index: 2;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  font-size: 10px; font-weight: 600; padding: 5px 10px;
+  border-radius: 4px; letter-spacing: 1.5px; text-transform: uppercase;
+  z-index: 2; backdrop-filter: blur(8px);
 }
-
 .card-placeholder-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg,
-    rgba(40, 35, 50, .6) 0%,
-    rgba(20, 18, 25, .9) 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(40,35,50,.6) 0%, rgba(20,18,25,.9) 100%);
 }
 
-/* ═══════════ FOOTER ═══════════ */
+/* FOOTER */
 .footer {
   border-top: 1px solid var(--border);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
+  padding: 2.5rem 1.5rem; text-align: center;
   background: var(--bg-card);
 }
-.footer-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
+.footer-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
 .footer-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Cinzel', serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--accent);
-  text-decoration: none;
-  background: transparent;
-  border: 1px solid var(--border-strong);
-  padding: 10px 22px;
-  border-radius: 6px;
-  transition: all .25s;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 1.5px; color: var(--accent); text-decoration: none;
+  background: transparent; border: 1px solid var(--border-strong);
+  padding: 10px 22px; border-radius: 6px; transition: all .25s;
 }
-.footer-btn:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-.footer-btn-icon { font-size: 14px; opacity: .9; }
-
+.footer-btn:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateY(-1px); }
 .footer-credit {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--text-tertiary);
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: var(--text-tertiary); letter-spacing: 2px; text-transform: uppercase;
 }
 
-/* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 600px) {
   .header { padding: 2.5rem 1rem 2rem; }
-  .header h1 { font-size: 2.2rem; letter-spacing: 2px; }
-  .header-sigil { font-size: 4rem; }
-  .header-sub { font-size: 16px; }
+  .header h1 { font-size: 2rem; letter-spacing: 2px; }
+  .header-sigil { font-size: 3.5rem; }
   .header-meta-item { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
   .header-meta-item:nth-child(odd) { border-right: 1px solid var(--border); }
-  .header-meta-item span { font-size: 18px; }
   .main { padding: 2rem 1rem 3rem; }
   .grimorio-grid { grid-template-columns: 1fr; gap: 14px; }
   .grimorio-card { aspect-ratio: 16 / 11; }
-  .section-title { font-size: 12px; letter-spacing: 2.5px; gap: 10px; }
-  .section-title::before, .section-title::after { max-width: 60px; }
+  .home-confrontos { grid-template-columns: 1fr; }
+  .home-confronto { padding: 12px; }
+  .home-standing-row { grid-template-columns: 24px 1fr auto auto; padding: 8px 12px; gap: 8px; font-size: 13px; }
   .footer { padding: 2rem 1rem; }
-  .footer-btn { font-size: 12px; padding: 9px 18px; }
 }
 </style>
 </head>
@@ -434,11 +303,11 @@ body {
 
 <header class="header">
   <div class="header-ornament">
-    <span class="header-ornament-icon">✦</span>
+    <span style="font-size:11px;letter-spacing:4px;">✦</span>
   </div>
   <span class="header-sigil">📖</span>
   <h1>Grimório</h1>
-  <p class="header-sub">Bestiário oficial da Liga — 9 invocadores, 38 portais, um Domador do Caos</p>
+  <p class="header-sub">Bestiário oficial da Liga · 9 invocadores · 38 portais · um Domador do Caos</p>
   <div class="header-meta">
     <div class="header-meta-item">Liga<span>Supertecnicos</span></div>
     <div class="header-meta-item">Temporada<span>2026</span></div>
@@ -449,7 +318,13 @@ body {
 
 <main class="main">
 
-  <div class="section-title">
+  <!-- HOME VIVA — preenchida pelo JS -->
+  <div id="home-viva">
+    <div class="home-status loading">Carregando estado da liga...</div>
+  </div>
+
+  <!-- GRIMÓRIOS ATIVOS -->
+  <div class="section-title section-spaced">
     <span class="section-title-icon">◆</span>
     Grimórios Ativos
     <span class="section-title-icon">◆</span>
@@ -458,103 +333,73 @@ body {
 
     <a class="grimorio-card" href="./varelitas/varelitas-index.html" style="--card-accent:#7ac060;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/varelitas/SS%20%281%29.jpg" alt="Varelitas" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">🐺</span>
         <div class="card-name">Varelitas</div>
         <div class="card-tagline">Lobos Épicos do Bosque — nobres, majestosos</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Sylvorn</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Sylvorn</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
     <a class="grimorio-card" href="./andorinha/andorinha-index.html" style="--card-accent:#88a0d8;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/andorinha/SS.jpg" alt="Andorinha" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">🦅</span>
         <div class="card-name">Andorinha</div>
         <div class="card-tagline">Aves Ancestrais Alfa — roc, fênix, simurgh</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Skyvara</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Skyvara</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
     <a class="grimorio-card" href="./ironverdict/ironverdict-index.html" style="--card-accent:#e0b070;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/SS.jpg" alt="Ironverdict" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">⚙</span>
         <div class="card-name">Ironverdict</div>
         <div class="card-tagline">Julgadores Divinos — arcanjos e paladinos</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Ferrathis</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Ferrathis</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
     <a class="grimorio-card" href="./icebergteam/icebergteam-index.html" style="--card-accent:#5ab8e0;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/icebergteam/SS.jpg" alt="Icebergteam" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">❄</span>
         <div class="card-name">Icebergteam</div>
         <div class="card-tagline">Bestas do Ártico — leviatãs e wyrms de gelo</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Kelvrak</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Kelvrak</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
     <a class="grimorio-card" href="./ceec/ceec-index.html" style="--card-accent:#90b890;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ceec/SS.jpg" alt="CEEC" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">🏔</span>
         <div class="card-name">CEEC</div>
         <div class="card-tagline">Senhores do Norte — guerreiros e reis testados</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Nordheim</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Nordheim</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
     <a class="grimorio-card" href="./lobonegro/lobonegro-index.html" style="--card-accent:#a878d0;">
       <img class="card-bg-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/SS.jpg" alt="Lobonegro" loading="lazy">
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-arrow">→</div>
+      <div class="card-shade"></div><div class="card-accent-line"></div><div class="card-arrow">→</div>
       <div class="card-content">
         <span class="card-sigil">🌑</span>
         <div class="card-name">Lobonegro</div>
         <div class="card-tagline">Lobos das Sombras — predadores espectrais</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Valdrek</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Valdrek</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </a>
 
   </div>
 
-  <div class="section-title next">
+  <div class="section-title section-spaced">
     <span class="section-title-icon">◆</span>
     Em Breve
     <span class="section-title-icon">◆</span>
@@ -562,50 +407,32 @@ body {
   <div class="grimorio-grid">
 
     <div class="grimorio-card soon" style="--card-accent:#888;">
-      <div class="card-placeholder-bg"></div>
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-soon-badge">Em breve</div>
+      <div class="card-placeholder-bg"></div><div class="card-shade"></div><div class="card-accent-line"></div><div class="card-soon-badge">Em breve</div>
       <div class="card-content">
         <span class="card-sigil">⚔</span>
         <div class="card-name">Sons of Númenor</div>
         <div class="card-tagline">Guardiões Nobres — dragões reais, titãs de luz</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Althar</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Althar</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </div>
 
     <div class="grimorio-card soon" style="--card-accent:#888;">
-      <div class="card-placeholder-bg"></div>
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-soon-badge">Em breve</div>
+      <div class="card-placeholder-bg"></div><div class="card-shade"></div><div class="card-accent-line"></div><div class="card-soon-badge">Em breve</div>
       <div class="card-content">
         <span class="card-sigil">🪶</span>
         <div class="card-name">Andorinha Jr</div>
         <div class="card-tagline">Aves Primordiais jovens — fênix nascente</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Velmur</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Velmur</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </div>
 
     <div class="grimorio-card soon" style="--card-accent:#888;">
-      <div class="card-placeholder-bg"></div>
-      <div class="card-shade"></div>
-      <div class="card-accent-line"></div>
-      <div class="card-soon-badge">Em breve</div>
+      <div class="card-placeholder-bg"></div><div class="card-shade"></div><div class="card-accent-line"></div><div class="card-soon-badge">Em breve</div>
       <div class="card-content">
         <span class="card-sigil">🤖</span>
         <div class="card-name">Otopatamá</div>
         <div class="card-tagline">Colossos Mecânicos — samurais-robô e titãs</div>
-        <div class="card-meta">
-          <span class="card-meta-region">Tetsukai</span>
-          <span class="card-meta-stats">20 Criaturas · 5 Tiers</span>
-        </div>
+        <div class="card-meta"><span class="card-meta-region">Tetsukai</span><span class="card-meta-stats">20 Criaturas · 5 Tiers</span></div>
       </div>
     </div>
 
@@ -615,17 +442,242 @@ body {
 
 <footer class="footer">
   <div class="footer-actions">
-    <a href="./regulamento-fase-alpha.html" class="footer-btn">
-      <span class="footer-btn-icon">✦</span>
-      Regulamento · Fase Alpha
-    </a>
-    <a href="./motor-alpha.html" class="footer-btn">
-      <span class="footer-btn-icon">⚡</span>
-      Motor da Liga
-    </a>
+    <a href="./regulamento-fase-alpha.html" class="footer-btn">✦ Regulamento</a>
+    <a href="./motor-alpha.html" class="footer-btn">⚡ Motor da Liga</a>
   </div>
   <div class="footer-credit">✦ Liga Supertecnicos · Temporada 2026 ✦</div>
 </footer>
+
+<script>
+// ═══════════════════════════════════════════
+// HOME VIVA — lê dados.csv e confrontos.csv
+// ═══════════════════════════════════════════
+const TIMES_ALPHA = ["Ironverdict","Icebergteam","Andorinha","CEEC","Varelitas","Lobonegro"];
+const SIGIL = { Ironverdict:"⚙", Icebergteam:"❄", Andorinha:"🦅", CEEC:"🏔", Varelitas:"🐺", Lobonegro:"🌑" };
+
+function calcTier(pts, conquistas) {
+  if (pts >= 115 && conquistas.includes("Soberano")) return "SS";
+  if (pts >= 100 && (conquistas.includes("Soberano") || conquistas.includes("Despertar"))) return "S";
+  if (pts >= 90) return "A"; if (pts >= 80) return "B"; if (pts >= 65) return "C";
+  return null;
+}
+function calcDespertar(pts) {
+  if (pts >= 110) return 19; if (pts >= 100) return 13;
+  if (pts >= 90) return 9; if (pts >= 80) return 5; return 0;
+}
+function calcConquistas(pts, ranking) {
+  const cqs = [];
+  if (ranking === 1) cqs.push("Soberano");
+  else if (ranking === 2 || ranking === 3) cqs.push("Arauto");
+  if (calcDespertar(pts) > 0) cqs.push("Despertar");
+  return cqs;
+}
+function calcPB(pts, tier, conquistas) {
+  if (!tier) return pts;
+  const tierBonus = {C:0,B:3,A:6,S:10,SS:15};
+  let pb = pts + (tierBonus[tier] || 0);
+  if (conquistas.includes("Soberano")) pb += 10;
+  if (conquistas.includes("Arauto")) pb += 3;
+  pb += calcDespertar(pts);
+  return pb;
+}
+
+function parseDados(csv) {
+  const data = {};
+  csv.trim().split(/\r?\n/).forEach((line, i) => {
+    if (i === 0 || !line.trim()) return;
+    const [r, t, p] = line.split(",").map(s => s.trim());
+    const rod = parseInt(r);
+    const pts = parseFloat(p);
+    if (!TIMES_ALPHA.includes(t) || isNaN(rod) || isNaN(pts)) return;
+    if (!data[rod]) data[rod] = [];
+    data[rod].push({ time: t, pts });
+  });
+  return data;
+}
+function parseConfrontos(csv) {
+  const data = {};
+  csv.trim().split(/\r?\n/).forEach((line, i) => {
+    if (i === 0 || !line.trim()) return;
+    const [r, a, b] = line.split(",").map(s => s.trim());
+    const rod = parseInt(r);
+    if (!TIMES_ALPHA.includes(a) || !TIMES_ALPHA.includes(b)) return;
+    if (!data[rod]) data[rod] = [];
+    data[rod].push([a, b]);
+  });
+  return data;
+}
+
+function processRodada(rodada, raw, confDuelos) {
+  const sorted = [...raw].sort((x,y) => y.pts - x.pts);
+  const teamData = sorted.map((td, i) => {
+    const ranking = i + 1;
+    const conquistas = calcConquistas(td.pts, ranking);
+    const tier = calcTier(td.pts, conquistas);
+    const pb = calcPB(td.pts, tier, conquistas);
+    return { time: td.time, pts: td.pts, tier, pb };
+  });
+  const duels = [];
+  if (confDuelos) {
+    for (const [a, b] of confDuelos) {
+      const tA = teamData.find(t => t.time === a);
+      const tB = teamData.find(t => t.time === b);
+      if (!tA || !tB) continue;
+      let winner = tA.pb > tB.pb ? a : (tB.pb > tA.pb ? b : a);
+      duels.push({ a, b, pbA: tA.pb, pbB: tB.pb, winner });
+    }
+  }
+  return { rodada, teamData, duels };
+}
+
+function calcStandings(rodadas) {
+  const stats = {};
+  TIMES_ALPHA.forEach(t => stats[t] = { vitorias: 0, pts: 0 });
+  for (const r of rodadas) {
+    r.teamData.forEach(td => stats[td.time].pts += td.pts);
+    r.duels.forEach(d => { if (d.winner) stats[d.winner].vitorias++; });
+  }
+  return TIMES_ALPHA.map(t => ({ time: t, ...stats[t] }))
+    .sort((a, b) => b.vitorias - a.vitorias || b.pts - a.pts);
+}
+
+function renderHomeViva(rodadasProcessadas, confrontosMap) {
+  const root = document.getElementById("home-viva");
+  if (rodadasProcessadas.length === 0) {
+    // Nenhuma rodada com dados — só mostra próxima rodada se confrontos[1] existir
+    const proxConf = confrontosMap[1];
+    if (proxConf && proxConf.length > 0) {
+      root.innerHTML = `
+        <div class="section-title">
+          <span class="section-title-icon">◆</span>
+          Próxima · Rodada 1
+          <span class="section-title-icon">◆</span>
+        </div>
+        <div class="proxima-rodada">
+          ${proxConf.map(([a, b]) => `
+            <div class="proxima-confronto">
+              <span class="left">${SIGIL[a]} ${a}</span>
+              <span class="vs">vs</span>
+              <span>${SIGIL[b]} ${b}</span>
+            </div>`).join("")}
+        </div>
+      `;
+    } else {
+      root.innerHTML = `<div class="home-status">A liga ainda não começou — confira os grimórios abaixo.</div>`;
+    }
+    return;
+  }
+
+  const ultima = rodadasProcessadas[rodadasProcessadas.length - 1];
+  const proxRodada = ultima.rodada + 1;
+  const proxConf = confrontosMap[proxRodada];
+  const standings = calcStandings(rodadasProcessadas);
+  const top3 = standings.slice(0, 3);
+
+  let html = `
+    <div class="section-title">
+      <span class="section-title-icon">◆</span>
+      Rodada ${ultima.rodada} · Resultados
+      <span class="section-title-icon">◆</span>
+    </div>
+  `;
+
+  if (ultima.duels.length === 0) {
+    html += `<div class="home-status">Confrontos da rodada ${ultima.rodada} ainda não foram definidos.</div>`;
+  } else {
+    html += `<div class="home-confrontos">`;
+    for (const d of ultima.duels) {
+      const aWin = d.winner === d.a;
+      html += `
+        <div class="home-confronto">
+          <div class="home-confronto-team left ${aWin ? 'winner' : ''}">
+            <div class="name">${SIGIL[d.a]} ${d.a}</div>
+            <div class="pb">${d.pbA.toFixed(1)} PB</div>
+          </div>
+          <div class="home-confronto-vs">×</div>
+          <div class="home-confronto-team right ${!aWin ? 'winner' : ''}">
+            <div class="name">${SIGIL[d.b]} ${d.b}</div>
+            <div class="pb">${d.pbB.toFixed(1)} PB</div>
+          </div>
+        </div>`;
+    }
+    html += `</div>`;
+  }
+
+  // Próxima rodada
+  if (proxConf && proxConf.length > 0) {
+    html += `
+      <div class="section-title section-spaced" style="margin-top: 2.5rem;">
+        <span class="section-title-icon">◆</span>
+        Próxima · Rodada ${proxRodada}
+        <span class="section-title-icon">◆</span>
+      </div>
+      <div class="proxima-rodada">
+        ${proxConf.map(([a, b]) => `
+          <div class="proxima-confronto">
+            <span class="left">${SIGIL[a]} ${a}</span>
+            <span class="vs">vs</span>
+            <span>${SIGIL[b]} ${b}</span>
+          </div>`).join("")}
+      </div>
+    `;
+  }
+
+  // Top 3
+  html += `
+    <div class="section-title section-spaced" style="margin-top: 2.5rem;">
+      <span class="section-title-icon">◆</span>
+      Classificação
+      <span class="section-title-icon">◆</span>
+    </div>
+    <div class="home-standings">
+      ${top3.map((s, i) => `
+        <div class="home-standing-row ${i === 0 ? 'top1' : ''}">
+          <div class="pos">${i + 1}</div>
+          <div class="name">${SIGIL[s.time]} ${s.time}</div>
+          <div class="v">${s.vitorias}V</div>
+          <div class="pts">${s.pts.toFixed(1)} pts</div>
+        </div>`).join("")}
+    </div>
+    <div class="home-cta">
+      <a href="./motor-alpha.html">Ver liga completa →</a>
+    </div>
+  `;
+
+  root.innerHTML = html;
+}
+
+async function loadHomeViva() {
+  try {
+    const [dadosRes, confRes] = await Promise.all([
+      fetch("./dados.csv?t=" + Date.now()),
+      fetch("./confrontos.csv?t=" + Date.now())
+    ]);
+
+    if (!dadosRes.ok) {
+      document.getElementById("home-viva").innerHTML = `<div class="home-status error">dados.csv não encontrado</div>`;
+      return;
+    }
+
+    const dadosCsv = await dadosRes.text();
+    const confCsv = confRes.ok ? await confRes.text() : "";
+
+    const dados = parseDados(dadosCsv);
+    const confrontosMap = parseConfrontos(confCsv);
+
+    const rodadasProcessadas = [];
+    Object.keys(dados).map(Number).sort((a, b) => a - b).forEach(rod => {
+      rodadasProcessadas.push(processRodada(rod, dados[rod], confrontosMap[rod]));
+    });
+
+    renderHomeViva(rodadasProcessadas, confrontosMap);
+  } catch (err) {
+    document.getElementById("home-viva").innerHTML = `<div class="home-status error">Erro: ${err.message}</div>`;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", loadHomeViva);
+</script>
 
 </body>
 </html>
