@@ -482,12 +482,12 @@ const SIGIL = { Ironverdict:"⚙", Icebergteam:"❄", Andorinha:"🦅", CEEC:"�
 function calcTier(pts, conquistas) {
   if (pts >= 115 && conquistas.includes("Soberano")) return "SS";
   if (pts >= 100 && (conquistas.includes("Soberano") || conquistas.includes("Despertar"))) return "S";
-  if (pts >= 90) return "A"; if (pts >= 80) return "B"; if (pts >= 65) return "C";
+  if (pts >= 90) return "A"; if (pts >= 75) return "B"; if (pts >= 50) return "C";
   return null;
 }
 function calcDespertar(pts) {
-  if (pts >= 110) return 19; if (pts >= 100) return 13;
-  if (pts >= 90) return 9; if (pts >= 80) return 5; return 0;
+  if (pts >= 110) return 38; if (pts >= 100) return 26;
+  if (pts >= 90) return 18; if (pts >= 80) return 10; return 0;
 }
 function calcConquistas(pts, ranking) {
   const cqs = [];
@@ -500,8 +500,8 @@ function calcPB(pts, tier, conquistas) {
   if (!tier) return pts;
   const tierBonus = {C:0,B:3,A:6,S:10,SS:15};
   let pb = pts + (tierBonus[tier] || 0);
-  if (conquistas.includes("Soberano")) pb += 10;
-  if (conquistas.includes("Arauto")) pb += 3;
+  if (conquistas.includes("Soberano")) pb += 20;
+  if (conquistas.includes("Arauto")) pb += 15;
   pb += calcDespertar(pts);
   return pb;
 }

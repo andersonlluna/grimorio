@@ -208,9 +208,21 @@ body {
 }
 .criatura.winner .criatura-img-box {
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 1px var(--accent-soft);
+  border-width: 3px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.5),
+              0 0 0 2px var(--accent-soft),
+              0 0 24px rgba(232,200,122,.25);
 }
-.criatura.loser { opacity: .55; }
+.criatura.winner::before {
+  content: '★ VENCEU';
+  display: block;
+  font-family: 'Cinzel', serif; font-size: 11px;
+  font-weight: 700; letter-spacing: 2px;
+  color: var(--accent); text-transform: uppercase;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.criatura.loser { opacity: .5; }
 .criatura.no-invoke { opacity: .5; }
 .criatura.no-invoke .criatura-img-box { border-style: dashed; }
 
@@ -265,10 +277,24 @@ body {
   color: var(--accent); text-align: center;
 }
 .vs-margin {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; color: var(--text-secondary);
-  letter-spacing: 1px; margin-top: 5px;
-  white-space: nowrap; font-weight: 600;
+  font-family: 'Cinzel', serif;
+  font-size: 16px; color: var(--accent);
+  letter-spacing: 1px; margin-top: 8px;
+  white-space: nowrap; font-weight: 700;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-strong);
+  border-radius: 6px;
+  padding: 6px 12px;
+  display: inline-block;
+}
+.vs-margin-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  color: var(--text-tertiary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .pb-detail {
@@ -325,6 +351,76 @@ body {
 .cronica-body strong.t-a  { color: var(--tier-a); }
 .cronica-body strong.t-b  { color: var(--tier-b); }
 .cronica-body strong.t-c  { color: var(--tier-c); }
+
+.rodada-pontuacao {
+  display: grid; gap: 6px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem;
+  margin-bottom: 1rem;
+}
+.rp-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto auto;
+  gap: 12px; padding: 10px 14px;
+  border-radius: 8px; align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+.rp-row.rp-top {
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
+}
+.rp-pos {
+  font-family: 'Cinzel', serif; font-size: 16px;
+  font-weight: 700; color: var(--text-secondary);
+  text-align: center;
+}
+.rp-row.rp-top .rp-pos { color: var(--accent); }
+.rp-team {
+  font-family: 'Cinzel', serif; font-size: 16px;
+  font-weight: 600; color: var(--text-primary);
+}
+.rp-pts {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; font-weight: 700; color: var(--text-primary);
+}
+.rp-tier-badge {
+  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700;
+  border-radius: 5px; padding: 4px 10px;
+  border: 1.5px solid; color: #fff;
+  letter-spacing: .5px; min-width: 38px; text-align: center;
+}
+.rp-tier-badge.t-ss { background: rgba(var(--tier-ss-rgb), .85); border-color: var(--tier-ss); }
+.rp-tier-badge.t-s  { background: rgba(var(--tier-s-rgb),  .85); border-color: var(--tier-s);  }
+.rp-tier-badge.t-a  { background: rgba(var(--tier-a-rgb),  .80); border-color: var(--tier-a);  }
+.rp-tier-badge.t-b  { background: rgba(var(--tier-b-rgb),  .80); border-color: var(--tier-b);  }
+.rp-tier-badge.t-c  { background: rgba(var(--tier-c-rgb),  .75); border-color: var(--tier-c);  }
+.rp-tier-badge.no {
+  background: transparent; border-color: var(--border-strong);
+  color: var(--text-tertiary); font-size: 14px;
+}
+.rp-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.cq-tag {
+  font-family: 'Inter', sans-serif; font-size: 11px;
+  font-weight: 700; letter-spacing: .5px;
+  padding: 4px 9px; border-radius: 4px;
+  white-space: nowrap;
+}
+.cq-tag.sob {
+  background: rgba(var(--tier-s-rgb), .15);
+  color: var(--tier-s);
+  border: 1px solid rgba(var(--tier-s-rgb), .4);
+}
+.cq-tag.ara {
+  background: rgba(var(--tier-b-rgb), .15);
+  color: var(--tier-b);
+  border: 1px solid rgba(var(--tier-b-rgb), .4);
+}
+.cq-tag.desp {
+  background: rgba(var(--tier-a-rgb), .15);
+  color: var(--tier-a);
+  border: 1px solid rgba(var(--tier-a-rgb), .4);
+}
 
 .standings-mini {
   background: var(--bg-card); border: 1px solid var(--border);
@@ -570,12 +666,12 @@ let CURRENT_MODE = "rodadas";
 function calcTier(pts, conquistas) {
   if (pts >= 115 && conquistas.includes("Soberano")) return "SS";
   if (pts >= 100 && (conquistas.includes("Soberano") || conquistas.includes("Despertar"))) return "S";
-  if (pts >= 90) return "A"; if (pts >= 80) return "B"; if (pts >= 65) return "C";
+  if (pts >= 90) return "A"; if (pts >= 75) return "B"; if (pts >= 50) return "C";
   return null;
 }
 function calcDespertar(pts) {
-  if (pts >= 110) return 19; if (pts >= 100) return 13;
-  if (pts >= 90) return 9;   if (pts >= 80) return 5; return 0;
+  if (pts >= 110) return 38; if (pts >= 100) return 26;
+  if (pts >= 90) return 18;   if (pts >= 80) return 10; return 0;
 }
 function calcConquistas(pts, ranking) {
   const cqs = [];
@@ -588,8 +684,8 @@ function tierBonus(tier) { return {C:0,B:3,A:6,S:10,SS:15}[tier] || 0; }
 function calcPB(pts, tier, conquistas) {
   if (!tier) return pts;
   let pb = pts + tierBonus(tier);
-  if (conquistas.includes("Soberano")) pb += 10;
-  if (conquistas.includes("Arauto")) pb += 3;
+  if (conquistas.includes("Soberano")) pb += 20;
+  if (conquistas.includes("Arauto")) pb += 15;
   pb += calcDespertar(pts);
   return pb;
 }
@@ -917,6 +1013,33 @@ function renderRound(rodada) {
     html += `
       <div class="section-divider">
         <span class="section-divider-icon">◆</span>
+        Pontuação Cartola
+        <span class="section-divider-icon">◆</span>
+      </div>
+      <div class="rodada-pontuacao">
+    `;
+    sorted.forEach((td, i) => {
+      const ranking = i + 1;
+      const tagSob = td.conquistas.includes("Soberano") ? '<span class="cq-tag sob">👑 Soberano</span>' : '';
+      const tagAra = td.conquistas.includes("Arauto") ? '<span class="cq-tag ara">🥇 Arauto</span>' : '';
+      const tagDesp = td.conquistas.includes("Despertar") ? `<span class="cq-tag desp">💀 Despertar +${td.despertarBonus}</span>` : '';
+      const tierBadge = td.tier ? `<span class="rp-tier-badge t-${td.tier.toLowerCase()}">${td.tier}</span>` : '<span class="rp-tier-badge no">—</span>';
+
+      html += `
+        <div class="rp-row ${ranking === 1 ? 'rp-top' : ''}">
+          <div class="rp-pos">${ranking}º</div>
+          <div class="rp-team">${SIGIL[td.time]} ${td.time}</div>
+          <div class="rp-pts">${td.pts.toFixed(2)} pts</div>
+          ${tierBadge}
+          <div class="rp-tags">${tagSob}${tagAra}${tagDesp}</div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+
+    html += `
+      <div class="section-divider">
+        <span class="section-divider-icon">◆</span>
         ${round.duelResults.length} Confrontos
         <span class="section-divider-icon">◆</span>
       </div>
@@ -959,7 +1082,7 @@ function renderConfronto(d, rodada) {
     <div class="confronto-card">
       <div class="confronto-grid">
         ${renderCriatura(d.a, d.criaturaA, d.tierA, aWin, !aWin)}
-        <div class="vs-divider">×<div class="vs-margin">+${margin.toFixed(1)} PB</div></div>
+        <div class="vs-divider">×<div class="vs-margin">+${margin.toFixed(1)} PB</div><div class="vs-margin-label">Vantagem</div></div>
         ${renderCriatura(d.b, d.criaturaB, d.tierB, !aWin, aWin)}
       </div>
       <div class="pb-detail">
@@ -1015,8 +1138,8 @@ function renderPBBox(time, pts, tier, conquistas, despBonus, pb, isWinner) {
 
   let formula = `${pts.toFixed(2)} pts`;
   if (tier) formula += ` + ${tBonus} (${tier})`;
-  if (conquistas.includes("Soberano")) formula += ` + 10 (Sob.)`;
-  if (conquistas.includes("Arauto")) formula += ` + 3 (Arauto)`;
+  if (conquistas.includes("Soberano")) formula += ` + 20 (Sob.)`;
+  if (conquistas.includes("Arauto")) formula += ` + 15 (Arauto)`;
   if (despBonus > 0) formula += ` + ${despBonus} (Desp.)`;
 
   return `
