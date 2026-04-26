@@ -48,6 +48,21 @@ textarea:focus{border-color:var(--ember);}
 .btn-sec{background:transparent;color:var(--ember);border:1px solid var(--border-strong);margin-left:8px;}
 .btn-sec:hover{background:var(--ember-glow);color:var(--ember-bright);}
 
+/* HEADER NAV (links pra index e regulamento) */
+.header-nav{display:flex;justify-content:space-between;max-width:600px;margin:0 auto 1.25rem;padding:0;}
+.back-link{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--stone-dim);
+  text-decoration:none;text-transform:uppercase;padding:6px 12px;border:1px solid var(--border);
+  border-radius:4px;transition:all .2s;}
+.back-link:hover{color:var(--ember);border-color:var(--border-strong);background:var(--ember-glow);}
+
+/* AUTO-LOAD STATUS */
+.auto-status{display:none;background:rgba(74,122,74,0.08);border:1px solid rgba(74,122,74,0.30);
+  color:#7aa67a;border-radius:6px;padding:10px 14px;margin-bottom:1rem;
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.5px;}
+.auto-status.error{background:rgba(155,42,42,0.08);border-color:rgba(155,42,42,0.30);color:#c87a7a;}
+.auto-status.loading{background:rgba(196,124,43,0.08);border-color:rgba(196,124,43,0.30);color:var(--ember);}
+.auto-status code{background:rgba(0,0,0,0.25);padding:1px 6px;border-radius:3px;color:var(--ember-bright);}
+
 /* RESULTS */
 .results{display:none;}
 .round-block{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
@@ -121,6 +136,10 @@ textarea:focus{border-color:var(--ember);}
 <body>
 
 <div class="header">
+  <div class="header-nav">
+    <a href="index.html" class="back-link">← Grimório Geral</a>
+    <a href="regulamento-fase-alpha.html" class="back-link">Regulamento →</a>
+  </div>
   <h1>Motor · Fase Alpha</h1>
   <div class="header-sub">Grimório — Liga Supertecniso 2026 · 6 Times · 5 Rodadas</div>
 </div>
@@ -129,8 +148,11 @@ textarea:focus{border-color:var(--ember);}
 
 <!-- ═══ INPUT ═══ -->
 <div class="input-section">
-  <h2>Inserir Dados da Rodada</h2>
-  <p class="hint">Cole os dados CSV da rodada no formato: <code style="color:var(--ember)">rodada,time,pontos</code> — pode incluir outros times além dos 6 da Alpha, serão ignorados automaticamente.</p>
+  <h2>Dados da Liga</h2>
+
+  <div class="auto-status" id="auto-status"></div>
+
+  <p class="hint">Os dados são carregados automaticamente do arquivo <code style="color:var(--ember)">dados.csv</code> do repositório. Você também pode editar/colar manualmente abaixo pra simular cenários.</p>
 
   <div class="input-row">
     <div>
@@ -581,9 +603,61 @@ function limpar() {
   document.getElementById("csv-input").value = "";
   document.getElementById("results").style.display = "none";
   document.getElementById("error-box").style.display = "none";
+  document.getElementById("auto-status").style.display = "none";
   globalState = null;
   globalRodadas = [];
 }
+
+// ═══════════════════════════════════════════
+// AUTO-LOAD DO dados.csv
+// ═══════════════════════════════════════════
+
+function setStatus(msg, type) {
+  const el = document.getElementById("auto-status");
+  if (!el) return;
+  el.className = "auto-status" + (type ? " " + type : "");
+  el.innerHTML = msg;
+  el.style.display = "block";
+}
+
+async function autoLoad() {
+  setStatus("Carregando <code>dados.csv</code>...", "loading");
+  try {
+    const res = await fetch("./dados.csv?t=" + Date.now()); // bypass cache
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const csv = await res.text();
+    if (!csv.trim()) throw new Error("arquivo vazio");
+
+    document.getElementById("csv-input").value = csv;
+    document.getElementById("sel-modo").value = "all";
+
+    // Conta rodadas distintas
+    const lines = csv.trim().split(/\r?\n/);
+    const rodadasSet = new Set();
+    for (let i = 1; i < lines.length; i++) {
+      const r = lines[i].split(",")[0];
+      if (r && !isNaN(parseInt(r))) rodadasSet.add(parseInt(r));
+    }
+    const numRodadas = rodadasSet.size;
+
+    setStatus(
+      `✓ Carregado de <code>dados.csv</code> · <strong>${numRodadas} rodada${numRodadas !== 1 ? "s" : ""}</strong> processada${numRodadas !== 1 ? "s" : ""} automaticamente`,
+      ""
+    );
+
+    // Processa automaticamente
+    processar();
+
+  } catch (err) {
+    setStatus(
+      `Não foi possível carregar <code>dados.csv</code> automaticamente (${err.message}). Cole os dados manualmente abaixo.`,
+      "error"
+    );
+  }
+}
+
+// Dispara ao carregar a página
+window.addEventListener("DOMContentLoaded", autoLoad);
 </script>
 </body>
 </html>
