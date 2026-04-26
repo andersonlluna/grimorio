@@ -4,468 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ironverdict — Grimório · Liga Supertecnicos 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Ironverdict — Grimório da Liga Supertecnicos">
+<meta property="og:title" content="Ironverdict — Grimório">
+<meta property="og:description" content="Liga Supertecnicos · Temporada 2026">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/grimorio.css">
 <style>
-:root{--accent:#b89060;--accent-glow:rgba(184,144,96,0.12);}
-
-:root{--bg:#0d0a07;--bg-card:#171310;--bg-surface:#1e1812;--bg-hover:#261f16;--ember:#d4893a;--ember-dim:#9a6428;--ember-bright:#f0b060;--ember-glow:rgba(196,124,43,0.10);--crimson:#9b2a2a;--crimson-bright:#c23535;--stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;--border:rgba(212,137,58,0.18);--border-strong:rgba(212,137,58,0.35);--tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;}
-*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--bg);color:var(--stone);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}::selection{background:var(--ember);color:var(--bg);}
-.header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border);position:relative;}.header::before{content:'✦ ✦ ✦';display:block;font-size:10px;letter-spacing:10px;color:var(--ember-dim);margin-bottom:1rem;}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--stone-dim);text-decoration:none;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s;}.back-link:hover{color:var(--ember);}
-.sigil{font-size:3rem;margin-bottom:.8rem;display:block;}
-.header h1{font-family:'Uncial Antiqua',serif;font-size:clamp(2.2rem,7vw,3.8rem);color:var(--ember);letter-spacing:4px;line-height:1.1;text-shadow:0 0 40px rgba(196,124,43,0.25);}
-.header-region{font-size:12px;margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;opacity:.8;}
-.header-lore{font-size:18px;color:var(--stone-dim);margin-top:.8rem;font-style:italic;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;}
-.header-league{font-size:11px;color:var(--ember-dim);margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;}
-.stats-bar{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--border);background:var(--bg-card);}
-.stat-item{flex:1;max-width:180px;text-align:center;padding:14px 12px;border-right:1px solid var(--border);}.stat-item:last-child{border-right:none;}
-.stat-val{font-family:'Uncial Antiqua',serif;font-size:22px;color:var(--ember);display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stone-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
-.nav{position:sticky;top:0;z-index:100;background:rgba(11,9,6,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1rem;overflow-x:auto;}.nav::-webkit-scrollbar{height:0;}
-.nav-inner{display:flex;max-width:860px;margin:0 auto;}
-.nav-btn{font-family:'Uncial Antiqua',serif;font-size:11px;letter-spacing:1.5px;color:var(--stone-dim);background:none;border:none;padding:13px 14px;cursor:pointer;white-space:nowrap;transition:color .3s;border-bottom:2px solid transparent;}.nav-btn:hover{color:var(--stone);}.nav-btn.active{color:var(--ember);border-bottom-color:var(--ember);}
-.content{max-width:840px;margin:0 auto;padding:2rem 1.5rem 5rem;}.section{display:none;}.section.active{display:block;}
-.section-title{font-family:'Uncial Antiqua',serif;font-size:18px;color:var(--ember);margin-bottom:.4rem;letter-spacing:1px;}
-.section-intro{color:var(--stone-dim);font-size:18px;margin-bottom:2rem;font-style:italic;line-height:1.55;border-left:2px solid var(--ember-dim);padding-left:1rem;}
-.group-title{font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:2px;color:var(--stone-dim);margin:2rem 0 .75rem;padding-bottom:5px;border-bottom:1px solid var(--border);text-transform:uppercase;}.group-title:first-child{margin-top:0;}
-.creature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;transition:border-color .3s,background .3s;cursor:pointer;}.creature-card:hover{border-color:var(--border-strong);background:var(--bg-surface);}.creature-card.expanded{border-color:var(--border-strong);}
-.creature-header{display:flex;align-items:center;gap:16px;padding:16px 20px;}
-.tier-badge{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Uncial Antiqua',serif;font-size:20px;flex-shrink:0;border:1px solid;}
-.creature-meta{flex:1;}.creature-name{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--stone);}.creature-epithet{font-size:16px;color:var(--stone-dim);font-style:italic;margin-top:1px;}
-.creature-toggle{color:var(--stone-dim);font-size:11px;transition:transform .3s;}.creature-card.expanded .creature-toggle{transform:rotate(180deg);}
-.creature-body{display:none;border-top:1px solid var(--border);}.creature-card.expanded .creature-body{display:flex;}
-.creature-image{width:240px;min-height:240px;object-fit:cover;object-position:center top;flex-shrink:0;background:var(--bg-surface);}
-.creature-details{flex:1;padding:16px 18px;}.creature-lore{font-size:17px;color:var(--stone-dim);line-height:1.65;font-style:italic;margin-bottom:12px;}
-.creature-stats{display:flex;gap:8px;flex-wrap:wrap;}.creature-stat{padding:6px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--stone-dim);}.creature-stat span{color:var(--ember);}
-.creature-card.ss-card{border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);}.creature-card.ss-card:hover,.creature-card.ss-card.expanded{border-color:rgba(155,42,42,0.4);}
-.creature-card.ss-secret{border-color:rgba(155,42,42,0.12);background:rgba(155,42,42,0.02);}.creature-card.ss-secret .creature-name{color:var(--stone-dim);font-style:italic;}
-.secret-lock{display:flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;background:rgba(155,42,42,0.08);border:1px solid rgba(155,42,42,0.2);border-radius:4px;font-size:16px;color:var(--crimson-bright);font-style:italic;}
-.grimoire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.grid-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .2s;cursor:pointer;position:relative;}.grid-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.grid-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;background:var(--bg-surface);}
-.grid-card-info{padding:8px 10px;border-top:1px solid var(--border);}.grid-card-tier{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;margin-bottom:3px;}.grid-card-name{font-size:14px;color:var(--stone);font-weight:600;line-height:1.3;}
-.grid-card-secret{position:absolute;top:8px;right:8px;background:rgba(155,42,42,0.8);border-radius:3px;font-size:10px;padding:2px 5px;color:#ff6b6b;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
-.lore-block{padding:20px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;}.lore-block h3{font-family:'Uncial Antiqua',serif;font-size:14px;color:var(--ember);margin-bottom:10px;letter-spacing:1px;}.lore-block p{font-size:17px;color:var(--stone-dim);line-height:1.75;}.lore-block p+p{margin-top:.8rem;}.lore-block p strong{color:var(--stone);}
-.note{padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--ember-dim);border-radius:0 6px 6px 0;font-size:17px;color:var(--stone-dim);line-height:1.6;margin-top:1rem;}.note strong{color:var(--stone);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,9,6,0.92);z-index:1000;align-items:center;justify-content:center;padding:1rem;}.modal-overlay.open{display:flex;}
-.modal{background:var(--bg-card);border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
-.modal-img{width:100%;max-height:380px;object-fit:cover;object-position:center top;display:block;}.modal-body{padding:20px 24px;}
-.modal-tier{font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:6px;}.modal-name{font-family:'Uncial Antiqua',serif;font-size:26px;color:var(--ember);margin-bottom:4px;}.modal-epithet{font-size:17px;color:var(--stone-dim);font-style:italic;margin-bottom:14px;}.modal-lore{font-size:18px;color:var(--stone-dim);line-height:1.7;}
-.modal-close{position:absolute;top:12px;right:12px;background:rgba(11,9,6,0.7);border:1px solid var(--border);color:var(--stone-dim);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:color .2s,border-color .2s;}.modal-close:hover{color:var(--stone);border-color:var(--border-strong);}
-@media(max-width:600px){.content{padding:1.5rem 1rem 3rem;}.creature-body{flex-direction:column;}.creature-image{width:100%;min-height:220px;}.stats-bar{flex-wrap:wrap;}.stat-item{max-width:none;border-right:none;border-bottom:1px solid var(--border);}.stat-item:last-child{border-bottom:none;}}
-
-.header{background:radial-gradient(ellipse at 50% 0%,rgba(184,144,96,0.09) 0%,transparent 65%),radial-gradient(ellipse at 50% 0%,rgba(196,124,43,0.05) 0%,transparent 80%);}
-.sigil{filter:drop-shadow(0 0 20px rgba(184,144,96,0.4));}
-.header-region{color:var(--accent);}
+  :root {
+    --accent: #e0b070;
+    --accent-soft: rgba(224,176,112, 0.10);
+    --accent-strong: rgba(224,176,112, 0.35);
+  }
+  .header {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(224,176,112, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 80%);
+  }
 </style>
 </head>
 <body>
-<div class="header">
-  <a href="../grimorio-regulamento.html" class="back-link">← Regulamento</a>
-  <span class="sigil">⚙</span>
-  <h1>Ironverdict</h1>
-  <div class="header-region">Ferrathis · Julgadores Divinos</div>
-  <div class="header-lore">Em Ferrathis, o julgamento não é proferido por vozes — é executado por lâminas de luz. Cada criatura deste grimório é um veredicto andando: bela, inevitável, sem apelo.</div>
-  <div class="header-league">Liga Supertecnicos · Temporada 2026</div>
-</div>
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-val">20</span><div class="stat-label">Criaturas</div></div>
-  <div class="stat-item"><span class="stat-val">6+5+4+3+2</span><div class="stat-label">Distribuição</div></div>
-  <div class="stat-item"><span class="stat-val">Ferrathis</span><div class="stat-label">Região</div></div>
-  <div class="stat-item"><span class="stat-val">Aeloros</span><div class="stat-label">Lendário</div></div>
-</div>
+
+<div class="header" id="grimorio-header"></div>
+<div class="stats-bar" id="grimorio-stats"></div>
+
 <nav class="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="show('grimorio',this)">Grimório</button>
-    <button class="nav-btn" onclick="show('galeria',this)">Galeria</button>
-    <button class="nav-btn" onclick="show('lore',this)">Lore</button>
+    <button class="nav-btn active" onclick="show('grimorio', this)">Grimório</button>
+    <button class="nav-btn" onclick="show('galeria', this)">Galeria</button>
+    <button class="nav-btn" onclick="show('lore', this)">Lore</button>
   </div>
 </nav>
+
 <div class="content">
-<div class="section active" id="s-grimorio">
-  <div class="section-title">O Grimório de Ironverdict</div>
-  <div class="section-intro">Em Ferrathis, o julgamento não é proferido por vozes — é executado por lâminas de luz. Cada criatura deste grimório é um veredicto andando: bela, inevitável, sem apelo.</div>
-  <div class="group-title">SS · Lendário — ≥ 115 pts ou marco</div>
-  <div class="creature-card ss-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,0.10);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Aeloros, Leão da Montanha Sagrada</div>
-        <div class="creature-epithet">O julgamento que não precisa de palavras</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/SS.jpg" alt="Aeloros, Leão da Montanha Sagrada" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Aeloros pousa no pico mais alto de Ferrathis e os réus chegam até ele. Não porque sejam obrigados — porque a alternativa é pior. Um leão branco do tamanho de uma catedral, silencioso como o veredicto que já foi tomado.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div><div class="creature-stat">Limiar <span>≥ 115 pts ou marco</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card ss-secret" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:rgba(155,42,42,0.3);background:rgba(155,42,42,0.05);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Pyrethiel, Chama Divina</div>
-        <div class="creature-epithet">✦ Invocação Secreta</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/SS%20%282%29.jpg" alt="Pyrethiel, Chama Divina" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Três halos. Asas de fogo. Pyrethiel não é uma criatura de batalha — é a personificação do momento em que o tribunal encerra a sessão. Só invocável quando Ironverdict registra a maior pontuação da liga em duas rodadas consecutivas.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div></div>
-        <div class="secret-lock">✦ Invocável quando Ironverdict registra a maior pontuação da liga em duas rodadas consecutivas — o padrão de dominância confirma o veredicto.</div>
-      </div>
-    </div>
-  </div>
-  <div class="group-title">S · Épico — ≥ 100 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Solarion, Arcanjo do Alvorecer</div>
-        <div class="creature-epithet">O primeiro raio de sol é uma ordem</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/S.jpg" alt="Solarion, Arcanjo do Alvorecer" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Solarion não anuncia o amanhecer — ele o autoriza. Cada manhã em Ferrathis começa com sua permissão.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Morveth, o Apóstata</div>
-        <div class="creature-epithet">Julgou o próprio tribunal e foi absolvido</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/S%20%282%29.jpg" alt="Morveth, o Apóstata" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">O único em Ferrathis que questionou o sistema de dentro. Sobreviveu. Isso diz tudo sobre o que ele é.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Rhyana, Guerreira Eterna</div>
-        <div class="creature-epithet">Nunca foi derrotada — apenas pausada</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/S%20%283%29.jpg" alt="Rhyana, Guerreira Eterna" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Rhyana foi derrotada uma vez. Ela voltou com asas negras onde antes havia brancas. Ninguém perguntou o que aconteceu com o adversário.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">A · Raro — ≥ 90 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Seraphiel, o Alvo</div>
-        <div class="creature-epithet">Caminha de costas para que os inimigos vejam o que vem</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/A%20%281%29.jpg" alt="Seraphiel, o Alvo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Seraphiel é o único em Ferrathis que vira as costas para o adversário. Não por descuido — por confiança absoluta no que carrega.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Auraviel, o Solar</div>
-        <div class="creature-epithet">A armadura dourada não é decoração — é aviso</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/A%20%282%29.jpg" alt="Auraviel, o Solar" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Auraviel foi forjado sob um eclipse. A luz que o criou não era do sol — era do que o sol se torna quando some por um momento.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Mirella, Lâmina da Alvorada</div>
-        <div class="creature-epithet">Corta névoa antes de cortar carne</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/A%20%283%29.jpg" alt="Mirella, Lâmina da Alvorada" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Mirella foi vista caminhando por campos de batalha onde todos tinham desistido. Ela não sabia que a batalha havia terminado.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Thyra, Escudo Dourado</div>
-        <div class="creature-epithet">Os raios que caem atrás dela não são fenômeno natural</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/A%20%284%29.jpg" alt="Thyra, Escudo Dourado" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Thyra não controla os raios. Eles simplesmente decidem que ir na mesma direção que ela é a melhor opção.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">B · Incomum — ≥ 80 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Morethar, o Coroado em Cinzas</div>
-        <div class="creature-epithet">A coroa de um rei que julgou demais</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B.jpg" alt="Morethar, o Coroado em Cinzas" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Morethar era justo. Depois de mil anos julgando, o peso dobrou a coroa e escureceu a armadura. Ele ainda é justo — apenas de um modo diferente.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vareth, o Caído</div>
-        <div class="creature-epithet">Caiu por escolha, não por fraqueza</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B%20%282%29.jpg" alt="Vareth, o Caído" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vareth escolheu a morte para entender o que julgava. Voltou. Agora julga com autoridade que os vivos não têm.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Solaron, Leão do Sol</div>
-        <div class="creature-epithet">Parte leão, parte veredicto solar</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B%20%283%29.jpg" alt="Solaron, Leão do Sol" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Solaron existe no limiar entre criatura e fenômeno. Os bestiários de Ferrathis o classificam como ambos e pedem desculpas pela imprecisão.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Varmoth, Ancião Pétreo</div>
-        <div class="creature-epithet">Cresceu tão devagar que a floresta cresceu dentro dele</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B%20%284%29.jpg" alt="Varmoth, Ancião Pétreo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Varmoth tem séculos de batalhas registradas em suas fissuras como anéis de uma árvore. Cada rachadura é uma guerra.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Brenna, a Chama Ruiva</div>
-        <div class="creature-epithet">Ergueu o espadão uma vez. Bastou.</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B%20%285%29.jpg" alt="Brenna, a Chama Ruiva" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Brenna não tem histórico de batalhas secundárias. Cada confronto termina no primeiro gesto.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Kaelmar, o Juramentado</div>
-        <div class="creature-epithet">A espada cravada no solo é o juramento em si</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/B%20%286%29.jpg" alt="Kaelmar, o Juramentado" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Kaelmar fez um voto que ninguém ouviu, mas todos sentiram. A espada no chão marca o lugar onde o voto foi feito.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">C · Comum — ≥ 65 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Sir Aldric, o Penitente</div>
-        <div class="creature-epithet">A espada baixa é mais ameaçadora que a erguida</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/C.jpg" alt="Sir Aldric, o Penitente" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Aldric não exibe força. Ela simplesmente existe, e quem o enfrenta percebe isso no momento errado.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Iryon, Joelho Firme</div>
-        <div class="creature-epithet">Ajoelhado porque escolheu — não porque foi forçado</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/C%20%281%29.jpg" alt="Iryon, Joelho Firme" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Iryon se ajoelha antes de cada batalha. Não em sinal de respeito — em sinal de que o que vem a seguir merece atenção plena.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Elyse, Véu Turquesa</div>
-        <div class="creature-epithet">A chuva para quando ela aparece. Ou começa.</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/C%20%282%29.jpg" alt="Elyse, Véu Turquesa" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Elyse não comanda o clima. O clima simplesmente tem dificuldade de ignorá-la.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Toryn, o Sacerdote Rúnico</div>
-        <div class="creature-epithet">As runas no cajado não são decoração</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/C%20%283%29.jpg" alt="Toryn, o Sacerdote Rúnico" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Toryn inscreveu cada runa após uma batalha diferente. O cajado está quase sem espaço.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Varkhan, Portador do Fogo Rúnico</div>
-        <div class="creature-epithet">A armadura negra absorve a luz para devolvê-la como fogo</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/C%20%285%29.jpg" alt="Varkhan, Portador do Fogo Rúnico" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Varkhan foi criado em Ferrathis como teste: o que acontece quando o julgamento usa a escuridão como ferramenta? A resposta empunha uma espada em chamas.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
+  <div class="section active" id="s-grimorio"></div>
+  <div class="section" id="s-galeria"></div>
+  <div class="section" id="s-lore"></div>
 </div>
-<div class="section" id="s-galeria">
-  <div class="section-title">Galeria do Grimório</div>
-  <div class="section-intro">Todas as criaturas de Ferrathis. Toque para ver detalhes.</div>
-  <div class="grimoire-grid" id="grid-container"></div>
-</div>
-<div class="section" id="s-lore">
-  <div class="section-title">A Região de Ferrathis</div>
-  <div class="section-intro">Em Ferrathis, o julgamento não é proferido por vozes — é executado por lâminas de luz. Cada criatura deste grimório é um veredicto andando: bela, inevitável, sem apelo.</div>
-  <div class="lore-block"><h3>Origem</h3><p>Ferrathis não é uma região de ferro, como o nome sugere aos desavisados. É uma região de <strong>julgamento</strong>. As montanhas de Ferrathis são os degraus de um tribunal que ninguém construiu conscientemente — elas simplesmente cresceram assim, porque o peso de tantos veredictos precisava de algum lugar para pousar.</p></div>
-  <div class="lore-block"><h3>As Criaturas do Grimório</h3><p>As criaturas de Ferrathis são todas, sem exceção, <strong>executoras</strong>. Anjos, paladinos, arcanjos — não são guardiões da bondade. São guardiões do equilíbrio. Quando o grimório de Ironverdict é invocado, o adversário não enfrenta uma criatura. Enfrenta uma sentença.</p></div>
-  <div class="lore-block" style="border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);">
-    <h3>✦ Pyrethiel e a Chama Suprema</h3><p>Pyrethiel existe acima da hierarquia de Ferrathis — não por poder, mas por função. Ela não julga casos individuais. Ela julga <strong>padrões</strong>. Só desce quando testemunha domínio consistente e repetido — prova de que o veredicto de Ironverdict não foi acidente.</p>
-  </div>
-  <div class="note">As criaturas de Ferrathis não reconhecem derrota — apenas adiamento do veredicto. Perder uma batalha não invalida a sentença. Ela será executada na próxima sessão.</div>
-</div>
-</div>
+
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModalDirect()">✕</button>
@@ -478,63 +57,11 @@
     </div>
   </div>
 </div>
+
+<script src="../assets/grimorio.js"></script>
 <script>
-const CDN='https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/ironverdict/';
-const creatures=[
-  {file:'SS.jpg',tier:'SS',name:'Aeloros, Leão da Montanha Sagrada',epithet:'O julgamento que não precisa de palavras',lore:'Aeloros pousa no pico mais alto de Ferrathis e os réus chegam até ele. Não porque sejam obrigados — porque a alternativa é pior. Um leão branco do tamanho de uma catedral, silencioso como o veredicto que já foi tomado.',color:'var(--tier-ss)',secret:false},
-  {file:'SS (2).jpg',tier:'SS',name:'Pyrethiel, Chama Divina',epithet:'✦ Invocação Secreta',lore:'Três halos. Asas de fogo. Pyrethiel não é uma criatura de batalha — é a personificação do momento em que o tribunal encerra a sessão. Só invocável quando Ironverdict registra a maior pontuação da liga em duas rodadas consecutivas.',color:'var(--tier-ss)',secret:true},
-  {file:'S.jpg',tier:'S',name:'Solarion, Arcanjo do Alvorecer',epithet:'O primeiro raio de sol é uma ordem',lore:'Solarion não anuncia o amanhecer — ele o autoriza. Cada manhã em Ferrathis começa com sua permissão.',color:'var(--tier-s)',secret:false},
-  {file:'S (2).jpg',tier:'S',name:'Morveth, o Apóstata',epithet:'Julgou o próprio tribunal e foi absolvido',lore:'O único em Ferrathis que questionou o sistema de dentro. Sobreviveu. Isso diz tudo sobre o que ele é.',color:'var(--tier-s)',secret:false},
-  {file:'S (3).jpg',tier:'S',name:'Rhyana, Guerreira Eterna',epithet:'Nunca foi derrotada — apenas pausada',lore:'Rhyana foi derrotada uma vez. Ela voltou com asas negras onde antes havia brancas. Ninguém perguntou o que aconteceu com o adversário.',color:'var(--tier-s)',secret:false},
-  {file:'A (1).jpg',tier:'A',name:'Seraphiel, o Alvo',epithet:'Caminha de costas para que os inimigos vejam o que vem',lore:'Seraphiel é o único em Ferrathis que vira as costas para o adversário. Não por descuido — por confiança absoluta no que carrega.',color:'var(--tier-a)',secret:false},
-  {file:'A (2).jpg',tier:'A',name:'Auraviel, o Solar',epithet:'A armadura dourada não é decoração — é aviso',lore:'Auraviel foi forjado sob um eclipse. A luz que o criou não era do sol — era do que o sol se torna quando some por um momento.',color:'var(--tier-a)',secret:false},
-  {file:'A (3).jpg',tier:'A',name:'Mirella, Lâmina da Alvorada',epithet:'Corta névoa antes de cortar carne',lore:'Mirella foi vista caminhando por campos de batalha onde todos tinham desistido. Ela não sabia que a batalha havia terminado.',color:'var(--tier-a)',secret:false},
-  {file:'A (4).jpg',tier:'A',name:'Thyra, Escudo Dourado',epithet:'Os raios que caem atrás dela não são fenômeno natural',lore:'Thyra não controla os raios. Eles simplesmente decidem que ir na mesma direção que ela é a melhor opção.',color:'var(--tier-a)',secret:false},
-  {file:'B.jpg',tier:'B',name:'Morethar, o Coroado em Cinzas',epithet:'A coroa de um rei que julgou demais',lore:'Morethar era justo. Depois de mil anos julgando, o peso dobrou a coroa e escureceu a armadura. Ele ainda é justo — apenas de um modo diferente.',color:'var(--tier-b)',secret:false},
-  {file:'B (2).jpg',tier:'B',name:'Vareth, o Caído',epithet:'Caiu por escolha, não por fraqueza',lore:'Vareth escolheu a morte para entender o que julgava. Voltou. Agora julga com autoridade que os vivos não têm.',color:'var(--tier-b)',secret:false},
-  {file:'B (3).jpg',tier:'B',name:'Solaron, Leão do Sol',epithet:'Parte leão, parte veredicto solar',lore:'Solaron existe no limiar entre criatura e fenômeno. Os bestiários de Ferrathis o classificam como ambos e pedem desculpas pela imprecisão.',color:'var(--tier-b)',secret:false},
-  {file:'B (4).jpg',tier:'B',name:'Varmoth, Ancião Pétreo',epithet:'Cresceu tão devagar que a floresta cresceu dentro dele',lore:'Varmoth tem séculos de batalhas registradas em suas fissuras como anéis de uma árvore. Cada rachadura é uma guerra.',color:'var(--tier-b)',secret:false},
-  {file:'B (5).jpg',tier:'B',name:'Brenna, a Chama Ruiva',epithet:'Ergueu o espadão uma vez. Bastou.',lore:'Brenna não tem histórico de batalhas secundárias. Cada confronto termina no primeiro gesto.',color:'var(--tier-b)',secret:false},
-  {file:'B (6).jpg',tier:'B',name:'Kaelmar, o Juramentado',epithet:'A espada cravada no solo é o juramento em si',lore:'Kaelmar fez um voto que ninguém ouviu, mas todos sentiram. A espada no chão marca o lugar onde o voto foi feito.',color:'var(--tier-b)',secret:false},
-  {file:'C.jpg',tier:'C',name:'Sir Aldric, o Penitente',epithet:'A espada baixa é mais ameaçadora que a erguida',lore:'Aldric não exibe força. Ela simplesmente existe, e quem o enfrenta percebe isso no momento errado.',color:'var(--tier-c)',secret:false},
-  {file:'C (1).jpg',tier:'C',name:'Iryon, Joelho Firme',epithet:'Ajoelhado porque escolheu — não porque foi forçado',lore:'Iryon se ajoelha antes de cada batalha. Não em sinal de respeito — em sinal de que o que vem a seguir merece atenção plena.',color:'var(--tier-c)',secret:false},
-  {file:'C (2).jpg',tier:'C',name:'Elyse, Véu Turquesa',epithet:'A chuva para quando ela aparece. Ou começa.',lore:'Elyse não comanda o clima. O clima simplesmente tem dificuldade de ignorá-la.',color:'var(--tier-c)',secret:false},
-  {file:'C (3).jpg',tier:'C',name:'Toryn, o Sacerdote Rúnico',epithet:'As runas no cajado não são decoração',lore:'Toryn inscreveu cada runa após uma batalha diferente. O cajado está quase sem espaço.',color:'var(--tier-c)',secret:false},
-  {file:'C (5).jpg',tier:'C',name:'Varkhan, Portador do Fogo Rúnico',epithet:'A armadura negra absorve a luz para devolvê-la como fogo',lore:'Varkhan foi criado em Ferrathis como teste: o que acontece quando o julgamento usa a escuridão como ferramenta? A resposta empunha uma espada em chamas.',color:'var(--tier-c)',secret:false}
-];
-
-function enc(f){return f.replace(/ /g,'%20').replace(/\(/g,'%28').replace(/\)/g,'%29');}
-function buildGrid(){
-  const c=document.getElementById('grid-container');
-  creatures.forEach((cr,i)=>{
-    const d=document.createElement('div');d.className='grid-card';
-    d.innerHTML=`${cr.secret?'<div class="grid-card-secret">✦ SECRETA</div>':''}<img src="${CDN}${enc(cr.file)}" alt="${cr.name}" loading="lazy"><div class="grid-card-info"><div class="grid-card-tier" style="color:${cr.color}">${cr.tier}</div><div class="grid-card-name">${cr.name.split(',')[0]}</div></div>`;
-    d.onclick=()=>openModal(i);c.appendChild(d);
-  });
-}
-function openModal(i){
-  const c=creatures[i];
-  document.getElementById('modal-img').src=CDN+enc(c.file);
-  document.getElementById('modal-tier').innerHTML=`<span style="color:${c.color};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;">${c.tier} · ${c.secret?'INVOCAÇÃO SECRETA':tierLabel(c.tier)}</span>`;
-  document.getElementById('modal-name').textContent=c.name;
-  document.getElementById('modal-epithet').textContent=c.epithet;
-  document.getElementById('modal-lore').textContent=c.lore;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function tierLabel(t){return {SS:'Lendário',S:'Épico',A:'Raro',B:'Incomum',C:'Comum'}[t]||t;}
-function closeModal(e){if(e.target===document.getElementById('modal'))closeModalDirect();}
-function closeModalDirect(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-function show(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('s-'+id).classList.add('active');btn.classList.add('active');
-  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
-}
-function toggleCard(el){el.classList.toggle('expanded');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
-buildGrid();
-
+  initGrimorio('../data/ironverdict.json');
 </script>
+
 </body>
 </html>
