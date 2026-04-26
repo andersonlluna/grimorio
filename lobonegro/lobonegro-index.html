@@ -4,468 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lobonegro — Grimório · Liga Supertecnicos 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Lobonegro — Grimório da Liga Supertecnicos">
+<meta property="og:title" content="Lobonegro — Grimório">
+<meta property="og:description" content="Liga Supertecnicos · Temporada 2026">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/grimorio.css">
 <style>
-:root{--accent:#7a60a0;--accent-glow:rgba(122,96,160,0.12);}
-
-:root{--bg:#0d0a07;--bg-card:#171310;--bg-surface:#1e1812;--bg-hover:#261f16;--ember:#d4893a;--ember-dim:#9a6428;--ember-bright:#f0b060;--ember-glow:rgba(196,124,43,0.10);--crimson:#9b2a2a;--crimson-bright:#c23535;--stone:#c4bdb0;--stone-dim:#7a7268;--stone-faint:#3a342c;--border:rgba(212,137,58,0.18);--border-strong:rgba(212,137,58,0.35);--tier-c:#6b7f5e;--tier-b:#4a78a0;--tier-a:#8860c0;--tier-s:#c47c2b;--tier-ss:#9b2a2a;}
-*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--bg);color:var(--stone);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.65;min-height:100vh;}::selection{background:var(--ember);color:var(--bg);}
-.header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border);position:relative;}.header::before{content:'✦ ✦ ✦';display:block;font-size:10px;letter-spacing:10px;color:var(--ember-dim);margin-bottom:1rem;}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--stone-dim);text-decoration:none;text-transform:uppercase;margin-bottom:1.5rem;transition:color .2s;}.back-link:hover{color:var(--ember);}
-.sigil{font-size:3rem;margin-bottom:.8rem;display:block;}
-.header h1{font-family:'Uncial Antiqua',serif;font-size:clamp(2.2rem,7vw,3.8rem);color:var(--ember);letter-spacing:4px;line-height:1.1;text-shadow:0 0 40px rgba(196,124,43,0.25);}
-.header-region{font-size:12px;margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;opacity:.8;}
-.header-lore{font-size:18px;color:var(--stone-dim);margin-top:.8rem;font-style:italic;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;}
-.header-league{font-size:11px;color:var(--ember-dim);margin-top:.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;}
-.stats-bar{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--border);background:var(--bg-card);}
-.stat-item{flex:1;max-width:180px;text-align:center;padding:14px 12px;border-right:1px solid var(--border);}.stat-item:last-child{border-right:none;}
-.stat-val{font-family:'Uncial Antiqua',serif;font-size:22px;color:var(--ember);display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stone-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
-.nav{position:sticky;top:0;z-index:100;background:rgba(11,9,6,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1rem;overflow-x:auto;}.nav::-webkit-scrollbar{height:0;}
-.nav-inner{display:flex;max-width:860px;margin:0 auto;}
-.nav-btn{font-family:'Uncial Antiqua',serif;font-size:11px;letter-spacing:1.5px;color:var(--stone-dim);background:none;border:none;padding:13px 14px;cursor:pointer;white-space:nowrap;transition:color .3s;border-bottom:2px solid transparent;}.nav-btn:hover{color:var(--stone);}.nav-btn.active{color:var(--ember);border-bottom-color:var(--ember);}
-.content{max-width:840px;margin:0 auto;padding:2rem 1.5rem 5rem;}.section{display:none;}.section.active{display:block;}
-.section-title{font-family:'Uncial Antiqua',serif;font-size:18px;color:var(--ember);margin-bottom:.4rem;letter-spacing:1px;}
-.section-intro{color:var(--stone-dim);font-size:18px;margin-bottom:2rem;font-style:italic;line-height:1.55;border-left:2px solid var(--ember-dim);padding-left:1rem;}
-.group-title{font-family:'Uncial Antiqua',serif;font-size:13px;letter-spacing:2px;color:var(--stone-dim);margin:2rem 0 .75rem;padding-bottom:5px;border-bottom:1px solid var(--border);text-transform:uppercase;}.group-title:first-child{margin-top:0;}
-.creature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;transition:border-color .3s,background .3s;cursor:pointer;}.creature-card:hover{border-color:var(--border-strong);background:var(--bg-surface);}.creature-card.expanded{border-color:var(--border-strong);}
-.creature-header{display:flex;align-items:center;gap:16px;padding:16px 20px;}
-.tier-badge{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Uncial Antiqua',serif;font-size:20px;flex-shrink:0;border:1px solid;}
-.creature-meta{flex:1;}.creature-name{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--stone);}.creature-epithet{font-size:16px;color:var(--stone-dim);font-style:italic;margin-top:1px;}
-.creature-toggle{color:var(--stone-dim);font-size:11px;transition:transform .3s;}.creature-card.expanded .creature-toggle{transform:rotate(180deg);}
-.creature-body{display:none;border-top:1px solid var(--border);}.creature-card.expanded .creature-body{display:flex;}
-.creature-image{width:240px;min-height:240px;object-fit:cover;object-position:center top;flex-shrink:0;background:var(--bg-surface);}
-.creature-details{flex:1;padding:16px 18px;}.creature-lore{font-size:17px;color:var(--stone-dim);line-height:1.65;font-style:italic;margin-bottom:12px;}
-.creature-stats{display:flex;gap:8px;flex-wrap:wrap;}.creature-stat{padding:6px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--stone-dim);}.creature-stat span{color:var(--ember);}
-.creature-card.ss-card{border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);}.creature-card.ss-card:hover,.creature-card.ss-card.expanded{border-color:rgba(155,42,42,0.4);}
-.creature-card.ss-secret{border-color:rgba(155,42,42,0.12);background:rgba(155,42,42,0.02);}.creature-card.ss-secret .creature-name{color:var(--stone-dim);font-style:italic;}
-.secret-lock{display:flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;background:rgba(155,42,42,0.08);border:1px solid rgba(155,42,42,0.2);border-radius:4px;font-size:16px;color:var(--crimson-bright);font-style:italic;}
-.grimoire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.grid-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .3s,transform .2s;cursor:pointer;position:relative;}.grid-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.grid-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;background:var(--bg-surface);}
-.grid-card-info{padding:8px 10px;border-top:1px solid var(--border);}.grid-card-tier{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;margin-bottom:3px;}.grid-card-name{font-size:14px;color:var(--stone);font-weight:600;line-height:1.3;}
-.grid-card-secret{position:absolute;top:8px;right:8px;background:rgba(155,42,42,0.8);border-radius:3px;font-size:10px;padding:2px 5px;color:#ff6b6b;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
-.lore-block{padding:20px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;}.lore-block h3{font-family:'Uncial Antiqua',serif;font-size:14px;color:var(--ember);margin-bottom:10px;letter-spacing:1px;}.lore-block p{font-size:17px;color:var(--stone-dim);line-height:1.75;}.lore-block p+p{margin-top:.8rem;}.lore-block p strong{color:var(--stone);}
-.note{padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--ember-dim);border-radius:0 6px 6px 0;font-size:17px;color:var(--stone-dim);line-height:1.6;margin-top:1rem;}.note strong{color:var(--stone);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,9,6,0.92);z-index:1000;align-items:center;justify-content:center;padding:1rem;}.modal-overlay.open{display:flex;}
-.modal{background:var(--bg-card);border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
-.modal-img{width:100%;max-height:380px;object-fit:cover;object-position:center top;display:block;}.modal-body{padding:20px 24px;}
-.modal-tier{font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:6px;}.modal-name{font-family:'Uncial Antiqua',serif;font-size:26px;color:var(--ember);margin-bottom:4px;}.modal-epithet{font-size:17px;color:var(--stone-dim);font-style:italic;margin-bottom:14px;}.modal-lore{font-size:18px;color:var(--stone-dim);line-height:1.7;}
-.modal-close{position:absolute;top:12px;right:12px;background:rgba(11,9,6,0.7);border:1px solid var(--border);color:var(--stone-dim);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:color .2s,border-color .2s;}.modal-close:hover{color:var(--stone);border-color:var(--border-strong);}
-@media(max-width:600px){.content{padding:1.5rem 1rem 3rem;}.creature-body{flex-direction:column;}.creature-image{width:100%;min-height:220px;}.stats-bar{flex-wrap:wrap;}.stat-item{max-width:none;border-right:none;border-bottom:1px solid var(--border);}.stat-item:last-child{border-bottom:none;}}
-
-.header{background:radial-gradient(ellipse at 50% 0%,rgba(122,96,160,0.09) 0%,transparent 65%),radial-gradient(ellipse at 50% 0%,rgba(196,124,43,0.05) 0%,transparent 80%);}
-.sigil{filter:drop-shadow(0 0 20px rgba(122,96,160,0.4));}
-.header-region{color:var(--accent);}
+  :root {
+    --accent: #a878d0;
+    --accent-soft: rgba(168,120,208, 0.10);
+    --accent-strong: rgba(168,120,208, 0.35);
+  }
+  .header {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(168,120,208, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 80%);
+  }
 </style>
 </head>
 <body>
-<div class="header">
-  <a href="../grimorio-regulamento.html" class="back-link">← Regulamento</a>
-  <span class="sigil">🌑</span>
-  <h1>Lobonegro</h1>
-  <div class="header-region">Valdrek · Lobos das Sombras</div>
-  <div class="header-lore">Valdrek não está no mapa de Eirendhal — está nos espaços entre os mapas. As criaturas deste grimório não habitam territórios. Habitam frestas.</div>
-  <div class="header-league">Liga Supertecnicos · Temporada 2026</div>
-</div>
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-val">20</span><div class="stat-label">Criaturas</div></div>
-  <div class="stat-item"><span class="stat-val">6+5+4+3+2</span><div class="stat-label">Distribuição</div></div>
-  <div class="stat-item"><span class="stat-val">Valdrek</span><div class="stat-label">Região</div></div>
-  <div class="stat-item"><span class="stat-val">Nergharoth</span><div class="stat-label">Lendário</div></div>
-</div>
+
+<div class="header" id="grimorio-header"></div>
+<div class="stats-bar" id="grimorio-stats"></div>
+
 <nav class="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="show('grimorio',this)">Grimório</button>
-    <button class="nav-btn" onclick="show('galeria',this)">Galeria</button>
-    <button class="nav-btn" onclick="show('lore',this)">Lore</button>
+    <button class="nav-btn active" onclick="show('grimorio', this)">Grimório</button>
+    <button class="nav-btn" onclick="show('galeria', this)">Galeria</button>
+    <button class="nav-btn" onclick="show('lore', this)">Lore</button>
   </div>
 </nav>
+
 <div class="content">
-<div class="section active" id="s-grimorio">
-  <div class="section-title">O Grimório de Lobonegro</div>
-  <div class="section-intro">Valdrek não está no mapa de Eirendhal — está nos espaços entre os mapas. As criaturas deste grimório não habitam territórios. Habitam frestas.</div>
-  <div class="group-title">SS · Lendário — ≥ 115 pts ou marco</div>
-  <div class="creature-card ss-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:var(--tier-ss);background:rgba(155,42,42,0.10);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Nergharoth, Serpente dos Abismos</div>
-        <div class="creature-epithet">O barco que afunda não viu o que afundou</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/SS.jpg" alt="Nergharoth, Serpente dos Abismos" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Nergharoth não ataca — aparece. O barco minúsculo no mar tempestuoso não enfrenta uma serpente. Enfrenta a percepção repentina de que sempre houve algo imenso abaixo da superfície, e esse algo decidiu ser visível por um momento.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div><div class="creature-stat">Limiar <span>≥ 115 pts ou marco</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card ss-secret" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-ss);border-color:rgba(155,42,42,0.3);background:rgba(155,42,42,0.05);">SS</div>
-      <div class="creature-meta">
-        <div class="creature-name">Valdrek, o Senhor Sombrio</div>
-        <div class="creature-epithet">✦ Invocação Secreta</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/SS%20%282%29.jpg" alt="Valdrek, o Senhor Sombrio" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Valdrek governa Valdrek da arena de lava que é seu trono e seu campo de batalha. Sua armadura negra e vermelha não reflete luz — a absorve. Invocável apenas quando a média geral da liga cai abaixo de 65 pts na rodada: o fracasso coletivo de Eirendhal é o único portal que leva a Valdrek.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>SS</span></div><div class="creature-stat">Bônus <span>+15</span></div></div>
-        <div class="secret-lock">✦ Invocável quando a média geral da liga cai abaixo de 65 pts na rodada — o caos coletivo de Eirendhal abre o portal de Valdrek.</div>
-      </div>
-    </div>
-  </div>
-  <div class="group-title">S · Épico — ≥ 100 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Zorath, Alpha do Crepúsculo</div>
-        <div class="creature-epithet">O rugido que se ouve antes de perceber que ouviu</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/S.jpg" alt="Zorath, Alpha do Crepúsculo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Zorath é o alpha de uma alcateia que ninguém viu reunida. Os membros existem em locais diferentes de Valdrek — mas respondem ao rugido em milissegundos.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Malrik, Sentinela do Osso</div>
-        <div class="creature-epithet">Guarda o deserto entre os mundos</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/S%20%283%29.jpg" alt="Malrik, Sentinela do Osso" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Malrik patrulha as fronteiras de Valdrek há mais tempo do que qualquer um se lembra. O deserto que ele guarda não aparece nos mapas. Isso é o ponto.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-s);border-color:var(--tier-s);background:rgba(196,124,43,0.10);">S</div>
-      <div class="creature-meta">
-        <div class="creature-name">Thyran, Ceifador das Almas</div>
-        <div class="creature-epithet">A foice verde-ácida não colhe trigo</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/S%20%284%29.jpg" alt="Thyran, Ceifador das Almas" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Thyran existe para encerrar batalhas que os outros não conseguem terminar. É chamado quando a situação exige alguém sem problema com o que vem depois.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>S</span></div><div class="creature-stat">Bônus <span>+10</span></div><div class="creature-stat">Limiar <span>≥ 100 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">A · Raro — ≥ 90 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vraekhar, Duas Foices</div>
-        <div class="creature-epithet">As foices curvas foram moldadas para colheitas específicas</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/A.jpg" alt="Vraekhar, Duas Foices" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vraekhar não usa espada porque espada é ferramenta de ataque. Duas foices são uma ferramenta de encerramento. Ele não ataca — encerra.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Malegar, Chama Sombria</div>
-        <div class="creature-epithet">A chama verde-neon queima o que a chama comum não toca</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/A%20%281%29.jpg" alt="Malegar, Chama Sombria" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Malegar descobriu que existem coisas que o fogo convencional não pode destruir. Passou décadas refinando uma chama que pudesse. O espadão flamejante é o resultado.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Nyxara, Lâmina Verde</div>
-        <div class="creature-epithet">Os olhos luminosos veem em todos os espectros de Valdrek</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/A%20%282%29.jpg" alt="Nyxara, Lâmina Verde" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Nyxara não precisa de luz para ver. Em Valdrek, a ausência de luz é apenas outra frequência visual — e ela vê muito bem nessa frequência.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-a);border-color:var(--tier-a);background:rgba(136,96,192,0.10);">A</div>
-      <div class="creature-meta">
-        <div class="creature-name">Rei Morhak, Coroa de Osso</div>
-        <div class="creature-epithet">Governa os que vieram antes e ainda estão aqui</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/A%20%283%29.jpg" alt="Rei Morhak, Coroa de Osso" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Morhak reina sobre a porção de Valdrek onde os mortos que não querem ir embora permanecem. Ele não os forçou a ficar — simplesmente apareceu como rei e nenhum deles contestou.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>A</span></div><div class="creature-stat">Bônus <span>+6</span></div><div class="creature-stat">Limiar <span>≥ 90 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">B · Incomum — ≥ 80 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vornath, Raízes Ardentes</div>
-        <div class="creature-epithet">A floresta sombria cresceu dele — não ao redor</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/B.jpg" alt="Vornath, Raízes Ardentes" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vornath não habita a floresta escura. A floresta escura é uma extensão de Vornath — os galhos são seus braços, os olhos verdes são seus olhos, e as raízes vão onde ele manda.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Fangor, Garra Elétrica</div>
-        <div class="creature-epithet">O ciberpunk de Valdrek — porque a sombra evolui</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/B%20%281%29.jpg" alt="Fangor, Garra Elétrica" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Fangor surgiu quando Valdrek começou a absorver tecnologia de outras regiões. A aura elétrica é o que acontece quando a escuridão aprende sobre corrente.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Kaenra, Tigre da Lava</div>
-        <div class="creature-epithet">O braço flamejante é a parte mais fria dele</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/B%20%282%29.jpg" alt="Kaenra, Tigre da Lava" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Kaenra luta sob luar por preferência — a luz da lua não interfere, e a escuridão entre as nuvens é confortável. O braço de lava ilumina o suficiente quando necessário.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vraekor, Lobo Negro</div>
-        <div class="creature-epithet">Os olhos dourados são o único aviso que os outros recebem</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/B%20%283%29.jpg" alt="Vraekor, Lobo Negro" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vraekor corre na nevasca e a neve não o retarda — colabora. Em Valdrek, os elementos entendem quem serve a quê.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-b);border-color:var(--tier-b);background:rgba(74,120,160,0.10);">B</div>
-      <div class="creature-meta">
-        <div class="creature-name">Korrok, Urso das Ruínas</div>
-        <div class="creature-epithet">As ruínas nevadas ao redor dele não existiam antes</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/B%20%284%29.jpg" alt="Korrok, Urso das Ruínas" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Korrok tem olhos vermelhos que funcionam como intenção declarada. As ruínas ao redor dele são ruínas porque Korrok esteve lá.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>B</span></div><div class="creature-stat">Bônus <span>+3</span></div><div class="creature-stat">Limiar <span>≥ 80 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="group-title">C · Comum — ≥ 65 pts</div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Kreven, o Corvídeo</div>
-        <div class="creature-epithet">As penas negras guardam memórias de Valdrek</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%281%29.jpg" alt="Kreven, o Corvídeo" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Kreven é parte corvo, parte mensageiro, parte coisa que o deserto não nomeou. Seus olhos verdes veem correspondências entre eventos que parecem separados.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Nyss eara, Fada Crepuscular</div>
-        <div class="creature-epithet">As asas de borboleta não são decorativas</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%282%29.jpg" alt="Nyss eara, Fada Crepuscular" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Nyss eara existe no limiar entre belo e perturbador — exatamente onde Valdrek gosta de operar. A floresta profunda que ela habita fica mais profunda quando ela está presente.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Shadorn, o Silente</div>
-        <div class="creature-epithet">Nunca foi ouvido. Só visto — e raramente.</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%283%29.jpg" alt="Shadorn, o Silente" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Shadorn salta entre telhados à noite em cidades que não ficam em nenhum mapa oficial. Os moradores sabem que ele existe porque às vezes veem os dentes verdes no escuro.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Grib, Garra de Ferro</div>
-        <div class="creature-epithet">Pequeno. Ruidoso. Mais perigoso do que parece.</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%284%29.jpg" alt="Grib, Garra de Ferro" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Grib é o tipo de criatura que Valdrek usa quando precisa que algo seja feito e não quer que ninguém saiba que Valdrek esteve envolvido.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Arachna, Tecelã do Sangue</div>
-        <div class="creature-epithet">A teia não é para prender — é para entender o que passa</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%285%29.jpg" alt="Arachna, Tecelã do Sangue" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Arachna não ataca com a teia. Usa a teia para sentir vibração — cada passo, cada respiração, cada hesitação do adversário. O ataque vem depois.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="creature-card" onclick="toggleCard(this)">
-    <div class="creature-header">
-      <div class="tier-badge" style="color:var(--tier-c);border-color:var(--tier-c);background:rgba(107,127,94,0.10);">C</div>
-      <div class="creature-meta">
-        <div class="creature-name">Vharkel, o Tridente</div>
-        <div class="creature-epithet">Habita as águas de Valdrek — as que não aparecem no mapa</div>
-      </div>
-      <div class="creature-toggle">▾</div>
-    </div>
-    <div class="creature-body">
-      <img class="creature-image" src="https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/C%20%286%29.jpg" alt="Vharkel, o Tridente" loading="lazy">
-      <div class="creature-details">
-        <div class="creature-lore">Vharkel nada nas profundezas subaquáticas de Valdrek — os rios subterrâneos que conectam todas as fronteiras de Eirendhal. Ele conhece cada passagem que nenhum mapa registrou.</div>
-        <div class="creature-stats"><div class="creature-stat">Tier <span>C</span></div><div class="creature-stat">Bônus <span>+0</span></div><div class="creature-stat">Limiar <span>≥ 65 pts</span></div></div>
-        
-      </div>
-    </div>
-  </div>
+  <div class="section active" id="s-grimorio"></div>
+  <div class="section" id="s-galeria"></div>
+  <div class="section" id="s-lore"></div>
 </div>
-<div class="section" id="s-galeria">
-  <div class="section-title">Galeria do Grimório</div>
-  <div class="section-intro">Todas as criaturas de Valdrek. Toque para ver detalhes.</div>
-  <div class="grimoire-grid" id="grid-container"></div>
-</div>
-<div class="section" id="s-lore">
-  <div class="section-title">A Região de Valdrek</div>
-  <div class="section-intro">Valdrek não está no mapa de Eirendhal — está nos espaços entre os mapas. As criaturas deste grimório não habitam territórios. Habitam frestas.</div>
-  <div class="lore-block"><h3>Origem</h3><p>Valdrek existe nos espaços entre todas as outras regiões de Eirendhal. <strong>Não é um lugar — é uma ausência</strong>. Quando dois reinos fazem fronteira, o que existe nessa linha é Valdrek. Quando a noite cai sobre Kelvrak, a sombra que forma é feita de Valdrek. Quando alguém olha para o canto de um cômodo e sente que não está sozinho, está certo.</p></div>
-  <div class="lore-block"><h3>As Criaturas do Grimório</h3><p>Os Lobos das Sombras de Lobonegro não são lobos no sentido estrito. São a ideia de predador tornada criatura. Algumas têm forma de lobo. Algumas têm forma humana. Algumas têm forma de nada visível — apenas presença, som, consequência.</p></div>
-  <div class="lore-block" style="border-color:rgba(155,42,42,0.2);background:rgba(155,42,42,0.03);">
-    <h3>✦ Valdrek e o Portal do Fracasso Coletivo</h3><p>Valdrek, o Senhor Sombrio, é o governante de Valdrek — e Valdrek só existe quando o resto de Eirendhal falha. Quando a média geral da liga cai abaixo de 65 pontos, os outros portais fecham por falta de energia. <strong>O portal de Valdrek se abre</strong> — porque o caos coletivo é o único combustível que Valdrek reconhece.</p>
-  </div>
-  <div class="note">As criaturas de Valdrek não têm desvantagem em batalha — têm vantagem de contexto. Elas sabem mais sobre o adversário do que o adversário sabe sobre si mesmo. O grimório de Lobonegro não registra vitórias. Registra inevitabilidades.</div>
-</div>
-</div>
+
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModalDirect()">✕</button>
@@ -478,63 +57,11 @@
     </div>
   </div>
 </div>
+
+<script src="../assets/grimorio.js"></script>
 <script>
-const CDN='https://cdn.jsdelivr.net/gh/andersonlluna/grimorio@main/lobonegro/';
-const creatures=[
-  {file:'SS.jpg',tier:'SS',name:'Nergharoth, Serpente dos Abismos',epithet:'O barco que afunda não viu o que afundou',lore:'Nergharoth não ataca — aparece. O barco minúsculo no mar tempestuoso não enfrenta uma serpente. Enfrenta a percepção repentina de que sempre houve algo imenso abaixo da superfície, e esse algo decidiu ser visível por um momento.',color:'var(--tier-ss)',secret:false},
-  {file:'SS (2).jpg',tier:'SS',name:'Valdrek, o Senhor Sombrio',epithet:'✦ Invocação Secreta',lore:'Valdrek governa Valdrek da arena de lava que é seu trono e seu campo de batalha. Sua armadura negra e vermelha não reflete luz — a absorve. Invocável apenas quando a média geral da liga cai abaixo de 65 pts na rodada: o fracasso coletivo de Eirendhal é o único portal que leva a Valdrek.',color:'var(--tier-ss)',secret:true},
-  {file:'S.jpg',tier:'S',name:'Zorath, Alpha do Crepúsculo',epithet:'O rugido que se ouve antes de perceber que ouviu',lore:'Zorath é o alpha de uma alcateia que ninguém viu reunida. Os membros existem em locais diferentes de Valdrek — mas respondem ao rugido em milissegundos.',color:'var(--tier-s)',secret:false},
-  {file:'S (3).jpg',tier:'S',name:'Malrik, Sentinela do Osso',epithet:'Guarda o deserto entre os mundos',lore:'Malrik patrulha as fronteiras de Valdrek há mais tempo do que qualquer um se lembra. O deserto que ele guarda não aparece nos mapas. Isso é o ponto.',color:'var(--tier-s)',secret:false},
-  {file:'S (4).jpg',tier:'S',name:'Thyran, Ceifador das Almas',epithet:'A foice verde-ácida não colhe trigo',lore:'Thyran existe para encerrar batalhas que os outros não conseguem terminar. É chamado quando a situação exige alguém sem problema com o que vem depois.',color:'var(--tier-s)',secret:false},
-  {file:'A.jpg',tier:'A',name:'Vraekhar, Duas Foices',epithet:'As foices curvas foram moldadas para colheitas específicas',lore:'Vraekhar não usa espada porque espada é ferramenta de ataque. Duas foices são uma ferramenta de encerramento. Ele não ataca — encerra.',color:'var(--tier-a)',secret:false},
-  {file:'A (1).jpg',tier:'A',name:'Malegar, Chama Sombria',epithet:'A chama verde-neon queima o que a chama comum não toca',lore:'Malegar descobriu que existem coisas que o fogo convencional não pode destruir. Passou décadas refinando uma chama que pudesse. O espadão flamejante é o resultado.',color:'var(--tier-a)',secret:false},
-  {file:'A (2).jpg',tier:'A',name:'Nyxara, Lâmina Verde',epithet:'Os olhos luminosos veem em todos os espectros de Valdrek',lore:'Nyxara não precisa de luz para ver. Em Valdrek, a ausência de luz é apenas outra frequência visual — e ela vê muito bem nessa frequência.',color:'var(--tier-a)',secret:false},
-  {file:'A (3).jpg',tier:'A',name:'Rei Morhak, Coroa de Osso',epithet:'Governa os que vieram antes e ainda estão aqui',lore:'Morhak reina sobre a porção de Valdrek onde os mortos que não querem ir embora permanecem. Ele não os forçou a ficar — simplesmente apareceu como rei e nenhum deles contestou.',color:'var(--tier-a)',secret:false},
-  {file:'B.jpg',tier:'B',name:'Vornath, Raízes Ardentes',epithet:'A floresta sombria cresceu dele — não ao redor',lore:'Vornath não habita a floresta escura. A floresta escura é uma extensão de Vornath — os galhos são seus braços, os olhos verdes são seus olhos, e as raízes vão onde ele manda.',color:'var(--tier-b)',secret:false},
-  {file:'B (1).jpg',tier:'B',name:'Fangor, Garra Elétrica',epithet:'O ciberpunk de Valdrek — porque a sombra evolui',lore:'Fangor surgiu quando Valdrek começou a absorver tecnologia de outras regiões. A aura elétrica é o que acontece quando a escuridão aprende sobre corrente.',color:'var(--tier-b)',secret:false},
-  {file:'B (2).jpg',tier:'B',name:'Kaenra, Tigre da Lava',epithet:'O braço flamejante é a parte mais fria dele',lore:'Kaenra luta sob luar por preferência — a luz da lua não interfere, e a escuridão entre as nuvens é confortável. O braço de lava ilumina o suficiente quando necessário.',color:'var(--tier-b)',secret:false},
-  {file:'B (3).jpg',tier:'B',name:'Vraekor, Lobo Negro',epithet:'Os olhos dourados são o único aviso que os outros recebem',lore:'Vraekor corre na nevasca e a neve não o retarda — colabora. Em Valdrek, os elementos entendem quem serve a quê.',color:'var(--tier-b)',secret:false},
-  {file:'B (4).jpg',tier:'B',name:'Korrok, Urso das Ruínas',epithet:'As ruínas nevadas ao redor dele não existiam antes',lore:'Korrok tem olhos vermelhos que funcionam como intenção declarada. As ruínas ao redor dele são ruínas porque Korrok esteve lá.',color:'var(--tier-b)',secret:false},
-  {file:'C (1).jpg',tier:'C',name:'Kreven, o Corvídeo',epithet:'As penas negras guardam memórias de Valdrek',lore:'Kreven é parte corvo, parte mensageiro, parte coisa que o deserto não nomeou. Seus olhos verdes veem correspondências entre eventos que parecem separados.',color:'var(--tier-c)',secret:false},
-  {file:'C (2).jpg',tier:'C',name:'Nyss eara, Fada Crepuscular',epithet:'As asas de borboleta não são decorativas',lore:'Nyss eara existe no limiar entre belo e perturbador — exatamente onde Valdrek gosta de operar. A floresta profunda que ela habita fica mais profunda quando ela está presente.',color:'var(--tier-c)',secret:false},
-  {file:'C (3).jpg',tier:'C',name:'Shadorn, o Silente',epithet:'Nunca foi ouvido. Só visto — e raramente.',lore:'Shadorn salta entre telhados à noite em cidades que não ficam em nenhum mapa oficial. Os moradores sabem que ele existe porque às vezes veem os dentes verdes no escuro.',color:'var(--tier-c)',secret:false},
-  {file:'C (4).jpg',tier:'C',name:'Grib, Garra de Ferro',epithet:'Pequeno. Ruidoso. Mais perigoso do que parece.',lore:'Grib é o tipo de criatura que Valdrek usa quando precisa que algo seja feito e não quer que ninguém saiba que Valdrek esteve envolvido.',color:'var(--tier-c)',secret:false},
-  {file:'C (5).jpg',tier:'C',name:'Arachna, Tecelã do Sangue',epithet:'A teia não é para prender — é para entender o que passa',lore:'Arachna não ataca com a teia. Usa a teia para sentir vibração — cada passo, cada respiração, cada hesitação do adversário. O ataque vem depois.',color:'var(--tier-c)',secret:false},
-  {file:'C (6).jpg',tier:'C',name:'Vharkel, o Tridente',epithet:'Habita as águas de Valdrek — as que não aparecem no mapa',lore:'Vharkel nada nas profundezas subaquáticas de Valdrek — os rios subterrâneos que conectam todas as fronteiras de Eirendhal. Ele conhece cada passagem que nenhum mapa registrou.',color:'var(--tier-c)',secret:false}
-];
-
-function enc(f){return f.replace(/ /g,'%20').replace(/\(/g,'%28').replace(/\)/g,'%29');}
-function buildGrid(){
-  const c=document.getElementById('grid-container');
-  creatures.forEach((cr,i)=>{
-    const d=document.createElement('div');d.className='grid-card';
-    d.innerHTML=`${cr.secret?'<div class="grid-card-secret">✦ SECRETA</div>':''}<img src="${CDN}${enc(cr.file)}" alt="${cr.name}" loading="lazy"><div class="grid-card-info"><div class="grid-card-tier" style="color:${cr.color}">${cr.tier}</div><div class="grid-card-name">${cr.name.split(',')[0]}</div></div>`;
-    d.onclick=()=>openModal(i);c.appendChild(d);
-  });
-}
-function openModal(i){
-  const c=creatures[i];
-  document.getElementById('modal-img').src=CDN+enc(c.file);
-  document.getElementById('modal-tier').innerHTML=`<span style="color:${c.color};font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;">${c.tier} · ${c.secret?'INVOCAÇÃO SECRETA':tierLabel(c.tier)}</span>`;
-  document.getElementById('modal-name').textContent=c.name;
-  document.getElementById('modal-epithet').textContent=c.epithet;
-  document.getElementById('modal-lore').textContent=c.lore;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function tierLabel(t){return {SS:'Lendário',S:'Épico',A:'Raro',B:'Incomum',C:'Comum'}[t]||t;}
-function closeModal(e){if(e.target===document.getElementById('modal'))closeModalDirect();}
-function closeModalDirect(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-function show(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('s-'+id).classList.add('active');btn.classList.add('active');
-  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
-}
-function toggleCard(el){el.classList.toggle('expanded');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
-buildGrid();
-
+  initGrimorio('../data/lobonegro.json');
 </script>
+
 </body>
 </html>
