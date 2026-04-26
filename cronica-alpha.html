@@ -12,7 +12,7 @@
 <style>
 :root {
   --bg:#0f1115; --bg-card:#1a1d26; --bg-surface:#232633; --bg-elevated:#2c2f3d;
-  --text-primary:#e4e4ec; --text-secondary:#a8a8b8; --text-tertiary:#6a6a7a;
+  --text-primary:#f5f5f8; --text-secondary:#c8c8d0; --text-tertiary:#8a8a92;
   --border:rgba(255,255,255,0.08); --border-strong:rgba(255,255,255,0.20);
   --accent:#e8c87a; --accent-soft:rgba(232,200,122,0.10); --accent-strong:rgba(232,200,122,0.40);
   --tier-ss:#ff7878; --tier-ss-rgb:220,80,80;
@@ -27,7 +27,7 @@
 body {
   background: var(--bg); color: var(--text-primary);
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 16px; line-height: 1.65;
+  font-size: 17px; line-height: 1.75;
   min-height: 100vh; -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -46,10 +46,10 @@ body {
   gap: 12px;
 }
 .top-nav-link {
-  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
-  letter-spacing: 1.5px; color: var(--text-tertiary);
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 1.2px; color: var(--text-secondary);
   text-decoration: none; text-transform: uppercase;
-  padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px;
+  padding: 10px 16px; border: 1px solid var(--border); border-radius: 6px;
   transition: all .2s; white-space: nowrap;
 }
 .top-nav-link:hover, .top-nav-link.active {
@@ -68,9 +68,9 @@ body {
   background: var(--bg);
 }
 .mode-tab {
-  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 500;
-  letter-spacing: 1.5px; color: var(--text-tertiary);
-  background: none; border: none; padding: 12px 18px;
+  font-family: 'Cinzel', serif; font-size: 15px; font-weight: 500;
+  letter-spacing: 1.2px; color: var(--text-secondary);
+  background: none; border: none; padding: 14px 20px;
   cursor: pointer; transition: color .2s;
   border-bottom: 3px solid transparent;
   text-transform: uppercase;
@@ -93,20 +93,20 @@ body {
   margin-bottom: 1.5rem;
 }
 .hero-overline {
-  font-family: 'Inter', sans-serif; font-size: 11px;
-  color: var(--text-tertiary); letter-spacing: 3px;
-  text-transform: uppercase; margin-bottom: 8px;
+  font-family: 'Inter', sans-serif; font-size: 13px;
+  color: var(--text-secondary); letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 10px; font-weight: 600;
 }
 .hero-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  font-size: clamp(2.8rem, 9vw, 4.4rem);
   font-weight: 700; color: var(--accent);
-  letter-spacing: clamp(2px, 1vw, 4px); line-height: 1;
+  letter-spacing: clamp(2px, 1.2vw, 5px); line-height: 1;
   text-transform: uppercase;
 }
 .hero-meta {
-  font-family: 'Inter', sans-serif; font-size: 13px;
-  color: var(--text-secondary); margin-top: 12px;
+  font-family: 'Inter', sans-serif; font-size: 15px;
+  color: var(--text-secondary); margin-top: 14px;
 }
 
 .round-nav {
@@ -130,12 +130,12 @@ body {
   opacity: .3; cursor: not-allowed;
 }
 .round-pill {
-  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 500;
+  font-family: 'Cinzel', serif; font-size: 15px; font-weight: 600;
   letter-spacing: 1.5px; color: var(--text-secondary);
-  background: transparent; border: 1px solid var(--border);
-  padding: 8px 14px; border-radius: 6px;
+  background: transparent; border: 1px solid var(--border-strong);
+  padding: 10px 16px; border-radius: 6px;
   cursor: pointer; transition: all .2s;
-  min-width: 44px; min-height: 44px;
+  min-width: 48px; min-height: 48px;
 }
 .round-pill:hover:not(.active) {
   color: var(--text-primary); border-color: var(--border-strong);
@@ -148,9 +148,9 @@ body {
 
 .section-divider {
   display: flex; align-items: center; justify-content: center;
-  gap: 12px; font-family: 'Cinzel', serif;
-  font-size: 12px; font-weight: 700; letter-spacing: 3px;
-  color: var(--text-secondary); margin: 2rem 0 1rem;
+  gap: 14px; font-family: 'Cinzel', serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 3px;
+  color: var(--text-primary); margin: 2.25rem 0 1.25rem;
   text-transform: uppercase;
 }
 .section-divider::before, .section-divider::after {
@@ -168,14 +168,14 @@ body {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 10px; padding: 14px 16px; text-align: center;
 }
-.highlight-icon { font-size: 22px; margin-bottom: 6px; }
+.highlight-icon { font-size: 26px; margin-bottom: 8px; }
 .highlight-title {
-  font-family: 'Cinzel', serif; font-size: 14px;
-  font-weight: 600; margin-bottom: 4px;
+  font-family: 'Cinzel', serif; font-size: 16px;
+  font-weight: 600; margin-bottom: 5px;
 }
 .highlight-sub {
-  font-size: 12px; color: var(--text-secondary);
-  line-height: 1.4;
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.5;
 }
 .highlight.gold { border-color: rgba(var(--tier-s-rgb), .35); background: rgba(var(--tier-s-rgb), .05); }
 .highlight.gold .highlight-title { color: var(--tier-s); }
@@ -225,8 +225,8 @@ body {
 }
 .criatura-tier-pill {
   position: absolute; top: 8px; right: 8px;
-  font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
-  border-radius: 6px; padding: 3px 9px;
+  font-family: 'Cinzel', serif; font-size: 14px; font-weight: 700;
+  border-radius: 6px; padding: 4px 11px;
   border: 1.5px solid; color: #fff;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 6px rgba(0,0,0,.4);
@@ -238,9 +238,9 @@ body {
 .criatura-tier-pill.t-b  { background: rgba(var(--tier-b-rgb),  .80); border-color: var(--tier-b);  }
 .criatura-tier-pill.t-c  { background: rgba(var(--tier-c-rgb),  .75); border-color: var(--tier-c);  }
 .criatura-name {
-  font-family: 'Cinzel', serif; font-size: 15px;
-  font-weight: 600; color: var(--text-primary);
-  letter-spacing: .3px; line-height: 1.2;
+  font-family: 'Cinzel', serif; font-size: 17px;
+  font-weight: 700; color: var(--text-primary);
+  letter-spacing: .3px; line-height: 1.25;
 }
 .criatura.winner .criatura-name { color: var(--accent); }
 .criatura.t-ss.winner .criatura-name { color: var(--tier-ss); }
@@ -249,26 +249,26 @@ body {
 .criatura.t-b.winner  .criatura-name { color: var(--tier-b); }
 .criatura.t-c.winner  .criatura-name { color: var(--tier-c); }
 .criatura-epithet {
-  font-size: 11px; color: var(--text-secondary);
-  margin-top: 3px; line-height: 1.4;
+  font-size: 13px; color: var(--text-secondary);
+  margin-top: 4px; line-height: 1.45;
 }
 .criatura-team {
-  font-family: 'Inter', sans-serif; font-size: 11px;
-  font-weight: 600; letter-spacing: 1.5px;
-  color: var(--text-tertiary); margin-top: 8px;
+  font-family: 'Inter', sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-secondary); margin-top: 10px;
   text-transform: uppercase;
 }
 
 .vs-divider {
   font-family: 'Cinzel', serif;
-  font-size: 22px; font-weight: 700;
+  font-size: 26px; font-weight: 700;
   color: var(--accent); text-align: center;
 }
 .vs-margin {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; color: var(--text-secondary);
-  letter-spacing: 1px; margin-top: 4px;
-  white-space: nowrap;
+  font-size: 12px; color: var(--text-secondary);
+  letter-spacing: 1px; margin-top: 5px;
+  white-space: nowrap; font-weight: 600;
 }
 
 .pb-detail {
@@ -277,15 +277,15 @@ body {
   padding-top: 14px; border-top: 1px solid var(--border);
 }
 .pb-box {
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: 6px; padding: 10px 12px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  background: var(--bg-surface); border: 1px solid var(--border-strong);
+  border-radius: 6px; padding: 12px 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
   line-height: 1.7;
 }
 .pb-box.winner { background: var(--accent-soft); border-color: var(--accent-strong); }
 .pb-box-team {
-  font-family: 'Cinzel', serif; font-size: 12px;
-  font-weight: 600; margin-bottom: 4px;
+  font-family: 'Cinzel', serif; font-size: 14px;
+  font-weight: 700; margin-bottom: 6px;
   letter-spacing: .5px;
 }
 .pb-box.winner .pb-box-team { color: var(--accent); }
@@ -295,30 +295,30 @@ body {
 .pb-box-team.t-b  { color: var(--tier-b);  }
 .pb-box-team.t-c  { color: var(--tier-c);  }
 .pb-formula {
-  color: var(--text-secondary); font-size: 11px;
+  color: var(--text-secondary); font-size: 13px;
 }
 .pb-total {
-  margin-top: 4px; padding-top: 4px;
-  border-top: 1px dashed var(--border);
-  color: var(--text-primary); font-weight: 600; font-size: 12px;
+  margin-top: 6px; padding-top: 6px;
+  border-top: 1px dashed var(--border-strong);
+  color: var(--text-primary); font-weight: 700; font-size: 14px;
 }
 
 .cronica-text {
   background: var(--accent-soft);
   border: 1px solid var(--accent-strong);
   border-radius: 8px;
-  padding: 14px 16px;
-  margin-top: 14px;
+  padding: 18px 22px;
+  margin-top: 16px;
 }
 .cronica-label {
-  font-family: 'Cinzel', serif; font-size: 10px;
+  font-family: 'Cinzel', serif; font-size: 12px;
   color: var(--accent); letter-spacing: 2px;
-  margin-bottom: 6px; font-weight: 600;
+  margin-bottom: 10px; font-weight: 700;
   text-transform: uppercase;
 }
 .cronica-body {
-  font-size: 14px; color: var(--text-primary);
-  line-height: 1.65;
+  font-size: 17px; color: var(--text-primary);
+  line-height: 1.8; font-weight: 400;
 }
 .cronica-body strong.t-ss { color: var(--tier-ss); }
 .cronica-body strong.t-s  { color: var(--tier-s); }
@@ -332,16 +332,16 @@ body {
   margin-top: 1.5rem;
 }
 .standings-mini-title {
-  font-family: 'Cinzel', serif; font-size: 14px;
+  font-family: 'Cinzel', serif; font-size: 16px;
   font-weight: 700; color: var(--accent);
-  letter-spacing: 2px; margin-bottom: 12px;
+  letter-spacing: 2px; margin-bottom: 14px;
   text-transform: uppercase; text-align: center;
 }
 .standings-row {
-  display: grid; grid-template-columns: 36px 1fr auto auto;
-  gap: 12px; padding: 10px 14px;
+  display: grid; grid-template-columns: 40px 1fr auto auto;
+  gap: 14px; padding: 12px 16px;
   border-bottom: 1px solid var(--border);
-  align-items: center; font-size: 14px;
+  align-items: center; font-size: 16px;
 }
 .standings-row:last-child { border-bottom: none; }
 .standings-row.top1 {
@@ -350,8 +350,8 @@ body {
   border-bottom: 1px solid var(--accent-strong);
 }
 .standings-row .pos {
-  font-family: 'Cinzel', serif; color: var(--text-tertiary);
-  font-weight: 700; text-align: center;
+  font-family: 'Cinzel', serif; color: var(--text-secondary);
+  font-weight: 700; text-align: center; font-size: 17px;
 }
 .standings-row.top1 .pos { color: var(--accent); }
 .standings-row .team-name {
@@ -360,13 +360,13 @@ body {
 }
 .standings-row .v {
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; color: var(--text-primary);
-  font-size: 13px;
+  font-weight: 700; color: var(--text-primary);
+  font-size: 14px;
 }
 .standings-row.top1 .v { color: var(--accent); }
 .standings-row .pts {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; color: var(--text-secondary);
+  font-size: 13px; color: var(--text-secondary);
 }
 
 .aguardando {
@@ -379,8 +379,8 @@ body {
   letter-spacing: 2px;
 }
 .aguardando-text {
-  color: var(--text-secondary); max-width: 480px;
-  margin: 0 auto; line-height: 1.65;
+  color: var(--text-secondary); max-width: 520px;
+  margin: 0 auto; line-height: 1.75; font-size: 16px;
 }
 .aguardando code {
   background: var(--bg-surface); padding: 1px 7px;
@@ -407,22 +407,22 @@ body {
 }
 .portal-sigil { font-size: 28px; }
 .portal-team-name {
-  font-family: 'Cinzel', serif; font-size: 17px;
-  font-weight: 600; color: var(--text-primary);
+  font-family: 'Cinzel', serif; font-size: 19px;
+  font-weight: 700; color: var(--text-primary);
 }
 .portal-card.unlocked .portal-team-name { color: var(--tier-ss); }
 .portal-condition {
-  font-size: 13px; color: var(--text-secondary);
-  line-height: 1.5; margin-bottom: 12px;
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: 14px;
 }
 .portal-progress {
   display: flex; align-items: center; gap: 8px;
   margin-top: 10px;
 }
 .portal-bar {
-  flex: 1; height: 6px;
-  background: var(--bg-surface); border-radius: 3px;
-  overflow: hidden;
+  flex: 1; height: 8px;
+  background: var(--bg-surface); border-radius: 4px;
+  overflow: hidden; border: 1px solid var(--border);
 }
 .portal-bar-fill {
   height: 100%; background: var(--accent);
@@ -431,15 +431,15 @@ body {
 .portal-card.unlocked .portal-bar-fill { background: var(--tier-ss); }
 .portal-bar-fill.complete { background: var(--tier-ss); }
 .portal-progress-text {
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  color: var(--text-secondary); white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  color: var(--text-primary); white-space: nowrap; font-weight: 600;
 }
 .portal-card.unlocked .portal-progress-text { color: var(--tier-ss); font-weight: 600; }
 .portal-status {
   position: absolute; top: 12px; right: 12px;
-  font-family: 'Cinzel', serif; font-size: 10px;
+  font-family: 'Cinzel', serif; font-size: 11px;
   font-weight: 700; letter-spacing: 1.5px;
-  padding: 4px 8px; border-radius: 4px;
+  padding: 5px 10px; border-radius: 4px;
   text-transform: uppercase;
 }
 .portal-status.locked {
@@ -463,52 +463,65 @@ body {
 
 @media (max-width: 700px) {
   .top-nav { padding: 10px 12px; }
-  .top-nav-link { font-size: 11px; padding: 7px 10px; letter-spacing: 1px; }
-  .top-nav-brand { font-size: 12px; }
+  .top-nav-link { font-size: 12px; padding: 9px 12px; letter-spacing: 1px; }
+  .top-nav-brand { font-size: 13px; }
 
   .cronica-mode-tabs { padding: 6px 12px 0; top: 53px; }
-  .mode-tab { font-size: 12px; padding: 10px 14px; letter-spacing: 1px; }
+  .mode-tab { font-size: 13px; padding: 12px 16px; letter-spacing: 1px; }
 
   .wrap { padding: 1rem .75rem 3rem; }
 
-  .hero { padding: 1.25rem .75rem 1rem; border-radius: 12px; }
-  .hero-overline { font-size: 10px; letter-spacing: 2px; }
-  .hero-meta { font-size: 12px; }
+  .hero { padding: 1.5rem .75rem 1.25rem; border-radius: 12px; }
+  .hero-overline { font-size: 12px; letter-spacing: 2px; }
+  .hero-meta { font-size: 14px; }
 
-  .round-pill { font-size: 12px; padding: 8px 12px; min-width: 40px; }
-  .round-nav-arrow { padding: 6px 10px; min-width: 40px; min-height: 40px; }
+  .round-pill { font-size: 14px; padding: 9px 13px; min-width: 44px; }
+  .round-nav-arrow { padding: 8px 12px; min-width: 44px; min-height: 44px; }
 
   .confronto-card { padding: 1rem; border-radius: 12px; }
 
   .confronto-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
   .vs-divider {
-    font-size: 18px;
+    font-size: 22px;
     padding: 4px 0;
   }
-  .vs-margin { font-size: 9px; }
+  .vs-margin { font-size: 11px; }
 
   .pb-detail {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 8px;
   }
+  .pb-box { font-size: 13px; padding: 12px 14px; }
+  .pb-box-team { font-size: 14px; }
+  .pb-formula { font-size: 12px; }
+  .pb-total { font-size: 14px; }
 
   .criatura-img-box { max-width: 240px; }
+  .criatura-name { font-size: 16px; }
+  .criatura-epithet { font-size: 13px; }
+
+  .cronica-text { padding: 16px 18px; }
+  .cronica-body { font-size: 16px; line-height: 1.75; }
 
   .standings-mini { padding: 1rem; }
-  .standings-row { padding: 8px 10px; gap: 8px; font-size: 13px; }
-  .standings-row .pts { font-size: 11px; }
+  .standings-row {
+    grid-template-columns: 32px 1fr auto auto;
+    padding: 10px 12px; gap: 10px; font-size: 14px;
+  }
+  .standings-row .pos { font-size: 15px; }
+  .standings-row .pts { font-size: 12px; }
 
   .swipe-hint { display: block; }
 }
 
 @media (max-width: 400px) {
   .top-nav-inner { gap: 6px; }
-  .top-nav-link { font-size: 10px; padding: 6px 8px; }
+  .top-nav-link { font-size: 11px; padding: 8px 10px; }
   .round-nav { gap: 4px; }
-  .round-pill { font-size: 11px; padding: 7px 9px; }
+  .round-pill { font-size: 13px; padding: 8px 10px; }
 }
 </style>
 </head>
